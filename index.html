@@ -4,17 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" media="all">
-    <link rel="stylesheet" href="portrait.css" media="screen and (orientation : portrait)">
+    <link rel="stylesheet" href="/css/styleall.css" media="all">
+    <link rel="stylesheet" href="/css/portrait.css" media="screen and (orientation : portrait)">
+    <link rel="stylesheet" href="/css/style.css" media="screen and (orientation : landscape)">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Document</title>
 </head>
 <body>
-<div class="container">
-    <div class="header"></div>
-    <div class="nav"></div>
-    <div class="main"></div>
-    <div class="aside"></div>
-    <div class="footer"></div>
-</div>
+    <header>
+        <div id="logo">
+            Concursos
+        </div>
+        <!-- menu-->
+        <nav>
+            <a href="Cursos.html">Cursos</a>
+            <a href="CursosGratuitos">Cursos Gratuitos</a>
+            <a href="Quem somos">Quem somos</a>
+            <a href="Contato">Contato</a>
+        </nav>
+        <!--botão pesquisar-->
+        <form action="pesquisar.php" method="post">
+            <input type="search" name="pesquisar" id="idpesquisar" placeholder="Buscar">
+            
+            <button><i class='bx bx-search-alt-2'></i> </button>
+        </form><!--botao do carrinho de compras-->
+        <a href="carrinho.html">
+            <span class="material-symbols-outlined">
+                shopping_cart
+                </span>
+        </a><!--botao de entrar na área do aluno-->
+        <form action="entrar.php" method="post">
+            <input type="submit" value="Entrar">
+        </form>
+
+    </header>
+    <main>
+        <div class="container">
+            <div class="box1">
+
+
+                <aside>
+                    <h1>Planos de estudos</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dolorem quis accusamus. Non similique sed cum deserunt odit porro quod, quas beatae </p>
+                                
+                                    <form action="testegratis.php" method="post">
+                                        <button id="botao">TESTE GRÁTIS</button>
+                                    </form>
+                               
+                </aside>
+
+               
+
+
+            </div>
+            <div class="box2">
+
+            </div>
+        </div>
+        
+    </main>
+   
 </body>
 </html>

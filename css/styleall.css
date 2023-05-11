@@ -1,0 +1,112 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'poppins';
+}
+ body{
+    background: linear-gradient(to top , rgb(83, 121, 121) 80px,rgb(21, 70, 70));
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+ header{
+
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+ }
+ nav>a{
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 21px;
+ }
+ nav>a:hover{
+    color: rgb(74, 141, 119);
+ }
+ button{
+
+    height: 35px;
+    width: 25px;
+ }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  color: rgb(17, 139, 127);
+}
+input[type = submit]{
+    height: 35px;
+    width: 80px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-color: aquamarine;
+}
+input[type = submit]:hover{
+    background-color: rgb(28, 83, 65);
+}
+button {
+    background-color: aquamarine;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 60px;
+    
+}
+button:hover{
+    background-color: rgb(39, 91, 73);
+} 
+i.bx-search-alt-2 {
+    font-size: 25px;
+    
+}
+#idpesquisar{
+    height: 35px;
+    width: 210px;
+    background-color: transparent;
+    
+    border: rgba(15, 125, 125, 0.79);
+    color: #fff;
+    font-size: 18px;  
+}
+main{
+    border: none;
+}
+div.container{
+    display: flex;
+   
+}
+.box1{
+    display: flex;
+    flex-direction: column;
+}
+aside{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 190px;
+    height: 25px;
+    margin-top: 80px;
+    margin-left: 120px;
+    border: none;
+    
+}
+aside> h1{
+    font-size: 45px;
+    font-family: Inconsolata;
+}
+#botao{
+    margin-top: 50px;
+    font-family: 'Work Sans';
+    width: 110px;
+    border-radius: 25px;
+}

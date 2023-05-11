@@ -5,9 +5,6 @@
     grid-template-rows: 150px 50px 650px 100px;
 }
 
-div{
-    border: 1px solid black;
-}
 
 .header{
     grid-column: 1/6;
