@@ -25,6 +25,7 @@
     text-decoration: none;
     margin: 15px;
     font-size: 21px;
+    transition: .3s;
  }
  nav>a:hover{
     color: rgb(74, 141, 119);
@@ -79,10 +80,13 @@ button:hover{
     height:25px;
     width: 300px;
     border: 2px solid  rgb(66, 175, 139);
+    border-radius: 5px;
     background-color: transparent;
     padding: 5px;
     font-size: 16px;
-    color: #000;
+    color: #ffffff;
+    text-decoration: none;
+    outline: none;
   }
   
   .buttonc button {
@@ -160,7 +164,7 @@ aside>p{
     
 }
 .carta1{
-   
+   transition: .9s;
     color: #fff;
     width: 250px;
     height: 350px;
@@ -203,6 +207,7 @@ aside>p{
 }
 
 .carta2{
+    transition: .9s;
     color: #fff;
     width: 250px;
     height: 350px;
@@ -243,7 +248,7 @@ aside>p{
     background-color: rgb(59, 105, 89);
 }
 .carta3{
-    
+    transition: .9s;
     color: #fff;
     width: 250px;
     height: 350px;
