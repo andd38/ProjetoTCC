@@ -52,11 +52,11 @@ input[type = submit]{
     background-color: aquamarine;
 }
 input[type = submit]:hover{
-    background-color: rgb(28, 83, 65);
+    background-color:  rgb(77, 160, 132);
 }
 
 
-button {
+#button {
     background-color: aquamarine;
     outline: none;
     border: none;
@@ -66,7 +66,7 @@ button {
     
 }
 button:hover{
-    background-color: rgb(37, 78, 64);
+    background-color: rgb(77, 160, 132);
 } 
 
 
@@ -163,15 +163,15 @@ aside>p{
 #botao{
     margin-top: 50px;
     font-family: 'Work Sans';
-    width: 110px;
+    width: 180px;
+    height: 40px;
     border-radius: 25px;
 }
 .box2{
     display: flex;
     margin-left: 80px;
     gap: 5px;
-    
-    margin: auto;
+    margin: 180px auto ;
     
 }
 .carta1{
@@ -184,7 +184,6 @@ aside>p{
     border-radius: 23px;
     box-shadow: 0px 0px 8px black;
     padding: 50px;
-    
 }
 .carta1>h1{
     text-align: center;
@@ -210,11 +209,12 @@ aside>p{
     height: 40px;
     width: 180px;
     margin: auto;
+    margin-top: 60px;
   
 
 }
 .carta2 >button :hover{
-    background-color: rgb(59, 105, 89);
+    background-color:rgb(37, 78, 64);
 }
 
 .carta2{
@@ -252,6 +252,7 @@ aside>p{
     height: 40px;
     width: 180px;
     margin: auto;
+    margin-top: 33px;
     
 
 }
@@ -293,6 +294,7 @@ aside>p{
     height: 40px;
     width: 180px;
     margin: auto;
+    margin-top: 33px;
     
 
 }
