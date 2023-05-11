@@ -63,13 +63,56 @@ button {
     
 }
 button:hover{
-    background-color: rgb(39, 91, 73);
+    background-color: rgb(37, 78, 64);
 } 
-i.bx-search-alt-2 {
+.buttonc {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .buttonc input[type="text"] {
+    height:25px;
+    width: 300px;
+    border: 2px solid  rgb(66, 175, 139);
+    background-color: transparent;
+    padding: 5px;
+    font-size: 16px;
+    color: #000;
+  }
+  
+  .buttonc button {
+    position: absolute;
+    outline: none;
+    top: 0;
+    right: 0;
+    height: 39px;
+    padding: 5px;
+    border: none;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .buttonc:focus {
+    outline: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 39px;
+    text-decoration: none;
+    padding: 5px;
+    background-color: green;
+    border: none;
+  }
+  
+  .bx  {
+      width: 25px;
+      font-size: 20px;
+  }
+/* i.bx-search-alt-2 {
     font-size: 25px;
     
-}
-#idpesquisar{
+} */
+/* #idpesquisar{
     height: 35px;
     width: 210px;
     background-color: transparent;
@@ -77,7 +120,7 @@ i.bx-search-alt-2 {
     border: rgba(15, 125, 125, 0.79);
     color: #fff;
     font-size: 18px;  
-}
+} */
 main{
     border: none;
 }
