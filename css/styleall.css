@@ -7,6 +7,12 @@
     padding: 0px;
     font-family: 'poppins';
 }
+#logo img {
+height: 120px;
+ padding: 0;
+ margin-top:-40px;
+} 
+
  body{
     background: linear-gradient(to top , rgb(83, 121, 121) 80px,rgb(21, 70, 70));
     background-attachment: fixed;
@@ -14,10 +20,8 @@
     background-repeat: no-repeat;
  }
  header{
-
     margin-top: 10px;
     display: flex;
-    align-items: center;
     justify-content: space-around;
  }
  nav>a{
@@ -30,11 +34,7 @@
  nav>a:hover{
     color: rgb(74, 141, 119);
  }
- button{
 
-    height: 35px;
-    width: 25px;
- }
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -66,7 +66,7 @@ input[type = submit]:hover{
     
 }
 button:hover{
-    background-color: rgb(77, 160, 132);
+    background-color: rgb(46, 110, 89);
 } 
 
 
@@ -90,6 +90,7 @@ button:hover{
   }
   
   .buttonc button {
+    background-color: aquamarine;
     position: absolute;
     outline: none;
     top: 0;
@@ -98,8 +99,15 @@ button:hover{
     padding: 5px;
     border: none;
     color: #fff;
+    border-radius:2px ;
     text-decoration: none;
+    transition: 0.5s;
   }
+
+  .buttonc button:hover {
+    background-color: rgb(44, 134, 104);
+  }
+  
   
   .buttonc:focus {
     outline: none;
@@ -149,13 +157,21 @@ aside> h1{
 aside>p{
     font-size: 22px;
 }
-#botao{
+#botao {
+    background-color: aquamarine;
+    border: none;
     margin-top: 50px;
     font-family: 'Work Sans';
     width: 180px;
     height: 40px;
     border-radius: 25px;
+    transition: 0.4s;
 }
+#botao:hover {
+    background-color: rgb(40, 116, 90);
+ 
+}
+
 .box2{
     display: flex;
     margin-left: 80px;
