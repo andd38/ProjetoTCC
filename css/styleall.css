@@ -43,17 +43,7 @@ height: 120px;
   'opsz' 48;
   color: rgb(17, 139, 127);
 }
-input[type = submit]{
-    height: 35px;
-    width: 80px;
-    border-radius: 25px;
-    outline: none;
-    border: none;
-    background-color: aquamarine;
-}
-input[type = submit]:hover{
-    background-color:  rgb(77, 160, 132);
-}
+
 
 
 #button {
@@ -154,21 +144,28 @@ div.container{
 aside{
     display: flex;
     flex-direction: column;
-    align-items: start;
-    width: 190px;
-    height: 25px;
-    margin-top: 80px;
-    margin-left: 120px;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 550px;
+    margin-top: 25px;
+   margin-left: 30px;
+   margin-right: 30px;
     border: none;
     
 }
 aside> h1{
+    text-align: center;
     font-size: 45px;
     font-family: Inconsolata;
     color: rgb(66, 175, 139);
+    margin: 35px;
 }
 aside>p{
+    display: flex;
+    text-align: center;
     font-size: 22px;
+
 }
 #botao {
     background-color: aquamarine;
@@ -189,37 +186,15 @@ aside>p{
     display: flex;
     margin-left: 80px;
     gap: 5px;
+    flex-wrap: wrap;
     margin: 180px auto ;
     
 }
-.carta1{
-   transition: .9s;
-    color: #fff;
-    width: 250px;
-    height: 350px;
-    background-color: transparent;
-    backdrop-filter: blur(25px);
-    border-radius: 23px;
-    box-shadow: 0px 0px 8px black;
-    padding: 50px;
-}
-.carta1>h1{
-    text-align: center;
-    transform: translateY(-25px);
-}
 
-.carta1>p{
-    text-align: center;
-    transform: translateY(-25px);
-   
-}
-.carta1>h3{
-    text-align: center;
-    
-}
-
-.carta1>button{
-    
+#cartabtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: aquamarine;
     outline: none;
     border: none;
@@ -229,13 +204,24 @@ aside>p{
     margin: auto;
     margin-top: 60px;
   
-
 }
-.carta2 >button :hover{
+.cartabtn  :hover{
     background-color:rgb(37, 78, 64);
 }
 
-.carta2{
+.carta>h1,p{
+    text-align: center;
+    transform: translateY(-25px);
+    
+}
+.carta>ul>li {
+    line-height: 45px;
+}
+.carta>h3{
+    text-align: center;
+    
+}
+.carta{
     transition: .9s;
     color: #fff;
     width: 250px;
@@ -246,88 +232,7 @@ aside>p{
     box-shadow: 0px 0px 8px black;
     padding: 50px;
 }
-.carta2>h1{
-    text-align: center;
-    transform: translateY(-25px);
-    
-}
-.carta2>p{
-    text-align: center;
-    transform: translateY(-25px);
-   
-}
-.carta2>h3{
-    text-align: center;
-    
-}
-
-.carta2>button{
-    
-    background-color: aquamarine;
-    outline: none;
-    border: none;
-    border-radius: 25px;
-    height: 40px;
-    width: 180px;
-    margin: auto;
-    margin-top: 33px;
-    
-
-}
-.carta2 >button :hover{
-    background-color: rgb(59, 105, 89);
-}
-.carta3{
-    transition: .9s;
-    color: #fff;
-    width: 250px;
-    height: 350px;
-    background-color: transparent;
-    backdrop-filter: blur(25px);
-    border-radius: 23px;
-    box-shadow: 0px 0px 8px black;
-    padding: 50px;
-}
-.carta3>h1{
-    text-align: center;
-    transform: translateY(-25px);
-}
-
-.carta3>p{
-    text-align: center;
-    transform: translateY(-25px);
-   
-}
-.carta3>h3{
-    text-align: center;
-    
-}
-
-.carta3>button{
-    
-    background-color: aquamarine;
-    outline: none;
-    border: none;
-    border-radius: 25px;
-    height: 40px;
-    width: 180px;
-    margin: auto;
-    margin-top: 33px;
-    
-
-}
-.carta3 >button :hover{
-    background-color: rgb(59, 105, 89);
-}
-.carta1:hover{
-    transition: 0.9s;
-    transform: translateY(-25px);
-}
-.carta2:hover{
-    transition: 0.9s;
-    transform: translateY(-25px);
-}
-.carta3:hover{
+.carta:hover{
     transition: 0.9s;
     transform: translateY(-25px);
 }

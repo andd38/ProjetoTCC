@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="/css/style.css" media="screen and (orientation : landscape)">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
+    <title>Concursos Brasil</title>
 </head>
 <body>
     <header>
         <div id="logo">
-            <img src="logos/logo2pequena.png" alt="">
+            <img src="img/logo2pequena.png" alt="">
         </div>
         <!-- menu-->
         <nav>
@@ -39,7 +39,9 @@
             </button>
       <!--botao de entrar na área do aluno-->
         <form action="entrar.php" method="post">
-            <input type="submit" value="Entrar">
+            <button id="carrinho">Entrar<span class="material-symbols-outlined">
+                person
+                </span></button>
         </form>
 
     </header>
@@ -64,7 +66,7 @@
             </div>
             <!--planos de estudo-->
             <div class="box2">
-                <div class="carta1">
+                <div class="carta">
                     <h1>R$0,00</h1>
                     <h3>GRATUITO</h3>
                     <hr>
@@ -73,9 +75,9 @@
                         <li>Acesso as aulas de cada curso</li>
                         <li>material complementar formato digital</li>
                     </ul>
-                    <button>ACESSAR</button>
+                    <button id="cartabtn">ACESSAR</button>
                 </div>
-                <div class="carta2 ">
+                <div class="carta ">
                     <h1>R$69,90</h1>
                     <p>/mês</p>
                     <h3>PREMIUM</h3>
@@ -85,9 +87,9 @@
                         <li>Download de material</li>
                         <li>Simulados e cadernos de questões</li>
                     </ul>
-                    <button>ACESSAR</button>
+                    <button id="cartabtn">ACESSAR</button>
                 </div>
-                <div  class="carta3">
+                <div  class="carta">
                     <h1>R$350,90</h1>
                     <p>/mês</p>
                     <h3>VITALÍCIO</h3>
@@ -97,7 +99,7 @@
                         <li>Aulas excluisivas por professores renomados</li>
                         
                     </ul>
-                    <button>ACESSAR</button>
+                    <button id="cartabtn">ACESSAR</button>
                 </div>
 
             </div>
