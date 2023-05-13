@@ -1,3 +1,6 @@
+
+
+
 .slider {
     margin: 0 auto;
     width: 100%;
@@ -19,15 +22,66 @@
   
   .slide-box {
     width: 25%;
-    height: auto;
+    height: 40vh;
     position: relative;
     text-align: center;
+    box-sizing: border-box;
+    transition: 1s;
   }
   
   .slide-box img {
     width: 100%;
-    height: 40vh;
+    height:100% ;
+
   }
+
+  .nav-arrow {
+    width: 99%;
+    position: absolute;
+    top: 30%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+  
+  .prev-arrow,
+  .next-arrow {
+    width: 30px;
+    height: 30px;
+    color: #000000;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .prev-arrow {
+    padding: 5px;
+    border-radius: 100%;
+    color: aliceblue;
+    box-shadow: 1px 1px 5px black;
+    float: left;
+    margin-right: 10px;
+    transition: 0.5s;
+  }
+
+  .prev-arrow:hover , .next-arrow:hover {
+    background-color:  rgb(74, 141, 119);
+    color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 10px black ;
+
+  }
+  
+  .next-arrow {
+    padding: 5px;
+    border-radius: 100%;
+    color: aliceblue;
+    box-shadow: 1px 1px 5px black;
+    float: right;
+    margin-left: 10px;
+  }
+  
+ 
+
   
   .nav-manual,
   .nav-auto {
