@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+.container{
+    display: flex;
+    background: linear-gradient(to top , rgb(83, 121, 121) 80px,rgb(21, 70, 70));
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.content{
+    border-radius: 15px;
+    background-color: #fff;
+    width: 80%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.content::before{
+    content: " ";
+    position: absolute;
+    background-color: rgb(29, 109, 109);
+    height: 100%;
+    width: 40%;
+   
+}
+.first-content{
+    display: flex;
+}
+.title{
+    
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: capitalize ;
+    
+}
+.title-second{
+    color: rgb(59, 170, 170);
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+.title-welcome{
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: capitalize ;
+}
+.description{
+    font-size: 21px;
+    line-height: 30px;
+    margin: 10px;
+    color: #fff;
+    font-weight: 300;
+}
+.btn{
+    text-transform: uppercase;
+    cursor: pointer;
+    height: 50px;
+    width: 40%;
+}
+.btn-primary{
+    border-radius: 25px;
+    background-color: transparent;
+    border:#fff solid 1px;
+    outline: none;
+    height: 50px;
+    width: 40%;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.btn-primary:hover{
+    background-color: #fff;
+    color: rgb(14, 124, 95);
+}
+.first-column{
+    text-align: center;
+    flex: 1 0 auto;
+    z-index: 10;
+}
+.second-column{
+    flex: 2 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.list-social-media{
+    display: flex;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.second-content{
+    position: absolute;
+    display: none;
+}
