@@ -1,0 +1,14 @@
+.carta{
+    margin: auto;
+}
+footer{
+  clear: both;
+  display: block;
+  
+}
+.titulo{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    flex-direction: column;
+}
