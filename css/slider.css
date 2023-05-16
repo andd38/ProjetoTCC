@@ -21,7 +21,7 @@
   
   .slide-box {
     width: 25%;
-    height: 40vh;
+    height:  40vh;
     position: relative;
     text-align: center;
     box-sizing: border-box;
@@ -140,3 +140,19 @@
 }
 
 
+@media screen and (max-width: 900px)  {
+
+.img-desktop {
+  display: none;
+}
+
+.img-mobile {
+  width: 100%;
+  display: block;
+}
+
+.nav-auto, .nav-manual {
+  margin-top: 60% ;
+}
+
+}
