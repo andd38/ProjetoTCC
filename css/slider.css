@@ -140,3 +140,18 @@
 }
 
 
+@media screen and (max-width:900px) {
+  .img-desktop {
+    display: none;
+  }
+
+  .img-mobile {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-manual, .nav-auto {
+    margin-top: 250px;
+  }
+}
+
