@@ -140,6 +140,18 @@ button:hover{
 main{
     border: none;
 }
+.section{
+    margin-top: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    font-size: 25px;
+}
+.section >img{
+    border-radius: 50px ;
+}
+
 div.container{
     display: flex;
     height: 550px;
@@ -244,4 +256,24 @@ aside>p{
     transition: 0.9s;
     transform: translateY(-25px);
     background-color:rgba(117, 241, 200, 0.267);
+}
+footer{
+    padding-top: 50px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+.titulo{
+    color: #fff;
+    
+}
+.titulo a{
+    text-decoration: none;
+    list-style: style ;
+    color: #fff;
+    font-size: 21px;
+}
+.titulo a:hover{
+    color: rgb(99, 164, 142);
 }
