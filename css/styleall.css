@@ -44,6 +44,7 @@ height: 120px;
   color: rgb(17, 139, 127);
 }
 
+  
 
 
 #button {
@@ -167,7 +168,8 @@ main{
 div.container{
     display: flex;
     height: 550px;
-   
+   align-items: center;
+   justify-content: center;
 }
 .box1{
     display: flex;
