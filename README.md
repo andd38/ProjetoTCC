@@ -11,29 +11,3 @@ Participantes:
 4# Denys 
 
 *Tecnico em administração*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-theme:minima
