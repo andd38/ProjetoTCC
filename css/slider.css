@@ -1,158 +1,132 @@
-
-
-.slider {
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-    padding: 0 !important;
-    overflow: hidden;
-  }
-  
-  .slider-conteudo {
-    width: 500%;
-    height: auto;
-    display: flex;
-  }
-  
-  .slider-conteudo input,
-  .img-mobile {
-    display: none;
-  }
-  
-  .slide-box {
-    width: 25%;
-    height:  40vh;
-    position: relative;
-    text-align: center;
-    box-sizing: border-box;
-    transition: 1s;
-  }
-  
-  .slide-box img {
-    width: 100%;
-    height:100% ;
-
-  }
-
-  .nav-arrow {
-    width: 99%;
-    position: absolute;
-    top: 30%;
-    left: 10px;
-    transform: translateY(-50%);
-  }
-  
-  .prev-arrow,
-  .next-arrow {
-    width: 30px;
-    height: 30px;
-    color: #000000;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-
-  .prev-arrow {
-    padding: 5px;
-    border-radius: 100%;
-    color: aliceblue;
-    box-shadow: 1px 1px 5px black;
-    float: left;
-    margin-right: 10px;
-    transition: 0.5s;
-  }
-
-  .prev-arrow:hover , .next-arrow:hover {
-    background-color:  rgb(74, 141, 119);
-    color: rgb(255, 255, 255);
-    box-shadow: 1px 1px 10px black ;
-
-  }
-  
-  .next-arrow {
-    padding: 5px;
-    border-radius: 100%;
-    color: aliceblue;
-    box-shadow: 1px 1px 5px black;
-    float: right;
-    margin-left: 10px;
-  }
-  
- 
-
-  
-  .nav-manual,
-  .nav-auto {
-    position: absolute;
-    width: 100%;
-    margin-top: 22%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .nav-manual .manual-bt,
-  .nav-auto div {
-    border: 1px solid  rgb(95, 224, 181);
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.5s;
-  }
-  
-  .nav-manual .manual-bt:not(:last-child),
-  .nav-auto div:not(:last-child) {
-    margin-right:
-    10px;
+section.slider{
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  padding: 0 !important;
+  overflow: hidden;
 }
 
-.nav-manual .manual-bt:hover {
-  background-color: rgb(19, 128, 119);
+.slider-content{
+  width: 400%;
+  height: auto;
+  display: flex;
 }
 
-#radio1:checked ~ .nav-auto .auto-btn1,
-#radio2:checked ~ .nav-auto .auto-btn2,
-#radio3:checked ~ .nav-auto .auto-btn3,
-#radio4:checked ~ .nav-auto .auto-btn4,
-#radio5:checked ~ .nav-auto .auto-btn5 {
-  background-color: rgb(17, 139, 127);
-}
-
-#radio1:checked ~ .primeiro {
-  margin-left: 0%;
-}
-
-#radio2:checked ~.primeiro {
-  margin-left: -25%;
-}
-
-#radio3:checked ~ .primeiro {
-  margin-left: -50%;
-}
-
-#radio4:checked ~ .primeiro {
-  margin-left: -75%;
-}
-
-#radio5:checked ~ .primeiro {
-  margin-left: -100%;
-}
-
-
-@media screen and (max-width: 900px)  {
-
-.img-desktop {
+.slider-content input, .img-mobile{
   display: none;
 }
 
-.img-mobile {
+.slide-box{
+  width: 25%;
+  height: auto;
+  position: relative;
+  text-align: center;
+  transition: 1s;
+}
+
+.slide-box img{
   width: 100%;
-  display: block;
+  border-radius: 3px ;
 }
 
-.nav-auto, .nav-manual {
-  margin-top: 60% ;
+
+.nav-arrow {
+  position: absolute;
+  width: 100%;
+  top: 30%;
 }
 
+.prev-arrow,
+.next-arrow {
+  font-size: 24px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.prev-arrow:hover,
+.next-arrow:hover {
+  background-color: rgba(66, 175, 69, 0.8);
+}
+
+.prev-arrow {
+  float: left;
+}
+
+.next-arrow {
+  float: right;
+}
+
+
+
+
+
+.nav-manual, .nav-auto{
+  position: absolute;
+  width: 100%;
+  margin-top: 35%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-manual .manual-btn, .nav-auto div{
+  border: 1px solid #30be4f;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){
+  margin-right: 10px;
+}
+
+.nav-manual .manual-btn:hover{
+  background-color: #30be4f;
+}
+
+#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3,#radio4:checked ~ .nav-auto .auto-btn4{
+  background-color: #30be4f;
+}
+
+#radio1:checked ~ .primeiro{
+  margin-left: 0%;
+}
+
+#radio2:checked ~ .primeiro{
+  margin-left: -25%;
+}
+
+#radio3:checked ~ .primeiro{
+  margin-left: -50%;
+}
+#radio4:checked ~ .primeiro{
+  margin-left: -75%;
+}
+
+
+
+@media screen and (max-width: 900px) {
+  .img-desktop{
+      display: none;
+  }
+
+  .img-mobile{
+      display: block;
+  }
+
+  .nav-auto, .nav-manual{
+      margin-top: 60%;
+  }
+
+  .nav-arrow {
+display: none;
+  }
 }
