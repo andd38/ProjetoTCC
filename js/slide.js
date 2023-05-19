@@ -5,7 +5,7 @@ document.getElementById('radio1').checked = true;
 
 setInterval(() => {
     proximaimg();
-}, 5000);
+}, 10000);
 
 function proximaimg() {
     cont++;
@@ -24,7 +24,7 @@ prevArrow.addEventListener('click', () => {
     cont--;
 
     if (cont < 1) {
-        cont = 5;
+        cont = 4;
     }
 
     document.getElementById('radio' + cont).checked = true;
