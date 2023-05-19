@@ -65,7 +65,7 @@ button:hover{
     align-items: center;
     justify-content: space-around;
     height: 45px;
-    width: 150px;
+    width: 140px;
     border: none;
 }
 #carrinho:hover{
@@ -290,4 +290,11 @@ footer{
 }
 .titulo a:hover{
     color: rgb(99, 164, 142);
+}
+/* 
+versao mobile 
+
+*/
+.mobile{
+    display: none;
 }
