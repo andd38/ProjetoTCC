@@ -85,10 +85,13 @@ header{
 .nav-menu{
     position: sticky;
     top: 0px;
+    right: 5px;
     background-color: beige;
     margin-left: 180px;
     height: 450px;
     border-radius: 15px;
+    position: fixed;
+    z-index: 1;
     
 
 }
