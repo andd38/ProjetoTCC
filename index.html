@@ -63,7 +63,7 @@
       <button type="submit"><i class='bx bx-search-alt-2'></i></button>
     </div>
       </form>
-            <i class='bx bx-menu'></i>
+            <button onclick="acao()"><i class='bx bx-menu'></i></button>
         </div>
         <!-- menu-->
        
@@ -71,7 +71,7 @@
       
       
         <!--botao do carrinho de compras-->
-       <div class="nav-menu">
+       <div class="nav-menu" id="nav-menu">
            <div class="btn-user">
                
                    <button id="carrinho">
@@ -86,7 +86,7 @@
                        person
                        </span></button>
                </form>
-               <i class='bx bx-x'></i>
+               <button onclick="acao()"><i class='bx bx-x' id="X"></i></button>
 
            </div>
            <nav>
@@ -258,5 +258,6 @@
     </div>
 
    </footer>
+   <script src="js/menu.js"></script>
 </body>
 </html>
