@@ -53,18 +53,53 @@
     font-weight: bold;
     text-transform: capitalize ;
 }
+.list-social-media{
+    font-size: 3em;
+    list-style-type: none;
+    display: flex;
+    
+}
+.list-item{
+    margin: 5px;
+}
+.bxl-facebook-circle:hover{
+    color: #7edebc;
+}
+.bxl-google-plus-circle:hover{
+    color: #7edebc;
+}
+.bxl-linkedin-square:hover{
+    color: #7edebc;
+}
+
+ a > .bx{
+
+    color: rgb(48, 119, 119);
+    border-radius: 50%;
+    text-align: center;
+}
+ .bx :hover{
+    color: rgb(6, 245, 165);
+}
 .description{
     font-size: 21px;
     line-height: 30px;
     margin: 10px;
-    color: #fff;
+   
     font-weight: 300;
+}
+.description-primary{
+    color: #fff;
+}
+.description-second{
+    color: grey;
 }
 .btn{
     text-transform: uppercase;
     cursor: pointer;
     height: 50px;
     width: 40%;
+    align-self: center;
 }
 .btn-primary{
     border-radius: 25px;
@@ -77,10 +112,28 @@
     cursor: pointer;
     text-transform: uppercase;
     transition: 0.5s;
+    font-weight: 500;
 }
 .btn-primary:hover{
     background-color: #fff;
     color: rgb(14, 124, 95);
+}
+.btn-second{
+    border-radius: 25px;
+    background-color: transparent;
+    border:#46b790 solid 1px;
+    outline: none;
+    height: 50px;
+    width: 40%;
+    color: #46b790;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s;
+    font-weight: 500;
+}
+.btn-second:hover{
+    background-color: rgb(63, 159, 127);
+    color: rgb(241, 241, 241);
 }
 .first-column{
     text-align: center;
@@ -93,12 +146,30 @@
     flex-direction: column;
     align-items: center;
 }
-.list-social-media{
-    display: flex;
-}
+
 .form{
     display: flex;
     flex-direction: column;
+    width: 55%;
+}
+.form input{
+    height: 45px;
+    width: 100%;
+    border:  none;
+    background-color: #ecf0f1;
+    margin: 8px;
+    outline: none;
+}
+.label-input{
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+}
+.icon{
+    color: #46b790;
+    padding: 5px;
+    font-size: 25px;
 }
 .second-content{
     position: absolute;

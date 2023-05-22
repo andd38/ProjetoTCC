@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Entrar</title>
 </head>
 <body>
@@ -16,30 +16,37 @@
             <div class="first-column">
                 <!--first column-->
                 <h2 class="title-welcome">Welcome back</h2>
-                <p class="description">To keep connect with us</p>
-                <p class="description">Please login with your personal info</p>
+                <p class="description description-primary">To keep connect with us</p>
+                <p class="description description-primary">Please login with your personal info</p>
                 <button class="btn-primary">Sign-in</button>
             </div>
 
 
             <div class="second-column">
                 <!--second column-->
-                <h2 class="title-second">Create account</h2>
+                <h2 class=" title title-second">Create account</h2>
                 <div class=" social-media">
                    
                         <ul class="list-social-media">
-                            <li><a href="">Facebook</a></li>
-                            <li><a href="">Google+</a></li>
-                            <li><a href="">Linkedin</a></li>
+                            <li ><a href="#" class="list-item"><i class='bx bxl-facebook-circle' ></i></a></li>
+                            <li ><a href="#" class="list-item"><i class='bx bxl-google-plus-circle' ></i></a></li>
+                            <li ><a href="#" class="list-item"><i class='bx bxl-linkedin-square' ></i></a></li>
                         </ul>
                     
                 </div>
-                <p class="description">or use your E-mail for registration:</p>
+                <p class="description description-second">or use your E-mail for registration:</p>
+                
                 <form action="login.php" class="form">
+                    <label for=""  class="label-input"><i class='bx bx-user icon' ></i>
                     <input type="text" name="" id="" placeholder="name">
+                    </label>
+                    <label for="" class="label-input"><i class='bx bx-envelope  icon' ></i>
                     <input type="email" name="" id="" placeholder="E-mail">
+                    </label>
+                    <label for="" class="label-input"><i class='bx bx-lock icon' ></i>
                     <input type="password" name="" id="" placeholder="password">
-                    <button class="btn">Sign-up</button>
+                    </label>
+                    <button class="btn btn-second">Sign-up</button>
                 </form>
             </div>
         </div>
