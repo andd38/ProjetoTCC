@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="/css/login.css">
      
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Entrar</title>
 </head>
-<body>
+<body class="sign-in-js">
     <div class="container">
         <div class="content first-content">
             <!--first content-->
@@ -18,7 +18,7 @@
                 <h2 class="title-welcome">Welcome back</h2>
                 <p class="description description-primary">To keep connect with us</p>
                 <p class="description description-primary">Please login with your personal info</p>
-                <button class="btn-primary">Sign-in</button>
+                <button id="signin" class="btn-primary">Sign-in</button>
             </div>
 
 
@@ -46,7 +46,7 @@
                     <label for="" class="label-input"><i class='bx bx-lock icon' ></i>
                     <input type="password" name="" id="" placeholder="password">
                     </label>
-                    <button class="btn btn-second">Sign-up</button>
+                    <button class="btn btn-primary">Sign-up</button>
                 </form>
             </div>
         </div>
@@ -54,32 +54,36 @@
             <!--second content-->
             <div class="first-column">
                 <!--first column-->
-                <h2 class="title">Hello friend</h2>
-                <p class="description">Enter your personal details</p>
-                <p class="description">and star your journey with us</p>
-                <button class="btn">Sign-in</button>
+                <h2 class="title title-welcome">Hello friend</h2>
+                <p class="description description-primary">Enter your personal details</p>
+                <p class="description description-primary">and star your journey with us</p>
+                <button id="signup"class="btn btn-primary">Sign-up</button>
             </div>
 
 
             <div class="second-column">
                 <!--second column-->
-                <h2 class="title">create account</h2>
+                <h2 class="title title-second">Sign in to developer</h2>
                 <div class=" social-media">
                    
-                        <ul>
-                            <li><a href="">Facebook</a></li>
-                            <li><a href="">Google+</a></li>
-                            <li><a href="">Linkedin</a></li>
-                        </ul>
-                    
-                </div>
+                    <ul class="list-social-media">
+                        <li ><a href="#" class="list-item"><i class='bx bxl-facebook-circle' ></i></a></li>
+                        <li ><a href="#" class="list-item"><i class='bx bxl-google-plus-circle' ></i></a></li>
+                        <li ><a href="#" class="list-item"><i class='bx bxl-linkedin-square' ></i></a></li>
+                    </ul>
+                
+            </div>
                 <p class="description">or use your E-mail account:</p>
                 <form action="login.php" class="form">
                     
-                    <input type="email" name="" id="" placeholder="E-mail">
-                    <input type="password" name="" id="" placeholder="password">
-                     <a href="#">Forgot your password</a>
-                    <button class="btn">Sign-Up</button>
+                        <label for="" class="label-input"><i class='bx bx-envelope  icon' ></i>
+                        <input type="email" name="" id="" placeholder="E-mail">
+                        </label>
+                        <label for="" class="label-input"><i class='bx bx-lock icon' ></i>
+                        <input type="password" name="" id="" placeholder="password">
+                        </label>
+                     <a href="#" class="password">Forgot your password</a>
+                    <button class="btn btn-second">Sign-in</button>
                 </form>
         </div>
     </div>

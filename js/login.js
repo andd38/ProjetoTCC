@@ -1,8 +1,11 @@
-/* document.querySelector('.bx bx-menu').addEventListener("click ", ()=> 
-document.querySelector('.btn-user').classList.toggle('.bx bx-x')); */
-document.querySelector('.bx bx-menu').addEventListener("click ", ()=> 
-document.querySelector('.btn-user')
+var btnSignin = document.querySelector('#signin');
+var btnSignup = document.querySelector('#signup');
+var body = document.querySelector("body");
 
+btnSignin.addEventListener("click",function(){
+    body.className="sign-in-js";
+});
 
-
-);
+btnSignup.addEventListener("click",function(){
+    body.className="sign-up-js";
+})
