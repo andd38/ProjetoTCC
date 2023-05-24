@@ -67,8 +67,29 @@ button:hover{
     height: 45px;
     width: 140px;
     border: none;
+    background-color: #fff;
+    color: #000000;
+    text-decoration: none;
 }
 #carrinho:hover{
+    background-color: rgb(65, 172, 137);
+    outline: none;
+    border: none;
+    transition: 0.5s;
+}
+#entrar{
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 45px;
+    width: 140px;
+    border: none;
+    background-color: #fff;
+    color: #000000;
+}
+#entrar:hover{
+    background-color: rgb(65, 172, 137);
     outline: none;
     border: none;
     transition: 0.5s;

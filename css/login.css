@@ -216,11 +216,11 @@
     border-bottom-left-radius: 0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    animation: slidein 2s;
+    animation: slidein 1.5s;
     z-index: 12;
 }
 .sign-up-js .content::before {
-    animation: slideout 2s;
+    animation: slideout 1.5s;
     z-index: 12;
 }
 .sign-up-js .second-content .first-column,
@@ -239,12 +239,12 @@
 .sign-in-js .first-content .second-column {
     z-index: -1;
     position: relative;
-    animation: deslocamento 2s;
+    animation: deslocamento 1.5s;
 }
 .sign-up-js .second-content .second-column{
     position: relative;
     z-index: -1;
-    animation: deslocamentoDir 2s;
+    animation: deslocamentoDir 1.5s;
 }
 /* animação para o conteudo */
 
