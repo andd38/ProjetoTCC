@@ -161,6 +161,7 @@ button:hover{
   .areas > nav {
     display: flex;
     flex-direction: column;
+    width: 50px;
     
   }
  .icons{
@@ -171,6 +172,7 @@ button:hover{
     color: #fff;
     font-weight: bold;
  }
- #icons :hover{
+ #icons:hover{
     color: rgb(116, 211, 179);
+    transition: 0.5s;
  }
