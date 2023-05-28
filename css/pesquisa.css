@@ -165,30 +165,29 @@ button:hover{
     display: flex;
     flex-direction: column;
     width: 100px;
-    border: #fff solid 1px;
+    
     
   }
-  .principal > .conteudo{
-display: flex;
 
 
-  }
-
-  .areas > .conteudoum{
+  .areas > .content{
     color: #fff;
     margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    
+    gap: 15px; 
 
   }
+
+ 
   .carta {
     padding: 15px;
     border: rgb(45, 184, 147) solid 1px;
     width: 450px;
     border-radius: 15px;
     transition: 0.8s;
+    
+   
   }
   .carta:hover{
     transform: translateY(-15px);
@@ -225,6 +224,3 @@ display: flex;
   cursor: pointer;
 }
 
-.principaldois {
-  display: none;
-}
