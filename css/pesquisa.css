@@ -35,7 +35,7 @@ height: 120px;
     color: rgb(116, 211, 179);
  }
 
-.material-symbols-outlined {
+ .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
   'wght' 400,
@@ -168,6 +168,7 @@ button:hover{
     width: 100px;
     align-items: center;
     
+    
   }
   /*  carreiras */
   .areas > .conteudo{
@@ -200,7 +201,10 @@ button:hover{
     font-size: 50px;
     color: #fff;
     font-weight: bold;
-    display: flex;
+   
+    
+
+    
     
  }
  #icons:hover{
