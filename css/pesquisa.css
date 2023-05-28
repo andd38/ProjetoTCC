@@ -177,6 +177,16 @@ button:hover{
     
 
   }
+
+  .areas > .conteudoum{
+    color: #fff;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+
+  }
   .carta {
     border: rgb(45, 184, 147) solid 1px;
     width: 450px;
@@ -202,3 +212,4 @@ button:hover{
     color: rgb(116, 211, 179);
     transition: 0.5s;
  }
+
