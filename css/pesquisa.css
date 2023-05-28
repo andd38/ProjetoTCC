@@ -168,17 +168,13 @@ button:hover{
     border: #fff solid 1px;
     
   }
-  .areas > .conteudo{
-    color: #fff;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    
+  .principal > .conteudo{
+display: flex;
+
 
   }
 
-  .areas > .conteudo{
+  .areas > .conteudoum{
     color: #fff;
     margin: auto;
     display: flex;
@@ -229,3 +225,6 @@ button:hover{
   cursor: pointer;
 }
 
+.principaldois {
+  display: none;
+}
