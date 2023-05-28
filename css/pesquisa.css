@@ -161,13 +161,15 @@ button:hover{
   .areas{
     display: flex;
   }
+  /* icones de carreiras */
   .areas > nav {
     display: flex;
     flex-direction: column;
     width: 100px;
-    border: #fff solid 1px;
+    align-items: center;
     
   }
+  /*  carreiras */
   .areas > .conteudo{
     color: #fff;
     margin: auto;
@@ -182,6 +184,7 @@ button:hover{
     width: 450px;
     border-radius: 15px;
     transition: 0.8s;
+    padding: 18px;
   }
   .carta:hover{
     transform: translateY(-15px);
@@ -197,8 +200,25 @@ button:hover{
     font-size: 50px;
     color: #fff;
     font-weight: bold;
+    display: flex;
+    
  }
  #icons:hover{
     color: rgb(116, 211, 179);
     transition: 0.5s;
+ }
+ button{
+  background-color: transparent;
+  border: aquamarine 1px solid;
+  font-size: 21px;
+  border-radius: 10px;
+  color: #fff;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+
+ }
+ button:hover{
+  cursor: pointer;
  }
