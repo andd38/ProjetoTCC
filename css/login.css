@@ -109,20 +109,20 @@
 }
 .btn-primary{
     border-radius: 25px;
-    background-color: transparent;
-    border:#fff solid 1px;
+    background-color: rgb(255, 255, 255);
+    border:rgb(14, 124, 95) solid 1px;
     outline: none;
     height: 50px;
     width: 40%;
-    color: #fff;
+    color: rgb(14, 124, 95);
     cursor: pointer;
     text-transform: uppercase;
     transition: 0.5s;
     font-weight: 500;
 }
 .btn-primary:hover{
-    background-color: #fff;
-    color: rgb(14, 124, 95);
+    background-color: rgb(14, 124, 95);
+    color: #fff;
 }
 .btn-second{
     border-radius: 25px;
