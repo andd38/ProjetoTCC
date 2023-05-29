@@ -168,13 +168,18 @@ button:hover{
     
     
   }
-
+.areas > .concurso{
+  color: #fff;
+  display: flex;
+ 
+}
 
   .areas > .content{
     color: #fff;
-    margin: auto;
+    margin-left:100px ;
     display: flex;
     flex-direction: column;
+  
     gap: 15px; 
 
   }
