@@ -1,4 +1,4 @@
-
+/* 
 const iconeum = document.querySelector("#iconeum");
 
 iconeum.addEventListener("click", function() {
@@ -98,9 +98,29 @@ iconetres.addEventListener("click", function() {
     element8.style.display = "block";
     element9.style.display = "block";
     element10.style.display = "block";
-   /*  element11.style.display = "block" */;
+   /*  element11.style.display = "block" ;
 
   }
 
 
 });   
+ */
+const iconeum = document.querySelector("#iconeum");
+const iconedois = document.querySelector("#iconedois");
+const iconetres = document.querySelector("#iconetres");
+const iconequatro = document.querySelector("#iconequatro");
+const iconecinco = document.querySelector("#iconecinco");
+const iconeseis = document.querySelector("#iconeseis");
+const iconesete = document.querySelector("#iconesete");
+const iconeoito = document.querySelector("#iconeoito");
+
+const icones = [iconeum,iconedois,iconetres,iconequatro,iconecinco,iconeseis,iconesete,iconeoito];
+icones.addEventListener("click" ,function() {
+  for (let index = 0; index < icones.length; index++) {
+    const element = icones[index];
+    
+  
+
+  }
+  
+});
