@@ -114,8 +114,13 @@ const iconeseis = document.querySelector("#iconeseis");
 const iconesete = document.querySelector("#iconesete");
 const iconeoito = document.querySelector("#iconeoito");
 
-const icones = [iconeum,iconedois,iconetres,iconequatro,iconecinco,iconeseis,iconesete,iconeoito];
-icones.addEventListener("click" ,function() {
+const icones = [[iconeum,iconedois,iconetres,iconequatro,iconecinco,iconeseis,iconesete,iconeoito]];
+icones.addEventListener("click" , function() {
+
+  
+});
+
+/* icones.addEventListener("click" ,function() {
   for (let index = 0; index < icones.length; index++) {
     const element = icones[index];
     
@@ -123,4 +128,4 @@ icones.addEventListener("click" ,function() {
 
   }
   
-});
+}); */
