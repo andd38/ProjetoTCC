@@ -72,25 +72,25 @@ iconetres.addEventListener("click", function() {
   const element8  =document.querySelector(".bancario");
   const element9  =document.querySelector(".engenharia");
   const element10 =document.querySelector(".direito");  
-  const element11 =document.querySelector(".medicinal");
+   const element11 =document.querySelector(".medicinal") ;
 
   element7.classList.toggle(".adm");
   element8.classList.toggle(".bancario");
   element9.classList.toggle(".engenharia");
   element10.classList.toggle(".direito");  
-  element11.classList.toggle(".medicinal"); 
+  element11.classList.toggle(".medicinal");  
 
   if (element7.style.display === "block" 
   && element8.style.display === "block"
   && element9.style.display === "block" 
   && element10.style.display === "block"
-  && element11.style.display === "block") {
+   && element11.style.display === "block" ) {
 
      element7.style.display = "none";
      element8.style.display = "none";
      element9.style.display = "none";
      element10.style.display = "none";
-     element11.style.display = "none";
+    element11.style.display = "none" ;
     
   } else {
     
@@ -98,7 +98,7 @@ iconetres.addEventListener("click", function() {
     element8.style.display = "block";
     element9.style.display = "block";
     element10.style.display = "block";
-    element11.style.display = "block";
+   /*  element11.style.display = "block" */;
 
   }
 
