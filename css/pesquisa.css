@@ -171,6 +171,7 @@ button:hover{
 .areas > .concurso{
   color: #fff;
   display: flex;
+  flex-direction: row;
  
 }
 
