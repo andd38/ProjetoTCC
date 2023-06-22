@@ -164,13 +164,27 @@ button:hover{
       width: 25px;
       font-size: 20px;
   }
-
+  main{
+    display: flex;
+  }
   .boxone{
     background-color:#fff ;
-    height: 750px;
+    height: 650px;
     width: 450px;
     border-radius: 15px;
-    position: fixed;
+    
+    margin: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  .boxtwo{
+    background-color:#fff ;
+    height: 450px;
+    width: 450px;
+    border-radius: 15px;
+    
     margin: 15px 15px;
     display: flex;
     flex-direction: column;
