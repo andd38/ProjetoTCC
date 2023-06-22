@@ -166,6 +166,7 @@ button:hover{
   }
   main{
     display: flex;
+    justify-content: center;
   }
   .boxone{
     background-color:#fff ;
@@ -202,3 +203,26 @@ button:hover{
     margin-right: 150px;
    
   }
+  .sobre{
+    background-color:#fff ;
+    width: 1050px;
+    height: 350px;
+    border-radius: 15px;
+    
+    margin: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+    
+  .historico{
+    background-color:#fff ;
+   width: 1050px;
+   height: 850px;
+   border-radius: 15px;
+   
+   margin: 15px 15px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ } 
