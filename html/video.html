@@ -20,7 +20,7 @@
 <body>
     <header>
         <div id="logo">
-            <a href="index.html"><img src="img/logo2pequena.png" alt=""></a>
+            <a href="index.html"><img src="/img/logo2pequena.png" alt=""></a>
         </div>
         <!-- menu-->
 
@@ -105,94 +105,103 @@
 
     <div id="video-container">
         <main>
-            <video id="principal-video" src="/videos/excel1.mp4" controls autoplay></video>
+            <iframe id="principal-video" width="560" height="500" src="https://www.youtube.com/embed/rdAIUcPqpTY"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
 
-                <div id="video-descricao">
-                    <h3>Excel aula 1</h3><br><br>
-                    <p>Descrição do curso: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula, libero ut sagittis tristique, nunc nulla dictum mi, vel condimentum purus velit vel mauris.</p>
-                    <ul>
-                      <li>Duração: 5 horas</li>
-                      <li>Instrutor: John Doe</li>
-                      <li>Categoria: Programação</li>
-                    </ul>
-                  </div>
-                  
+            <div id="video-descricao">
+                <h3>Excel aula 1</h3><br><br>
+                <p>Descrição do curso: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula, libero
+                    ut sagittis tristique, nunc nulla dictum mi, vel condimentum purus velit vel mauris.</p>
+                <ul>
+                    <li>Duração: 5 horas</li>
+                    <li>Instrutor: John Doe</li>
+                    <li>Categoria: Programação</li>
+                </ul>
+            </div>
+
         </main>
 
         <div id="sidebar">
 
             <div id="content">
-                <a href="#" onclick="mudarvideo('/videos/excel1.mp4', 'testando', 'tetskjdfokjdfgowkdejf'); return false;">
+                <a href="#"
+                    onclick="mudarvideo('https://www.youtube.com/embed/rdAIUcPqpTY', 'testando', 'tetskjdfokjdfgowkdejf'); return false;">
+
                     <div class="video">
-                            <img src="/img/thumb/thumbtest1.jpg" alt="Vídeo 1">
-                            <div>
-                                <h4> Excel aula 1</h4>
-                                <p>Descrição do Video</p>
-                            </div>
+                        <img src="https://drive.google.com/uc?export=download&id=1dM5YTTCmD0s1eNGFyAhn42MGMg3AdmJu" alt="Vídeo 1">
+                        <div>
+                            <h4> Excel aula 1</h4>
+                            <p>Descrição do Video</p>
+                        </div>
                     </div>
-                
-              
-                    <a href="#" onclick="mudarvideo('/videos/excel2.mp4', 'testando', 'Descrição do Vídeo 1'); return false;">
-                    <div class="video">
-                            <img src="/img/thumb/thumbteste2.jpg" alt="Vídeo 1">
+
+
+                    <a href="#"
+                        onclick="mudarvideo('https://www.youtube.com/embed/cveufkhb-RA', 'testando', 'Descrição do Vídeo 1'); return false;">
+                        <div class="video">
+                            <img src="https://drive.google.com/uc?export=download&id=1VEuNt8LnU2tHw_t_wwuYtv4Zyb5GO7Gw" alt="Vídeo 1">
                             <div>
                                 <h4>Excel aula 2</h4>
                                 <p>Descrição do Video</p>
                             </div>
-                    </div>
-                </a>
+                        </div>
+                    </a>
 
-                <a href="#" onclick="mudarvideo('/videos/excel3.mp4', 'testando', 'Descrição do Vídeo 1'); return false;">
-                    <div class="video">
+                    <a href="#"
+                        onclick="mudarvideo('https://www.youtube.com/embed/hpayJq30ax4', 'testando', 'Descrição do Vídeo 1'); return false;">
+                        <div class="video">
                             <img src="/img/thumb/thumbteste3.jpg" alt="Vídeo 1">
                             <div>
                                 <h4> Excel aula 3</h4>
                                 <p>Descrição do Video</p>
                             </div>
-                    </div>
-                </a>
+                        </div>
+                    </a>
 
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
-                    <div class="video">
+                    <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/QOiwGrjwSbY', 'testando', 'Descrição do Vídeo 1'); return false;">
+                        <div class="video">
                             <img src="/img/thumb/thumbteste3.jpg" alt="Vídeo 1">
                             <div>
                                 <h4> Vídeo 4</h4>
                                 <p>Descrição do Video</p>
                             </div>
-                    </div>
-                </a>
+                        </div>
+                    </a>
 
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
-                    <div class="video">
+                    <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
+                        <div class="video">
                             <img src="/img/thumb/thumbteste2.jpg" alt="Vídeo 1">
                             <div>
                                 <h4> Vídeo 5</h4>
                                 <p>Descrição do Video</p>
                             </div>
-                    </div>
-                </a>
+                        </div>
+                    </a>
 
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
-                    <div class="video">
+                    <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
+                        <div class="video">
                             <img src="/img/thumb/thumbtest1.jpg" alt="Vídeo 1">
                             <div>
                                 <h4> Vídeo 6</h4>
                                 <p>Descrição do Video</p>
                             </div>
-                    </div>
-                </a>
+                        </div>
+                    </a>
 
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
-                    <div class="video">
+                    <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
+                        <div class="video">
                             <img src="/img/thumb/thumbteste2.jpg" alt="Vídeo 1">
                             <div>
                                 <h4> Vídeo 7</h4>
                                 <p>Descrição do Video</p>
                             </div>
-                    </div>
-                </a>
+                        </div>
+                    </a>
             </div>
 
 </body>
 <script src="/js/video.js"></script>
+
 </html>
