@@ -223,6 +223,23 @@ button:hover{
    
    margin: 15px 15px;
    display: flex;
-   flex-direction: column;
-   align-items: center;
+  
+  justify-content: center;
+   flex-wrap: wrap;
  } 
+ .quadro{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+ }
+ .quadradinho{
+  width: 20px;
+  height: 20px;
+  background-color: rgb(253, 253, 253);
+  border: 1px solid rgb(47, 151, 146);
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 5px;
+
+ }
