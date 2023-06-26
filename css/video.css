@@ -19,7 +19,7 @@
     width: 30%;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 800px;
     border: 2px solid black;
     overflow-y: auto; 
     border: 1px solid #ccc;
@@ -87,7 +87,8 @@
     height: 100%;
     margin-top: 20px;
     margin-left: 25px;
-    width: 100%;
+    margin-right: -18px;
+  
   }
   
   a {
