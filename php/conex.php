@@ -1,9 +1,13 @@
 <?php 
 
-$conn = mysqli_connect("localhost","root","","db_projeto");
+$hostname = 'localhost';
+$usuario = 'root';
+$senha = 'senac';
+$banco = 'db_senac';
+$conn = mysqli_connect($hostname, $usuario, $senha, $banco);
 
-if(!$conn){
-    echo("Não foi possivel estabelecer conexão com o banco de dados".mysqli_error($conn));
+if (!$conn) {
+    echo ("Não foi possivel estabelecer a conexão com o banco MySQL! ");
+    exit;
 }
-
 ?>

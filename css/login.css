@@ -167,6 +167,11 @@
     outline: none;
     font-size: 22px;
 }
+
+.form input[type="submit"]{
+    border:#46b790 solid 1px;
+}
+
 .label-input{
     background-color: #ecf0f1;
     display: flex;
