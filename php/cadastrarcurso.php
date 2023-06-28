@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -75,17 +75,84 @@ h2{
       width: 25px;
       font-size: 20px;
   }
+  main{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+ 
+
+}
+form{
+    width: 550px;
+    height: 650px;
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.dados{
+    margin: 25px 25px;
+}
+button{
+    width: 150px;
+    height: 35px;
+    border-radius: 15px;
+    background-color: rgb(56, 214, 161);
+    border: none;
+}
+button :hover{
+    border: rgb(56, 214, 161);
+    background-color: #fff;
+}
   </style>
 </head>
 <body>
     <header>
-
+    <nav>
+       
+       <a href="enviaraulas.php"><img src="../img/logo2pequena.png" alt=""></a>
+  <h2>Cadastrar cursos</h2>
+   <a href="#" style="text-decoration: none;"
+   id="entrar"><i class='bx bxs-user'><!-- nome do professor (php) --></i>
+</a>
+ 
+   </nav>
     </header>
     <main>
+            <form action="cadastrarcurso.php" method="post" autocomplete="off">
+                <div class="dados">
+                    <label for="nome">Nome do curso:</label>
+                    <input type="text" name="nome" id="nome">
+                </div>
+                <div class="dados">
+                    <label for="Carreiras">Carreira do curso:</label>
+                    <select name="carreiras" id="carreiras">
+                        <option value="adm">ADM</option>
+                        <option value="militar">militar</option>
+                        <option value="medicinal">medicinal</option>
+                        <option value="tecnologia">tecnologia</option>
+                        <option value="engenharia">engenharia</option>
+                        <option value="direito">direito</option>
+                        <option value="bancario">bancario</option>
+                    </select>
+                </div>
+                <label for="descrição">Descrição do curso:</label>
+                    <div class="dados">
+                    <textarea name="resumo" id="resumo" cols="30" rows="10">
+                              
+    
+                    </textarea>
 
+                    </div>
+                    <button>Enviar Curso</button>
+  <?php 
+  
+    echo "curso cadastrado";
+  
+  ?>
+            </form>
     </main>
-    <footer>
-
-    </footer>
 </body>
 </html>
