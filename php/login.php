@@ -2,7 +2,7 @@
 
 if(isset($_POST['criar'])){
 include('conex.php');
-$nome = $_POST['email'];
+$nome = $_POST['nome'];
 $email = $_POST['email'];
 $pass = $_POST['senha'];
 
@@ -38,7 +38,7 @@ if(!empty($_POST)){
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['email'] = $row['email'];
         echo "<p>Sess&atilde;o iniciada com sucesso como {$_SESSION['nome']}</p>";
-
+        header('location:../php/aluno.php');
     } else {
         echo "<p>Utilizador ou password invalidos. Tente novamente</p>";
     }
