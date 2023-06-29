@@ -51,7 +51,7 @@ if(empty($_SESSION)){
         <!--botão pesquisar-->
         <form action="pesquisar.php" method="post">
               <div class="buttonc">
-        <input type="text" id="search" placeholder="Buscar curso...">
+        <input type="text" id="search"  placeholder="Buscar curso...">
         <button type="submit"><i class='bx bx-search-alt-2'></i></button>
       </div>
         </form><!--botao do carrinho de compras-->
@@ -161,8 +161,8 @@ if(empty($_SESSION)){
     <footer>
 
     </footer>
-    <script src="/js/menu.js"></script>
-    <script src="/js/quadro.js"></script>
+    <script src="menu.js"></script>
+    <script src="quadro.js"></script>
 
     </body>
 </html>
