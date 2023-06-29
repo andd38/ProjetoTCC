@@ -51,7 +51,7 @@ if(empty($_SESSION)){
         <!--botão pesquisar-->
         <form action="pesquisar.php" method="post">
               <div class="buttonc">
-        <input type="text" id="search"  placeholder="Buscar curso...">
+        <input type="text" id="search" placeholder="Buscar curso...">
         <button type="submit"><i class='bx bx-search-alt-2'></i></button>
       </div>
         </form><!--botao do carrinho de compras-->
@@ -144,6 +144,72 @@ if(empty($_SESSION)){
          <div class="container2">
              <div class="sobre"><!-- informações que aluno pode adicionar ou mudar no seu perfil -->
                     <h2>sobremim</h2>
+
+
+                    <!-- modal -->
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <h2>Atualizar dados</h2>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Atualize seus dados </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         
+      <div class="modal-content">
+                        <div class="rodape"><!-- header -->
+                            <h2>Atualizar Dados</h2>
+                        </div>
+                        <div class="principal"><!-- main -->
+                            <form action="update.php" method="post" >
+                            <label for="Nome">Nome:</label>
+                            <input type="text" name="nome" id="nome">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email">
+                            <label for="senha">Senha:</label>
+                            <input type="password" name="senha" id="senha">
+                            <label for="upgrade">Upgrade:</label>
+                            <select name="planos" id="planos">
+                                <option value="gratuito">Gratuito</option>
+                                <option value="premium">Premium</option>
+                                <option value="vitalicio">Vitalicio</option>
+                            </select>
+                            
+                            </form>
+                        </div>
+                        <div class="pe"><!-- footer -->
+                            <input type="submit" value="Atulizar" id="atualizar" >
+                        </div>
+
+                    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 
              </div>
              <div class="sobre">
                 <h2>curso</h2>
@@ -161,8 +227,9 @@ if(empty($_SESSION)){
     <footer>
 
     </footer>
-    <script src="menu.js"></script>
+  
     <script src="quadro.js"></script>
+    <script src="menu.js"></script>
 
     </body>
 </html>
