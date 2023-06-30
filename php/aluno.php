@@ -23,15 +23,18 @@ if(empty($_SESSION)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+  
    <link rel="stylesheet" href="../css/stylealuno.css">
     <link rel="stylesheet" href="../css/portraitaluno.css" media="screen and (orientation : portrait)">
-   
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  
 
     <title>Brasil Concursos </title>
 </head>
@@ -122,49 +125,10 @@ if(empty($_SESSION)){
     </header>
     <main>
 
-         <div class="container">
+         <div class="container1">
             <div class="boxone"><!-- perfil do aluno -->
-
-            <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
- 
-  include_once('conex.php');
-  $id = $_SESSION['id'];
-  $destino = '../img/alunosimg/' . $_FILES['imagem']['name'];
-
-  move_uploaded_file($_FILES['imagem']['tmp_name'], $destino);
-
-  $caminhoImagem = $conn->real_escape_string($destino);
-  $sql = "UPDATE alunos SET imagem = '$caminhoImagem' WHERE id = $id";
-  $conn->query($sql);
-
-}
-
-
-include_once('conex.php');
-$id = $_SESSION['id'];
-$sql = "SELECT imagem FROM alunos WHERE id = $id";
-$resultado = $conn->query($sql);
-
-if ($resultado && $resultado->num_rows > 0) {
-  $row = $resultado->fetch_assoc();
-  $caminhoImagem = $row['imagem'];
-
-  echo '<img style="border-radius: 50%; max-width: 400px;" src="'. $caminhoImagem . '" alt="Imagem" width="400">';
-}
-
-
-?>
-                <!-- Formulário para alterar a imagem -->
-
-<form method="post" enctype="multipart/form-data">
-    <input type="file" name="imagem">
-    <input type="submit" value="Enviar">
-  </form>
-
-
+                <img src="../img/thumb/149071.png" alt="" width="255px">    
                 <p> <?php echo $_SESSION['nome'] ?> <br>
-
                     
                 </p>
 
@@ -187,9 +151,10 @@ if ($resultado && $resultado->num_rows > 0) {
 
 
                     <!-- modal -->
-                    <!-- Button trigger modal -->
+
+<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  <h2>Atualizar dados</h2>
+ Atualizar  
 </button>
 
 <!-- Modal -->
@@ -197,21 +162,19 @@ if ($resultado && $resultado->num_rows > 0) {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Atualize seus dados </h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Atualizar</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-         
-      <div class="modal-content">
-                        <div class="rodape"><!-- header -->
-                            <h2>Atualizar Dados</h2>
+      <div class="rodape"><!-- header -->
+                            
                         </div>
                         <div class="principal"><!-- main -->
-                            <form action="update.php" method="post" >
+                            <form action="update.php" method="post" autocomplete="off">
                             <label for="Nome">Nome:</label>
-                            <input type="text" name="nome" id="nome">
+                            <input type="text" name="nome" id="nome"><br>
                             <label for="email">Email:</label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email"><br>
                             <label for="senha">Senha:</label>
                             <input type="password" name="senha" id="senha">
                             <label for="upgrade">Upgrade:</label>
@@ -223,24 +186,17 @@ if ($resultado && $resultado->num_rows > 0) {
                             
                             </form>
                         </div>
-                      
-
-                    </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Atualizar</button>
+        <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary btn-lg">Atualizar</button>
       </div>
     </div>
   </div>
 </div>
 
 
-
-
-
-
-
+     
 
 
 
@@ -268,7 +224,7 @@ if ($resultado && $resultado->num_rows > 0) {
   
     <script src="quadro.js"></script>
     <script src="menu.js"></script>
+    <script src="modal.js"></script>
 
     </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </html>
