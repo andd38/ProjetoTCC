@@ -151,62 +151,145 @@ if(empty($_SESSION)){
 
 <form action="insert.php" method="post">
 
-   <?php 
-   include('conex.php');
+<form action="insert.php" method="post" autocomplete="off">
 
-   
-   /* pegar informaçoes do aluno la do banco de dados */
+<?php 
+include('conex.php');
 
+
+/* pegar informaçoes do aluno la do banco de dados (nome,senha,email)*/
+
+ $nome =$_SESSION['nome'];
+ $email = $_SESSION['email'];
+
+ echo "Nome: $nome <br> Email: $email";
+
+
+ function formatarCPF($cpf) {
+     $cpf = preg_replace('/[^0-9]/', '', $cpf); // Remove caracteres não numéricos
    
-   ?>
+     if (strlen($cpf) != 11) {
+       return $cpf; // Retorna o CPF sem formatação se não tiver 11 dígitos
+     }
+   
+     $cpfFormatado = substr_replace($cpf, '.', 3, 0); // Insere o primeiro ponto após o terceiro dígito
+     $cpfFormatado = substr_replace($cpfFormatado, '.', 7, 0); // Insere o segundo ponto após o sétimo dígito
+     $cpfFormatado = substr_replace($cpfFormatado, '-', 11, 0); // Insere o traço após o décimo primeiro dígito
+   
+     return $cpfFormatado;
+   }
+   
+   // Exemplo de uso:
+ $cpf = $_POST['cpf'];
+
+   function validarCPF($cpf) {
+     $cpf = preg_replace('/[^0-9]/', '', $cpf); // Remove caracteres não numéricos
+   
+     if (strlen($cpf) != 11) {
+       return false; // CPF inválido se não tiver 11 dígitos
+     }
+   
+     // Verifica se todos os dígitos são iguais, o que resultaria em um CPF inválido
+     if (preg_match('/^(\d)\1{10}$/', $cpf)) {
+       return false;
+     }
+   
+     // Calcula o primeiro dígito verificador
+     $soma = 0;
+     for ($i = 0; $i < 9; $i++) {
+       $soma += intval($cpf[$i]) * (10 - $i);
+     }
+     $resto = $soma % 11;
+     $dv1 = ($resto < 2) ? 0 : 11 - $resto;
+   
+     // Calcula o segundo dígito verificador
+     $soma = 0;
+     for ($i = 0; $i < 10; $i++) {
+       $soma += intval($cpf[$i]) * (11 - $i);
+     }
+     $resto = $soma % 11;
+     $dv2 = ($resto < 2) ? 0 : 11 - $resto;
+   
+     // Verifica se os dígitos verificadores calculados são iguais aos dígitos verificadores do CPF
+     if ($dv1 == $cpf[9] && $dv2 == $cpf[10]) {
+       return true; // CPF válido
+     } else {
+       return false; // CPF inválido
+     }
+   }
+   
+ 
   
+   
+   
+   
+   
+   
+   
+   
+
+?>
+<br>
+<label for="dt_nascimento">Data de nascimento:*</label>
+<input type="date" name="data" id="data" required>
+<br><label for="CPF">CPF:*</label>
+<input type="text" name="cpf" id="cpf" required>
+<label for="RG">RG:*</label>
+<input type="text" name="rg" id="rg" required >  <br>
+<label for="CEP">CEP:*</label>
+<input type="text" name="cep" id="cep" required><br>
+
+<label for="tefone-fixo">Telefone(fixo)*</label>
+<input type="tel" id="tel-fix" name="tel-fix" required>
+<label for="telefone-celuar">Telefone(celular)*</label>
+<input type="tel" name="tel-cel" id="tel-cel">
 
 
 </form>
 
-                    <!-- modal -->
+                 <!-- modal -->
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
- Atualizar  
+Atualizar  
 </button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Atualizar</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <div class="rodape"><!-- header -->
-                            
-                        </div>
-                        <div class="principal"><!-- main -->
-                            <form action="update.php" method="post" autocomplete="off">
-                            <label for="Nome">Nome:</label>
-                            <input type="text" name="nome" id="nome"><br>
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" id="email"><br>
-                            <label for="senha">Senha:</label>
-                            <input type="password" name="senha" id="senha">
-                            <label for="upgrade">Upgrade:</label>
-                            <select name="planos" id="planos">
-                                <option value="gratuito">Gratuito</option>
-                                <option value="premium">Premium</option>
-                                <option value="vitalicio">Vitalicio</option>
-                            </select>
-                            
-                            </form>
-                        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Atualizar</button>
-      </div>
-    </div>
-  </div>
+<div class="modal-dialog">
+ <div class="modal-content">
+   <div class="modal-header">
+     <h1 class="modal-title fs-5" id="exampleModalLabel">Atualizar</h1>
+     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+   </div>
+   <div class="modal-body">
+   <div class="rodape"><!-- header -->
+                         
+                     </div>
+                     <div class="principal"><!-- main -->
+                         <form action="update.php" method="post" autocomplete="off">
+                         <label for="Nome">Nome:</label>
+                         <input type="text" name="nome" id="nome"><br>
+                         <label for="email">Email:</label>
+                         <input type="email" name="email" id="email"><br>
+                         <label for="senha">Senha:</label>
+                         <input type="password" name="senha" id="senha">
+                         <label for="upgrade">Upgrade:</label>
+                         <select name="planos" id="planos">
+                             <option value="gratuito">Gratuito</option>
+                             <option value="premium">Premium</option>
+                             <option value="vitalicio">Vitalicio</option>
+                         </select>
+                         
+                         </form>
+                     </div>
+   </div>
+   <div class="modal-footer">
+     <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Fechar</button>
+     <button type="button" class="btn btn-primary">Atualizar</button>
+   </div>
+ </div>
+</div>
 </div>
 
 
