@@ -31,7 +31,7 @@ if(empty($_SESSION)){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <title>Brasil Concursos </title>
 </head>
@@ -124,8 +124,47 @@ if(empty($_SESSION)){
 
          <div class="container">
             <div class="boxone"><!-- perfil do aluno -->
-                <img src="../img/thumb/149071.png" alt="" width="425px">    
+
+            <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+ 
+  include_once('conex.php');
+  $id = $_SESSION['id'];
+  $destino = '../img/alunosimg/' . $_FILES['imagem']['name'];
+
+  move_uploaded_file($_FILES['imagem']['tmp_name'], $destino);
+
+  $caminhoImagem = $conn->real_escape_string($destino);
+  $sql = "UPDATE alunos SET imagem = '$caminhoImagem' WHERE id = $id";
+  $conn->query($sql);
+
+}
+
+
+include_once('conex.php');
+$id = $_SESSION['id'];
+$sql = "SELECT imagem FROM alunos WHERE id = $id";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+  $row = $resultado->fetch_assoc();
+  $caminhoImagem = $row['imagem'];
+
+  echo '<img style="border-radius: 50%; max-width: 400px;" src="'. $caminhoImagem . '" alt="Imagem" width="400">';
+}
+
+
+?>
+                <!-- Formulário para alterar a imagem -->
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="imagem">
+    <input type="submit" value="Enviar">
+  </form>
+
+
                 <p> <?php echo $_SESSION['nome'] ?> <br>
+
                     
                 </p>
 
@@ -231,4 +270,5 @@ if(empty($_SESSION)){
     <script src="menu.js"></script>
 
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </html>

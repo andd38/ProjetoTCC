@@ -6,7 +6,7 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $pass = $_POST['senha'];
 
-$query = "INSERT INTO alunos VALUES (null, '$nome','$email','$pass')";
+$query = "INSERT INTO alunos VALUES (null, '$nome','$email','$pass','')";
 
 if (mysqli_query($conn, $query)) {
     echo (" Usuario " . $nome . " adicionado com sucesso!<br><br>");
