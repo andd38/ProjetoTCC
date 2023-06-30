@@ -123,8 +123,47 @@ if(empty($_SESSION)){
 
          <div class="container">
             <div class="boxone"><!-- perfil do aluno -->
-                <img src="../img/thumb/149071.png" alt="" width="425px">    
+
+            <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+ 
+  include_once('conex.php');
+  $id = $_SESSION['id'];
+  $destino = '../img/alunosimg/' . $_FILES['imagem']['name'];
+
+  move_uploaded_file($_FILES['imagem']['tmp_name'], $destino);
+
+  $caminhoImagem = $conn->real_escape_string($destino);
+  $sql = "UPDATE alunos SET imagem = '$caminhoImagem' WHERE id = $id";
+  $conn->query($sql);
+
+}
+
+
+include_once('conex.php');
+$id = $_SESSION['id'];
+$sql = "SELECT imagem FROM alunos WHERE id = $id";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+  $row = $resultado->fetch_assoc();
+  $caminhoImagem = $row['imagem'];
+
+  echo '<img style="border-radius: 50%; max-width: 400px;" src="'. $caminhoImagem . '" alt="Imagem" width="400">';
+}
+
+
+?>
+                <!-- Formulário para alterar a imagem -->
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="imagem">
+    <input type="submit" value="Enviar">
+  </form>
+
+
                 <p> <?php echo $_SESSION['nome'] ?> <br>
+
                     
                 </p>
 
