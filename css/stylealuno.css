@@ -169,12 +169,16 @@ button:hover{
     display: flex;
     justify-content: center;
   }
+  .container1{
+    display: flex;
+    flex-direction: column;
+    gap: 76px;
+  }
   .boxone{
     background-color:#fff ;
-    height: 650px;
+    height: 300px;
     width: 450px;
     border-radius: 15px;
-    
     margin: 15px 15px;
     display: flex;
     flex-direction: column;
@@ -207,7 +211,7 @@ button:hover{
   .sobre{
     background-color:#fff ;
     width: 1050px;
-    height: 350px;
+    height: 550px;
     border-radius: 15px;
     
     margin: 15px 15px;

@@ -128,14 +128,14 @@ if(empty($_SESSION)){
          <div class="container1">
             <div class="boxone"><!-- perfil do aluno -->
                 <img src="../img/thumb/149071.png" alt="" width="255px">    
-                <p> <?php echo $_SESSION['nome'] ?> <br>
-                    
-                </p>
-
+             
             </div>
             <div class="boxtwo"><!-- informações do curso que o aluno tá fazendo -->
                 <h2>Nivel de plano </h2>
-
+               
+            <label for="gratuito">Gratuito</label>
+            <input type="radio" name="gratuito" id="gratuito" value="gratuito">
+            <label for=""></label>
             </div>
             <div class="boxtwo">
                 <h2>Conquistas</h2>
@@ -149,6 +149,20 @@ if(empty($_SESSION)){
              <div class="sobre"><!-- informações que aluno pode adicionar ou mudar no seu perfil -->
                     <h2>sobremim</h2>
 
+<form action="insert.php" method="post">
+
+   <?php 
+   include('conex.php');
+
+   
+   /* pegar informaçoes do aluno la do banco de dados */
+
+   
+   ?>
+  
+
+
+</form>
 
                     <!-- modal -->
 
@@ -189,7 +203,7 @@ if(empty($_SESSION)){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary btn-lg">Atualizar</button>
+        <button type="button" class="btn btn-primary">Atualizar</button>
       </div>
     </div>
   </div>
@@ -205,9 +219,7 @@ if(empty($_SESSION)){
 
                  
              </div>
-             <div class="sobre">
-                <h2>curso</h2>
-             </div>
+           
              <div class="historico">
                 <h2>Historico</h2>
 
