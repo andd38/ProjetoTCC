@@ -29,6 +29,7 @@ if(empty($_SESSION)){
  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -127,9 +128,12 @@ if(empty($_SESSION)){
 
          <div class="container1">
             <div class="boxone"><!-- perfil do aluno -->
+            
             <div class="img">
 
 </div>
+
+<!-- Inserindo imagen -->
 <?php
 if(isset($_POST['legal']))      {   
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -188,14 +192,14 @@ echo "</div>";
  </form>
              
             </div>
-            <div class="boxtwo"><!-- informações do curso que o aluno tá fazendo -->
+            <div class="niveldeplano"><!-- informações do curso que o aluno tá fazendo -->
                 <h2>Nivel de plano </h2>
                
             <label for="gratuito">Gratuito</label>
             <input type="radio" name="gratuito" id="gratuito" value="gratuito">
             <label for=""></label>
             </div>
-            <div class="boxtwo">
+            <div class="conquistas">
                 <h2>Conquistas</h2>
                 <form action="../php/certificado.php" method="post">
                     <input type="submit" name="certi" value="Emitir Certificado">
@@ -205,11 +209,13 @@ echo "</div>";
          </div>
          <div class="container2">
              <div class="sobre"><!-- informações que aluno pode adicionar ou mudar no seu perfil -->
-                    <h2>sobremim</h2>
+                    <h2>Sobre mim</h2>
 
-<form action="insert.php" method="post">
+
+
 
 <form action="insert.php" method="post" autocomplete="off">
+  <h4>Informações adicionais</h4>
 
 <?php 
 include('conex.php');
@@ -223,79 +229,30 @@ include('conex.php');
  echo "Nome: $nome <br> Email: $email";
 
 
- function formatarCPF($cpf) {
-     $cpf = preg_replace('/[^0-9]/', '', $cpf); // Remove caracteres não numéricos
-   
-     if (strlen($cpf) != 11) {
-       return $cpf; // Retorna o CPF sem formatação se não tiver 11 dígitos
-     }
-   
-     $cpfFormatado = substr_replace($cpf, '.', 3, 0); // Insere o primeiro ponto após o terceiro dígito
-     $cpfFormatado = substr_replace($cpfFormatado, '.', 7, 0); // Insere o segundo ponto após o sétimo dígito
-     $cpfFormatado = substr_replace($cpfFormatado, '-', 11, 0); // Insere o traço após o décimo primeiro dígito
-   
-     return $cpfFormatado;
-   }
-   
-   // Exemplo de uso:
- $cpf = $_POST['cpf'];
-
-   function validarCPF($cpf) {
-     $cpf = preg_replace('/[^0-9]/', '', $cpf); // Remove caracteres não numéricos
-   
-     if (strlen($cpf) != 11) {
-       return false; // CPF inválido se não tiver 11 dígitos
-     }
-   
-     // Verifica se todos os dígitos são iguais, o que resultaria em um CPF inválido
-     if (preg_match('/^(\d)\1{10}$/', $cpf)) {
-       return false;
-     }
-   
-     // Calcula o primeiro dígito verificador
-     $soma = 0;
-     for ($i = 0; $i < 9; $i++) {
-       $soma += intval($cpf[$i]) * (10 - $i);
-     }
-     $resto = $soma % 11;
-     $dv1 = ($resto < 2) ? 0 : 11 - $resto;
-   
-     // Calcula o segundo dígito verificador
-     $soma = 0;
-     for ($i = 0; $i < 10; $i++) {
-       $soma += intval($cpf[$i]) * (11 - $i);
-     }
-     $resto = $soma % 11;
-     $dv2 = ($resto < 2) ? 0 : 11 - $resto;
-   
-     // Verifica se os dígitos verificadores calculados são iguais aos dígitos verificadores do CPF
-     if ($dv1 == $cpf[9] && $dv2 == $cpf[10]) {
-       return true; // CPF válido
-     } else {
-       return false; // CPF inválido
-     }
-   }
-   
  
-  
-   
-   
-   
-   
-   
-   
-   
 
 ?>
+<!-- esses dados funcionarão como update na tabela de alunos -->
 <br>
 <label for="dt_nascimento">Data de nascimento:*</label>
 <input type="date" name="data" id="data" required>
 <br><label for="CPF">CPF:*</label>
-<input type="text" name="cpf" id="cpf" required>
+<input type="text" name="cpf" id="cpf" required >
 <label for="RG">RG:*</label>
-<input type="text" name="rg" id="rg" required >  <br>
-<label for="CEP">CEP:*</label>
-<input type="text" name="cep" id="cep" required><br>
+<input type="text" name="rg" id="rg" required >  
+<span id="validar"></span>
+<button type="button" onclick="validarCPF()" id="valida">Validar</button>
+<br>
+<h6>Informações do Endereço:</h6>
+
+    <label for="cep">CEP:</label>
+    <input type="text" name="cep" id="cep" required>
+    <button type="button" onclick="consultarCEP()" id="valida">Consultar</button>
+
+  <p>CEP: <span id="logradouro"></span>
+  <p>Logradouro: <span id="bairro"></span></p>
+  <p>Bairro: <span id="cidade"></span>
+  <p>Cidade: <span id="uf"></span></p>
 
 <label for="tefone-fixo">Telefone(fixo)*</label>
 <input type="tel" id="tel-fix" name="tel-fix" required>
@@ -303,14 +260,17 @@ include('conex.php');
 <input type="tel" name="tel-cel" id="tel-cel">
 
 
-</form>
 
-                 <!-- modal -->
+<!-- modal -->
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-Atualizar  
-</button>
+<div>
+  <button type="submit" class="btn btn-primary" name="insert">Enviar</button>
+</form>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Atualizar
+  </button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -324,20 +284,32 @@ Atualizar
    <div class="rodape"><!-- header -->
                          
                      </div>
-                     <div class="principal"><!-- main -->
+                     <div class="modal-principal"><!-- main -->
                          <form action="update.php" method="post" autocomplete="off">
-                         <label for="Nome">Nome:</label>
-                         <input type="text" name="nome" id="nome"><br>
-                         <label for="email">Email:</label>
-                         <input type="email" name="email" id="email"><br>
-                         <label for="senha">Senha:</label>
-                         <input type="password" name="senha" id="senha">
-                         <label for="upgrade">Upgrade:</label>
-                         <select name="planos" id="planos">
-                             <option value="gratuito">Gratuito</option>
-                             <option value="premium">Premium</option>
-                             <option value="vitalicio">Vitalicio</option>
-                         </select>
+                         <label for="dt_nascimento">Data de nascimento:*</label>
+                <input type="date" name="data" id="data" required>
+                <br><label for="CPF">CPF:*</label>
+                <input type="text" name="cpf" id="cpf" required >
+                <label for="RG">RG:*</label>
+                <input type="text" name="rg" id="rg" required >  
+                <span id="validar"></span>
+                <button type="button" onclick="validarCPF()" id="valida">Validar</button>
+                <br>
+                <h6>Informações do Endereço:</h6>
+
+                    <label for="cep">CEP:</label>
+                    <input type="text" name="cep" id="cep" required>
+                    <button type="button" onclick="consultarCEP()" id="valida">Consultar</button>
+
+                  <p>CEP: <span id="logradouro"></span>
+                  <p>Logradouro: <span id="bairro"></span></p>
+                  <p>Bairro: <span id="cidade"></span>
+                  <p>Cidade: <span id="uf"></span></p>
+
+                <label for="tefone-fixo">Telefone(fixo)*</label>
+                <input type="tel" id="tel-fix" name="tel-fix" required>
+                <label for="telefone-celuar">Telefone(celular)*</label>
+                <input type="tel" name="tel-cel" id="tel-cel">
                          
                          </form>
                      </div>
@@ -378,6 +350,7 @@ Atualizar
     <script src="quadro.js"></script>
     <script src="menu.js"></script>
     <script src="modal.js"></script>
+    <script src="cep.js"></script>
 
     </body>
 </html>

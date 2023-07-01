@@ -52,7 +52,7 @@ background: linear-gradient(17deg, rgba(83,121,121,1) 22%, rgba(21,70,70,1) 83%)
   
 
 
-button {
+header> button {
     background-color: aquamarine;
     outline: none;
     border: none;
@@ -61,7 +61,7 @@ button {
     width: 60px;
     
 }
-button:hover{
+header>  button:hover{
     background-color: rgb(56, 214, 161);
 } 
 #carrinho{
@@ -172,30 +172,43 @@ button:hover{
   .container1{
     display: flex;
     flex-direction: column;
-    gap: 76px;
+    
   }
   .boxone{
-    background-color:#fff ;
-    height: 300px;
+    background-color:#0b090951 ; ;
+    height: 550px;
     width: 450px;
     border-radius: 15px;
     margin: 15px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    color: #ffffff;
     
   }
-  .boxtwo{
-    background-color:#fff ;
+  .niveldeplano{
+    background-color:#0b090951 ; ;
     height: 450px;
     width: 450px;
     border-radius: 15px;
-    
+    color: #ffffff;
     margin: 15px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     
+  }
+  .conquistas{
+    background-color:#0b090951 ; ;
+    height: 350px;
+    width: 450px;
+    border-radius: 15px;
+    color: #ffffff;
+    margin: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   img{
     display: flex;
@@ -209,26 +222,27 @@ button:hover{
    
   }
   .sobre{
-    background-color:#fff ;
+    background-color:#0b090951 ;
     width: 1050px;
     height: 550px;
     border-radius: 15px;
-    
+    color: #fff;
     margin: 15px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #ffffff;
   }
     
   .historico{
-    background-color:#fff ;
+    background-color:#0b090951 ; ;
    width: 1050px;
    height: 850px;
    border-radius: 15px;
    
    margin: 15px 15px;
    display: flex;
-  
+   color: #ffffff;
   justify-content: center;
    flex-wrap: wrap;
  } 
@@ -241,7 +255,7 @@ button:hover{
  .quadradinho{
   width: 20px;
   height: 20px;
-  background-color: rgb(253, 253, 253);
+  background-color:#0b090951 ;
   border: 1px solid rgb(47, 151, 146);
   margin: 5px;
   display: flex;
@@ -251,6 +265,7 @@ button:hover{
  }
  .btn-primary{
   width: 150px;
+
  }
  .btn-secondary{
   width: 150px;
@@ -263,4 +278,43 @@ button:hover{
   background-size: cover;
 
  }
+ #valida{
+  width: 110px;
+  height: 25px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: #000000;
+  background-color: rgb(130, 214, 186);
+ }
+ #valida:hover{
+  background-color: #fff;
+  color: rgb(123, 200, 174);
+  transition: 0.5s;
+ }
+input[type=text]{
 
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin: 5px;
+
+}
+input[type=tel]{
+
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin: 5px;
+}
+input[type=date]{
+
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  margin: 5px;
+  text-align: center;
+}
+.modal-principal{
+ color: #000000;
+}
