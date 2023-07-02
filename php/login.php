@@ -6,7 +6,9 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $pass = $_POST['senha'];
 
-$query = "INSERT INTO alunos VALUES (null, '$nome','$email','$pass','')";
+$query = "INSERT INTO `db_senac`.`Alunos` (`idAlunos`, `nome`, `email`, `senha`) VALUES (null, '$nome', '$email', '$pass')";
+
+
 
 if (mysqli_query($conn, $query)) {
     echo (" Usuario " . $nome . " adicionado com sucesso!<br><br>");
@@ -27,14 +29,14 @@ if(!empty($_POST)){
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $stmt = $conn->prepare("SELECT id,nome, email FROM alunos WHERE email = ? AND senha = ?");
+    $stmt = $conn->prepare("SELECT idAlunos,nome, email FROM Alunos WHERE email = ? AND senha = ?");
     $stmt->bind_param("ss", $email, $senha);
     $stmt->execute();
     $login = $stmt->get_result();
 
     if($login && mysqli_num_rows($login) == 1){
         $row = $login->fetch_assoc();
-        $_SESSION['id'] = $row['id'];
+        $_SESSION['idAlunos'] = $row['idAlunos'];
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['email'] = $row['email'];
         echo "<p>Sess&atilde;o iniciada com sucesso como {$_SESSION['nome']}</p>";

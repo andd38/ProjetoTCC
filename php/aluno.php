@@ -4,7 +4,7 @@ session_start();
 function get_total_all_records(){
 include('conex.php');
 
-$stmt = $connection -> prepare("SELECT * FROM alunos");
+$stmt = $connection -> prepare("SELECT * FROM Alunos");
 $stmt -> execute();
 $result = $stmt->fetchAll();
 return $stmt -> rowCount();
@@ -26,10 +26,9 @@ if(empty($_SESSION)){
   
    <link rel="stylesheet" href="../css/stylealuno.css">
     <link rel="stylesheet" href="../css/portraitaluno.css" media="screen and (orientation : portrait)">
- 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -128,60 +127,41 @@ if(empty($_SESSION)){
 
          <div class="container1">
             <div class="boxone"><!-- perfil do aluno -->
-
+            
 <!-- Inserindo imagen -->
 <?php
-if(isset($_POST['legal']))      {   
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-include_once('conex.php');
-$id = $_SESSION['id'];
-$destino = '../img/alunosimg/' . $_FILES['imagem']['name'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['legal'])) {
+    include_once('conex.php');
+    $id = $_SESSION['idAlunos'];
+    $destino = '../img/alunosimg/' . $_FILES['imagem']['name'];
 
-move_uploaded_file($_FILES['imagem']['tmp_name'], $destino);
+    move_uploaded_file($_FILES['imagem']['tmp_name'], $destino);
 
-$caminhoImagem = $conn->real_escape_string($destino);
-$sql = "UPDATE alunos SET imagem = '$caminhoImagem' WHERE id = $id";
-$conn->query($sql);
-
+    $caminhoImagem = $conn->real_escape_string($destino);
+    $sql = "UPDATE Alunos SET imagem = '$caminhoImagem' WHERE idAlunos = $id";
+    $conn->query($sql);
 }
 
-
 include_once('conex.php');
-$id = $_SESSION['id'];
-$sql = "SELECT imagem FROM alunos WHERE id = $id";
+$id = $_SESSION['idAlunos'];
+$sql = "SELECT imagem FROM Alunos WHERE idAlunos = $id";
 $resultado = $conn->query($sql);
 
-
 if ($resultado && $resultado->num_rows > 0) {
-$row = $resultado->fetch_assoc();
-$caminhoImagem = $row['imagem'];
+    $row = $resultado->fetch_assoc();
+    $caminhoImagem = $row['imagem'];
 
-echo "   <div class='imgdois'>";
-echo "</div>";
-echo "<style>
-.imgdois{
-width: 275px;
-height: 275px;
-background-image: url('$caminhoImagem');
-background-size: cover;
-background-position:center;
-background-repeat : no-repeat;
-border-radius:50%;
-}
-
-.img {
-display:none;
-}
-</style>";
-}
-
+    if (!empty($caminhoImagem)) {
+        echo "<div class='imgdois' style='width: 275px; height: 275px; background-image: url(\"$caminhoImagem\"); background-size: cover; background-position:center; border-radius:50%;'></div>";
+    } else {
+        echo "<div class='img'></div>";
+    }
 } else {
-echo "   <div class='img'>";
-echo "</div>";
-} 
-
+    echo "<div class='img'></div>";
+}
 ?>
+
 
 <form method="post" enctype="multipart/form-data">
    <input type="file" name="imagem">
@@ -229,41 +209,43 @@ include('conex.php');
  
 
 ?>
+
+<!-- Captura de dados do banquinho guys -->
+<?php
+include('conex.php');
+$sql = 'SELECT * FROM Alunos';
+$resultado = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($resultado) > 0) {
+    
+    while ($linha = mysqli_fetch_assoc($resultado)) {
+?>
 <!-- esses dados funcionarão como update na tabela de alunos -->
 <br>
 <label for="dt_nascimento">Data de nascimento:*</label>
-<input type="date" name="data" id="data" required>
+<span><?php echo $linha['data_nascimento']; ?></span>
 <br><label for="CPF">CPF:*</label>
-<input type="text" name="cpf" id="cpf" required >
+<span><?php echo $linha['cpf'];?></span><br>
 <label for="RG">RG:*</label>
-<input type="text" name="rg" id="rg" required >  
-<span id="validar"></span>
-<button type="button" onclick="validarCPF()" id="valida">Validar</button>
+<span><?php echo $linha['rg'];?></span>  
 <br>
 <h6>Informações do Endereço:</h6>
+  <p>CEP:<span><?php echo $linha['cep'];?></span>
+  <p>Logradouro:<span><?php echo $linha['logradouro'];?></span></p>
+  <p>Bairro:<span><?php echo $linha['bairro'];?></span>
+  <p>Cidade:<span><?php echo $linha['cidade'];?></span></p>
 
-    <label for="cep">CEP:</label>
-    <input type="text" name="cep" id="cep" required>
-    <button type="button" onclick="consultarCEP()" id="valida">Consultar</button>
-
-  <p>CEP: <span id="logradouro"></span>
-  <p>Logradouro: <span id="bairro"></span></p>
-  <p>Bairro: <span id="cidade"></span>
-  <p>Cidade: <span id="uf"></span></p>
-
-<label for="tefone-fixo">Telefone(fixo)*</label>
-<input type="tel" id="tel-fix" name="tel-fix" required>
-<label for="telefone-celuar">Telefone(celular)*</label>
-<input type="tel" name="tel-cel" id="tel-cel">
-
-
+<label for="tefone-fixo">Telefone(fixo)</label>
+<span><?php echo $linha['telefonefixo'];?></span><br>
+<label for="telefone-celuar">Celular</label>
+<span><?php echo $linha['telefone'];?></span>
 
 <!-- modal -->
 
 <!-- Button trigger modal -->
 <div>
-  <button type="submit" class="btn btn-primary" name="insert">Enviar</button>
 </form>
+<br>
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Atualizar
   </button>
@@ -284,50 +266,49 @@ include('conex.php');
                      <div class="modal-principal"><!-- main -->
                          <form action="update.php" method="post" autocomplete="off">
                          <label for="dt_nascimento">Data de nascimento:*</label>
-                <input type="date" name="data" id="data" required>
-                <br><label for="CPF">CPF:*</label>
-                <input type="text" name="cpf" id="cpf" required >
+                <input type="date" name="data" id="data" value="<?php echo $linha['data_nascimento']; ?>" required>
+                <br><label for="CPF">CPF:*</label> 
+                <input type="text" name="cpf" id="cpf" value="<?php echo $linha['cpf']; ?>" required >
                 <label for="RG">RG:*</label>
-                <input type="text" name="rg" id="rg" required >  
-                <span id="validar"></span>
+                <input type="text" name="rg" id="rg" value="<?php echo $linha['rg']; ?>" required >  
                 <button type="button" onclick="validarCPF()" id="valida">Validar</button>
+                <span style="color: black;"  id="validar"></span>
                 <br>
                 <h6>Informações do Endereço:</h6>
 
                     <label for="cep">CEP:</label>
-                    <input type="text" name="cep" id="cep" required>
+                    <input type="text" name="cep" id="cep" value="<?php echo $linha['cep']; ?>" required>
                     <button type="button" onclick="consultarCEP()" id="valida">Consultar</button>
 
-                  <p>CEP: <span id="logradouro"></span>
-                  <p>Logradouro: <span id="bairro"></span></p>
-                  <p>Bairro: <span id="cidade"></span>
-                  <p>Cidade: <span id="uf"></span></p>
+                    <p>CEP: <input type="text" id="logradouro" value="<?php echo $linha['logradouro']; ?>" name="logradouro"></p>
+                    <p>Logradouro: <input type="text" id="bairro" value="<?php echo $linha['bairro']; ?>" name="bairro"></p>
+                    <p>Bairro: <input type="text" id="cidade" value="<?php echo $linha['cidade']; ?>" name="cidade"></p>
+                    <p>Cidade: <input type="text" id="uf" value="<?php echo $linha['uf']; ?>" name="uf"></p>
+
 
                 <label for="tefone-fixo">Telefone(fixo)*</label>
-                <input type="tel" id="tel-fix" name="tel-fix" required>
+                <input type="tel" id="tel-fix" value="<?php echo $linha['telefonefixo']; ?>" name="tel-fix" required>
                 <label for="telefone-celuar">Telefone(celular)*</label>
-                <input type="tel" name="tel-cel" id="tel-cel">
-                         
+                <input type="tel" name="tel-cel" value="<?php echo $linha['telefone']; ?>" id="tel-cel">
+                <button type="submit" name="update" class="btn btn-primary">Confirmar</button>
                          </form>
                      </div>
+                     <?php
+    }
+} else {
+    echo 'Nenhum resultado encontrado.';
+}
+
+
+?>
    </div>
    <div class="modal-footer">
      <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Fechar</button>
-     <button type="button" class="btn btn-primary">Atualizar</button>
    </div>
  </div>
 </div>
 </div>
 
-
-     
-
-
-
-
-
-
-                 
              </div>
            
              <div class="historico">
@@ -343,7 +324,6 @@ include('conex.php');
     <footer>
 
     </footer>
-  
     <script src="quadro.js"></script>
     <script src="menu.js"></script>
     <script src="modal.js"></script>

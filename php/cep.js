@@ -1,26 +1,26 @@
 function consultarCEP() {
-    var cep = document.getElementById('cep').value;
-    var url = 'https://viacep.com.br/ws/' + cep + '/json/';
+  var cep = document.getElementById('cep').value;
+  var url = 'https://viacep.com.br/ws/' + cep + '/json/';
 
-    $.ajax({
-      url: url,
-      type: 'GET',
-      dataType: 'json',
-      success: function(data) {
-        if (!data.erro) {
-          document.getElementById('logradouro').textContent = data.logradouro;
-          document.getElementById('bairro').textContent = data.bairro;
-          document.getElementById('cidade').textContent = data.localidade;
-          document.getElementById('uf').textContent = data.uf;
-        } else {
-          alert('CEP não encontrado.');
-        }
-      },
-      error: function() {
-        alert('Ocorreu um erro na consulta do CEP.');
+  $.ajax({
+    url: url,
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      if (!data.erro) {
+        document.getElementById('logradouro').value = data.logradouro;
+        document.getElementById('bairro').value = data.bairro;
+        document.getElementById('cidade').value = data.localidade;
+        document.getElementById('uf').value = data.uf;
+      } else {
+        alert('CEP não encontrado.');
       }
-    });
-  }
+    },
+    error: function() {
+      alert('Ocorreu um erro na consulta do CEP.');
+    }
+  });
+}
 
   function validarCPF() {
     let cpf = document.getElementById('cpf').value;
