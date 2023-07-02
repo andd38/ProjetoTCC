@@ -166,6 +166,7 @@ height: 275px;
 background-image: url('$caminhoImagem');
 background-size: cover;
 background-position:center;
+background-repeat : no-repeat;
 border-radius:50%;
 }
 
