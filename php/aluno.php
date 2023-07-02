@@ -128,10 +128,6 @@ if(empty($_SESSION)){
 
          <div class="container1">
             <div class="boxone"><!-- perfil do aluno -->
-            
-            <div class="img">
-
-</div>
 
 <!-- Inserindo imagen -->
 <?php
