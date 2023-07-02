@@ -213,7 +213,8 @@ include('conex.php');
 <!-- Captura de dados do banquinho guys -->
 <?php
 include('conex.php');
-$sql = 'SELECT * FROM Alunos';
+$id = $_SESSION['idAlunos'];
+$sql = "SELECT * FROM Alunos where idAlunos = $id";
 $resultado = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($resultado) > 0) {
