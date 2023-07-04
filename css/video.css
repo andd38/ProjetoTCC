@@ -94,3 +94,78 @@
   a {
     text-decoration: none;
   }
+
+  /* Comentários */
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.comentario {
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.397);
+    padding: 10px;
+    border-radius: 5px;
+    width: 10%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comentario .nome-usuario {
+    font-weight: bold;
+    color: #333;
+}
+
+.comentario .horario {
+    color: #888;
+    font-size: 0.8em;
+}
+
+.comentario .conteudo {
+    margin-top: 10px;
+    color: #555;
+}
+
+#formulario-comentario {
+  background-color: rgba(0, 0, 0, 0.397);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-left: 25px;
+    width: 97%;
+}
+
+#formulario-comentario textarea {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    resize: none;
+}
+
+#formulario-comentario button[type="submit"] {
+    background-color: rgb(99, 252, 201);
+    color: #ffffff;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 10%;
+}
+
+#formulario-comentario button[type="submit"]:hover {
+    background-color: rgba(99, 252, 201, 0.692);
+}
+
+span {
+  color: white;
+}
