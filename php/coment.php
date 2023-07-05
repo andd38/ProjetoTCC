@@ -4,6 +4,7 @@ include_once('conex.php');
 
 if(isset($_POST['enviar'])){
 $id = $_SESSION['idAlunos'];
+$nome = $_SESSION['nome'];
 $coment = $_POST['coment'];
 
 if (!$conn) {
@@ -13,12 +14,12 @@ if (!$conn) {
 
 $coment = mysqli_real_escape_string($conn,$coment );
 
-$sql = "INSERT INTO Comentarios VALUES (null,'$coment','$id')";
+$sql = "INSERT INTO Comentarios VALUES (null,'$coment','$id','$nome',now())";
 
 if(mysqli_query($conn,$sql)){
     echo 'foi';
     header('location:video.php');
 }else {
-    echo 'tente novamente';
+    echo 'tente novamente'.mysqli_error($conn);
 }
 ?>
