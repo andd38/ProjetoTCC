@@ -48,7 +48,7 @@ if(empty($_SESSION)){
 
         <nav>
             <a href="../html/pesquisa.html">Cursos</a>
-            <a href="CursosGratuitos">Cursos Gratuitos</a>
+            <a href="video.php">Cursos Gratuitos</a>
             <a href="Quem somos">Quem somos</a>
             <a href="Contato">Contato</a>
         </nav>
@@ -67,8 +67,6 @@ if(empty($_SESSION)){
                     </span>
                 </a>
       <!--botao de entrar na área do aluno-->
-
-       <!-- edu onde estiver escrito "entrar" vc vai colocar o nome do aluno  -->
             <a href="../php/logout.php" style="text-decoration: none;"
              id="entrar">Sair<span class="material-symbols-outlined">
                     person

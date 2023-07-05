@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+function get_total_all_records(){
+include('conex.php');
+
+$stmt = $connection -> prepare("SELECT * FROM Alunos");
+$stmt -> execute();
+$result = $stmt->fetchAll();
+return $stmt -> rowCount();
+
+}
+
+if(empty($_SESSION)){
+    print("<script>location.href='login.php'</script>");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -47,8 +64,8 @@
         </a>
         <!--botao de entrar na área do aluno-->
 
-        <a href="/html/login.html" style="text-decoration: none;" id="entrar">Entrar<span
-                class="material-symbols-outlined">
+        <a href="../php/logout.php" style="text-decoration: none;"
+             id="entrar">Sair<span class="material-symbols-outlined">
                 person
             </span>
         </a>
@@ -86,7 +103,8 @@
                 <!--botao de entrar na área do aluno-->
 
 
-                <a href="/html/login.html"> <button id="carrinho">Entrar</a><span class="material-symbols-outlined">
+                <a href="../php/logout.php" style="text-decoration: none;"
+             id="entrar">Sair<span class="material-symbols-outlined">
                     person
                 </span></button></a>
 
@@ -127,10 +145,8 @@
                 <br>
                 <textarea name="coment" id="comentario" placeholder="Digite seu comentário" required></textarea>
                 <br>
-                <button name="enviar" type="submit">Enviar</button>
-            </form>
-            <div class="exibição">
-            <?php
+                <button name="enviar" type="submit">Enviar</button><br><br><br>
+                <?php
 include_once('conex.php');
 $sql = "SELECT * FROM Comentarios";
 $resultado = mysqli_query($conn, $sql);
@@ -138,12 +154,11 @@ $resultado = mysqli_query($conn, $sql);
 if (mysqli_num_rows($resultado) > 0) {
     
     while ($linha = mysqli_fetch_assoc($resultado)) {
-        echo ($linha['comentario']."<br>");
+        echo ("<div class='comentar'><text>".$linha['data_comentario']." - ".$linha['nome'].": ".$linha['comentario']."</text></div>");
     }
 }
 ?>
-             
-            </div>
+            </form>
         </main>
 
         <div id="sidebar">
