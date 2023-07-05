@@ -120,14 +120,30 @@
                     <li>Categoria: Programação</li>
                 </ul>
             </div>
+
             <div id="comentarios"></div>
-            <form id="formulario-comentario">
-                <span>Usuário</span>
+            <form action="coment.php" method="post" id="formulario-comentario">
+               <h3>Comentários</h3>
                 <br>
-                <textarea id="comentario" placeholder="Digite seu comentário" required></textarea>
+                <textarea name="coment" id="comentario" placeholder="Digite seu comentário" required></textarea>
                 <br>
-                <button type="submit">Enviar</button>
+                <button name="enviar" type="submit">Enviar</button>
             </form>
+            <div class="exibição">
+            <?php
+include_once('conex.php');
+$sql = "SELECT * FROM Comentarios";
+$resultado = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($resultado) > 0) {
+    
+    while ($linha = mysqli_fetch_assoc($resultado)) {
+        echo ($linha['comentario']."<br>");
+    }
+}
+?>
+             
+            </div>
         </main>
 
         <div id="sidebar">
