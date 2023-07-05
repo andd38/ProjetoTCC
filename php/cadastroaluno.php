@@ -48,46 +48,122 @@
 
     <main>
         <div class="container1">
-            <h1>Cadastro de Usuario</h1>
+            <h1>Cadastro de Usuario</h1><!-- Formulário -->
                 <form action="insert.php" method="post" autocomplete="off" class="form">
-                <h6>Nascimento</h6>
+                <h3>Nascimento</h3>
                 <label for="dt_nascimento">Data de nascimento:*</label>
-                <input type="date" name="data" id="data dados" required>
+                <input type="date" name="data" id="data" required>
                 <br>
-                <h6>Informações sigilosas</h6>
+                <h3>Informações sigilosas</h3>
                 <label for="CPF">CPF:*</label> 
-                <input type="text" name="cpf" id="cpf dados"  required  maxlength="11"  >
+                <input type="text" name="cpf" id="cpf"  required  maxlength="11"  >
                 <label for="RG">RG:*</label>
-                <input type="text" name="rg" id="rg dado"  required maxlength="7">  
-                <button type="button" onclick="validarCPF()" id="valida">Validar</button>
-                <span  id="validar"></span>
+                <input type="text" name="rg" id="rg"  required maxlength="7">  
+                <button type="button" onclick="validarCPF()" id="validaII">Validar</button>
+                <span id="validar"></span>
                 <br>
-                <h6>Informações do Endereço:</h6>
+                <h3>Informações do Endereço:</h3>
 
                     <label for="cep">CEP:</label>
                     <input type="text" name="cep" id="cep"  required>
-                    <button type="button" onclick="consultarCEP()" id="valida">Consultar</button>
-
-                    <div class="log"><p>CEP: <span id="logradouro"  name="logradouro"></p>
+                    <button type="button" onclick="consultarCEP()" id="validaII">Consultar</button>
+                    <span id="valida"></span>
+                    <div class="log">
+                    <p>CEP: <span id="logradouro" name="logradouro"></p>
                         
-                    <p>Logradouro: <span id="bairro"  name="bairro"></p>  
+                    <p>Logradouro: <span id="bairro" name="bairro"></p>  
                       
                    
                      <p>Bairro: <span id="cidade"  name="cidade"></p> 
                    
-                    <p>Cidade: <span id="uf"  name="uf"></p></div>
+                    <p>Cidade: <span id="uf"  name="uf"></p>
+                    <label for="com">Complemento</label>
+                    <input type="text" name="complemento" id="complemento">
+                    <label for="num">Numero</label>
+                    <input type="text" name="numero" id="numero">
+                </div>
 
-                <h6>Informações de contato:</h6>
+                <h3>Informações de contato:</h3>
 
                 <label for="tefone-fixo">Telefone(fixo)*</label>
                 <input type="tel" id="tel-fix"  name="tel-fix" required>
                 <label for="telefone-celuar">Telefone(celular)*</label>
                 <input type="tel" name="tel-cel"  id="tel-cel">
-                <button type="submit" name="update" class="btn btn-primary" id="enviar">Confirmar</button>
+                
+                <h1>Plano</h1>
+                
+                
+                <div class="containerplan">
+                    <div id="plano">
+                        <h1>Gratuito</h1>
+
+                    </div>
+                    <div id="plano">
+                            <h1>Vitalicio</h1>
+                        
+                    </div>
+                        <div id="plano">
+                            <h1>Premium</h1>
+                            
+                        </div>
+                </div>
+                <div class="info">
+                    <hr>
+                    <div class="down">
+                        <p>Downloads</p>
+                        <i class='bx bx-check'></i>
+                    </div>
+                    <hr>
+                    <div class="down">
+                        
+                        <p>Atividades</p>
+                        <i class='bx bx-check'></i>
+                        
+                    </div>
+                    <hr>
+                    <div class="down">
+                        
+                        <p>Acesso as aulas pagas</p>
+                        <i class='bx bx-check'></i>
+                        
+                    </div>
+                    <hr>
+                    <div class="down">
+                        
+                        <p>Certificado</p>
+                        
+                        
+                        
+                    </div>
+                    <hr>
+                    <div class="down">
+                        <p>Comentários</p>
+                      
+                        
+                    </div>
+                    <hr>
+                    <div class="down">
+                        <p>1° mes grátis</p>
+                        
+                        
+                    </div>
+
+                    <label for="">Escolha o seu Curso:</label>
+                    <select name="plan" id="plan">
+                        
+                       <option value="Gratuito">Gratuito</option>
+                       <option value="vitalicio">Vitalício</option>
+                       <option value="premium">Premium</option>
+                    </select>
+                       
+                </div>
+                    <button type="submit" name="update" class="btn btn-primary" id="enviar">Confirmar</button>
+
             </form> 
-            
                    
         </div>
+
+
 
     </main>
     <footer>

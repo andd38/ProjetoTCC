@@ -165,7 +165,8 @@ button:hover{
     border-radius: 15px;
     color: #fff;
     align-items: center;
-    width: 855px;
+    padding: 25px;
+   
     
 
   }
@@ -184,6 +185,9 @@ button:hover{
     border: 1px solid rgb(113, 180, 158);
     background-color: transparent;
     margin: 5px;
+    font-size: 19px;
+    padding-left:5px ;
+
   
   }
   input[type=tel]{
@@ -194,6 +198,8 @@ button:hover{
     margin: 5px;
     border: 1px solid rgb(113, 180, 158);
     background-color: transparent;
+    font-size: 19px;
+    padding-left:5px ;
   }
   input[type=date]{
   
@@ -204,10 +210,35 @@ button:hover{
     margin: 5px;
     text-align: center;
     color: #fff;
+    font-size: 19px;
+    padding-left:5px ;
   }
-#valida{
-    width: 150px;
+#validaII{
+ width: 150px;
 }
  #enviar{
     width: 150px;
+ }
+ .containerplan{
+ display: flex;
+ justify-content: end;
+ gap: 150px;
+ }
+ #plano > h1{
+  font-size: 35px;
+ }
+
+ .info{
+  margin: 45px 0px 45px 0px;
+ }
+ .info > p,hr {
+  margin:15px 0px 15px 0px; ;
+ }
+ .down{
+  display: flex;
+ }
+ .bx-check{
+  font-size: 35px;
+  display: flex;
+  margin-left: 75%;
  }

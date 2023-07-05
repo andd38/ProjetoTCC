@@ -2,24 +2,23 @@ function consultarCEP() {
   var cep = document.getElementById('cep').value;
   var url = 'https://viacep.com.br/ws/' + cep + '/json/';
 
-  $.ajax({
-    url: url,
-    type: 'GET',
-    dataType: 'json',
-    success: function(data) {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
       if (!data.erro) {
         document.getElementById('logradouro').textContent = data.logradouro;
         document.getElementById('bairro').textContent = data.bairro;
         document.getElementById('cidade').textContent = data.localidade;
         document.getElementById('uf').textContent = data.uf;
+     
+        document.getElementById('validar').innerHTML = '<p>cep válido</p>';
       } else {
-        alert('CEP não encontrado.');
+        document.getElementById('validar').innerHTML = '<p>Cep inválido</p>';
       }
-    },
-    error: function() {
-      alert('Ocorreu um erro na consulta do CEP.');
-    }
-  });
+    })
+    .catch(() => {
+      document.getElementById('validar').innerHTML = '<p>Ocorreu um erro</p>';
+    });
 }
 
   function validarCPF() {
