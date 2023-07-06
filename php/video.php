@@ -148,15 +148,24 @@ if(empty($_SESSION)){
                 <button name="enviar" type="submit">Enviar</button><br><br><br>
                 <?php
 include_once('conex.php');
-$sql = "SELECT * FROM Comentarios";
+$sql = "SELECT c.*, a.imagem FROM Comentarios c JOIN Alunos a ON c.Alunos_idAlunos = a.idAlunos";
 $resultado = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($resultado) > 0) {
-    
     while ($linha = mysqli_fetch_assoc($resultado)) {
-        echo ("<div class='comentar'><text>".$linha['data_comentario']." - ".$linha['nome'].": ".$linha['comentario']."</text></div>");
+        $imagem = $linha['imagem'];
+        $nome = $linha['nome'];
+        $dataComentario = $linha['data_comentario'];
+        $comentario = $linha['comentario'];
+
+
+        echo "<div class='comentar'>";
+        echo "<div class='show'><img src='$imagem' id='fotinhaa'><span>$nome</span></div>";
+        echo "<div class='legal'><span>$comentario</span><span>$dataComentario</span></div>";
+        echo "</div>";
     }
 }
+
 ?>
             </form>
         </main>
@@ -168,7 +177,7 @@ if (mysqli_num_rows($resultado) > 0) {
                     onclick="mudarvideo('https://www.youtube.com/embed/rdAIUcPqpTY', 'testando', 'tetskjdfokjdfgowkdejf'); return false;">
 
                     <div class="video">
-                        <img src="/img/thumb/excel.png" alt="Vídeo 1">
+                        <img src="../img/thumb/excel.png" alt="Vídeo 1">
                         <div>
                             <h4> Excel aula 1</h4>
                             <p>Descrição do Video</p>
@@ -179,7 +188,7 @@ if (mysqli_num_rows($resultado) > 0) {
                     <a href="#"
                         onclick="mudarvideo('https://www.youtube.com/embed/cveufkhb-RA', 'testando', 'Descrição do Vídeo 1'); return false;">
                         <div class="video">
-                            <img src="/img/thumb/excel 02.png" alt="Vídeo 1">
+                            <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                             <div>
                                 <h4>Excel aula 2</h4>
                                 <p>Descrição do Video</p>
@@ -190,7 +199,7 @@ if (mysqli_num_rows($resultado) > 0) {
                     <a href="#"
                         onclick="mudarvideo('https://www.youtube.com/embed/hpayJq30ax4', 'testando', 'Descrição do Vídeo 1'); return false;">
                         <div class="video">
-                            <img src="/img/thumb/thumbteste3.jpg" alt="Vídeo 1">
+                            <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                             <div>
                                 <h4> Excel aula 3</h4>
                                 <p>Descrição do Video</p>
@@ -200,7 +209,7 @@ if (mysqli_num_rows($resultado) > 0) {
 
                     <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/QOiwGrjwSbY', 'testando', 'Descrição do Vídeo 1'); return false;">
                         <div class="video">
-                            <img src="/img/thumb/thumbteste3.jpg" alt="Vídeo 1">
+                            <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                             <div>
                                 <h4> Vídeo 4</h4>
                                 <p>Descrição do Video</p>
@@ -210,7 +219,7 @@ if (mysqli_num_rows($resultado) > 0) {
 
                     <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
                         <div class="video">
-                            <img src="/img/thumb/thumbteste2.jpg" alt="Vídeo 1">
+                            <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                             <div>
                                 <h4> Vídeo 5</h4>
                                 <p>Descrição do Video</p>
@@ -220,7 +229,7 @@ if (mysqli_num_rows($resultado) > 0) {
 
                     <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
                         <div class="video">
-                            <img src="/img/thumb/thumbtest1.jpg" alt="Vídeo 1">
+                            <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                             <div>
                                 <h4> Vídeo 6</h4>
                                 <p>Descrição do Video</p>
@@ -230,7 +239,7 @@ if (mysqli_num_rows($resultado) > 0) {
 
                     <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
                         <div class="video">
-                            <img src="/img/thumb/thumbteste2.jpg" alt="Vídeo 1">
+                            <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                             <div>
                                 <h4> Vídeo 7</h4>
                                 <p>Descrição do Video</p>
