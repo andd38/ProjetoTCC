@@ -112,18 +112,23 @@
                 <button type="button" onclick="consultarCEP()" id="validaII">Consultar</button>
                 <span id="valida"></span>
                 <div class="log">
-                    <p>CEP: <span id="logradouro" name="logradouro"></p>
+                    <p>CEP: <span id="logradouro"></p>
 
-                    <p>Logradouro: <span id="bairro" name="bairro"></p>
+                    <p>Logradouro: <span id="bairro"></p>
 
 
-                    <p>Bairro: <span id="cidade" name="cidade"></p>
+                    <p>Bairro: <span id="cidade"></p>
 
-                    <p>Cidade: <span id="uf" name="uf"></p>
+                    <p>Cidade: <span id="uf" ></p>
                     <label for="com">Complemento</label>
                     <input type="text" name="complemento" id="complemento">
                     <label for="num">Numero</label>
                     <input type="text" name="numero" id="numero">
+                    <input type="hidden" name="bairro" id="bairro-hidden">
+                    <input type="hidden" name="logradouro" id="logradouro-hidden">
+                    <input type="hidden" name="cidade" id="cidade-hidden">
+                    <input type="hidden" name="uf" id="uf-hidden">
+
                 </div>
 
                 <h3>Informações de contato:</h3>
@@ -179,7 +184,7 @@
                     </select>
 
                 </div>
-                <button type="submit" name="update" class="btn btn-primary" id="enviar">Confirmar</button>
+                <button type="submit" name="insert" class="btn btn-primary" id="enviar">Confirmar</button>
 
             </form>
 

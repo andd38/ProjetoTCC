@@ -6,20 +6,24 @@ function consultarCEP() {
     .then(response => response.json())
     .then(data => {
       if (!data.erro) {
-        document.getElementById('logradouro').textContent = data.logradouro;
-        document.getElementById('bairro').textContent = data.bairro;
-        document.getElementById('cidade').textContent = data.localidade;
-        document.getElementById('uf').textContent = data.uf;
-     
-        document.getElementById('validar').innerHTML = '<p>cep válido</p>';
+        document.getElementById('logradouro').textContent = 'Logradouro: ' + data.logradouro;
+        document.getElementById('bairro').textContent = 'Bairro: ' + data.bairro;
+        document.getElementById('cidade').textContent = 'Cidade: ' + data.localidade;
+        document.getElementById('uf').textContent = 'UF: ' + data.uf;
+
+        document.getElementById('bairro-hidden').value = data.bairro;
+        document.getElementById('logradouro-hidden').value = data.logradouro;
+        document.getElementById('cidade-hidden').value = data.localidade;
+        document.getElementById('uf-hidden').value = data.uf;
       } else {
-        document.getElementById('validar').innerHTML = '<p>Cep inválido</p>';
+        document.getElementById('validar').innerHTML = '<p>CEP inválido</p>';
       }
     })
     .catch(() => {
       document.getElementById('validar').innerHTML = '<p>Ocorreu um erro</p>';
     });
 }
+
 
   function validarCPF() {
     let cpf = document.getElementById('cpf').value;
@@ -73,3 +77,5 @@ function consultarCEP() {
    
   }
   
+
+
