@@ -158,15 +158,22 @@ if (mysqli_num_rows($resultado) > 0) {
         $dataComentario = $linha['data_comentario'];
         $comentario = $linha['comentario'];
 
+        if (!empty($imagem)) {
+            $imagemSrc = $imagem;
+        } else {
+            
+            $imagemSrc = '../img/thumb/149071.png';
+        }
 
         echo "<div class='comentar'>";
-        echo "<div class='show'><img src='$imagem' id='fotinhaa'><span>$nome</span></div>";
-        echo "<div class='legal'><span>$comentario</span><span>$dataComentario</span></div>";
-        echo "</div>";
+        echo "<img src='$imagemSrc' id='fotinhaa'>";
+        echo "<p style='color:white; margin-top:8px ;  margin-left:20px ;'>$nome</p>";
+        echo "<span style='color:white; margin-top:30px ;  margin-left:5px ;' >$comentario</span>";
+        echo "</div><br>";
     }
 }
-
 ?>
+
             </form>
         </main>
 

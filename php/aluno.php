@@ -221,18 +221,13 @@ if (mysqli_num_rows($resultado) > 0) {
 ?>
 <!-- esses dados funcionarão como update na tabela de alunos -->
 <br>
-<label for="dt_nascimento">Data de nascimento:*</label>
-<span><?php echo $linha['data_nascimento']; ?></span>
-<br><label for="CPF">CPF:*</label>
-<span><?php echo $linha['cpf'];?></span><br>
-<label for="RG">RG:*</label>
-<span><?php echo $linha['rg'];?></span>  
-<br>
 <h6>Informações do Endereço:</h6>
   <p>CEP:<span><?php echo $linha['cep'];?></span>
   <p>Logradouro:<span><?php echo $linha['logradouro'];?></span></p>
   <p>Bairro:<span><?php echo $linha['bairro'];?></span>
   <p>Cidade:<span><?php echo $linha['cidade'];?></span></p>
+  <p>Complemento<span><?php echo $linha['complemento'];?></span>
+  <p>Número<span><?php echo $linha['numero'];?></span></p>
 
 <label for="tefone-fixo">Telefone(fixo)</label>
 <span><?php echo $linha['telefonefixo'];?></span><br>
@@ -281,8 +276,10 @@ if (mysqli_num_rows($resultado) > 0) {
 
                     <p>CEP: <input type="text" id="logradouro" value="<?php echo $linha['logradouro']; ?>" name="logradouro"></p>
                     <p>Logradouro: <input type="text" id="bairro" value="<?php echo $linha['bairro']; ?>" name="bairro"></p>
-                    <p>Bairro: <input type="text" id="cidade" value="<?php echo $linha['cidade']; ?>" name="cidade"></p>
-                    <p>Cidade: <input type="text" id="uf" value="<?php echo $linha['uf']; ?>" name="uf"></p>
+                    <p>Cidade <input type="text" id="cidade" value="<?php echo $linha['cidade']; ?>" name="cidade"></p>
+                    <p>UF <input type="text" id="uf" value="<?php echo $linha['uf']; ?>" name="uf"></p>
+                    <p>Complemento <input type="text" id="complemento" value="<?php echo $linha['complemento']; ?>" name="complemento"></p>
+                    <p>Número <input type="text" id="numero" value="<?php echo $linha['numero']; ?>" name="numero"></p>
 
 
                 <label for="tefone-fixo">Telefone(fixo)*</label>
