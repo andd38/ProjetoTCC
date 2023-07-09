@@ -47,7 +47,7 @@ if(isset($_POST['update'])) {
           cidade = '$cidade',
           uf = '$uf',
           complemento = '$comple',
-          numero = '$numero',
+          numero = '$numero'
           WHERE idAlunos = '$id'";
 
  
