@@ -8,7 +8,7 @@
     font-family: 'Poppins';
 }
 #logo img {
-height: 120px;
+ height: 120px;
  padding: 0;
  margin-top:-40px;
 } 
@@ -19,11 +19,16 @@ height: 120px;
     background-size: cover;
     background-repeat: no-repeat;
  }
+section#mobile{
+  display: none;
+
+ }
  header{
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
  }
+
  nav>a{
     color: #fff;
     text-decoration: none;
@@ -44,7 +49,6 @@ height: 120px;
   color: rgb(17, 139, 127);
 }
 
-  
 
 
 button {
@@ -253,4 +257,6 @@ button:hover{
  .container2> div {
   border-bottom: 1px solid rgb(61, 181, 155);
   text-align: center;
+  display: flex;
+  justify-content: center;
  }
