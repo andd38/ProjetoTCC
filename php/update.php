@@ -13,6 +13,8 @@ if(isset($_POST['update'])) {
   $bairro = $_POST['bairro'];
   $cidade = $_POST['cidade'];
   $uf = $_POST['uf'];
+  $comple = $_POST['complemento'];
+  $numero = $_POST['numero'];
 
   if (!$conn) {
     die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
@@ -29,6 +31,8 @@ if(isset($_POST['update'])) {
   $bairro = mysqli_real_escape_string($conn, $bairro);
   $cidade = mysqli_real_escape_string($conn, $cidade);
   $uf = mysqli_real_escape_string($conn, $uf);
+  $comple = mysqli_real_escape_string($conn, $comple);
+  $numero = mysqli_real_escape_string($conn, $numero);
 
 
   $sql = "UPDATE Alunos SET 
@@ -41,7 +45,9 @@ if(isset($_POST['update'])) {
           logradouro = '$logradouro',
           bairro = '$bairro',
           cidade = '$cidade',
-          uf = '$uf'
+          uf = '$uf',
+          complemento = '$comple',
+          numero = '$numero'
           WHERE idAlunos = '$id'";
 
  
