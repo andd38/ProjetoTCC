@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-function get_total_all_records(){
-include('conex.php');
+function get_total_all_records()
+{
+    include('conex.php');
 
-$stmt = $connection -> prepare("SELECT * FROM Alunos");
-$stmt -> execute();
-$result = $stmt->fetchAll();
-return $stmt -> rowCount();
-
+    $stmt = $connection->prepare("SELECT * FROM Alunos");
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $stmt->rowCount();
 }
 
-if(empty($_SESSION)){
+if (empty($_SESSION)) {
     print("<script>location.href='login.php'</script>");
 }
 ?>
@@ -25,8 +25,8 @@ if(empty($_SESSION)){
     <link rel="stylesheet" href="../css/styleall.css" media="all">
     <link rel="stylesheet" href="../css/portrait.css" media="screen and (orientation : portrait)">
     <link rel="stylesheet" href="../css/video.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../css/videoportrait.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -37,7 +37,7 @@ if(empty($_SESSION)){
 <body>
     <header>
         <div id="logo">
-            <a href="index.html"><img src="/img/logo2pequena.png" alt=""></a>
+            <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
         </div>
         <!-- menu-->
 
@@ -64,8 +64,7 @@ if(empty($_SESSION)){
         </a>
         <!--botao de entrar na área do aluno-->
 
-        <a href="../php/logout.php" style="text-decoration: none;"
-             id="entrar">Sair<span class="material-symbols-outlined">
+        <a href="../php/logout.php" style="text-decoration: none;" id="entrar">Sair<span class="material-symbols-outlined">
                 person
             </span>
         </a>
@@ -75,7 +74,7 @@ if(empty($_SESSION)){
     <!--menu versao mobile-->
     <header class="mobile">
         <div id="logo">
-            <a href="index.html"><img src="img/logo2pequena.png" alt=""></a>
+            <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
             <!--botão pesquisar-->
             <form action="pesquisar.php" method="post">
                 <div class="buttonc">
@@ -103,10 +102,9 @@ if(empty($_SESSION)){
                 <!--botao de entrar na área do aluno-->
 
 
-                <a href="../php/logout.php" style="text-decoration: none;"
-             id="entrar">Sair<span class="material-symbols-outlined">
-                    person
-                </span></button></a>
+                <a href="../php/logout.php" style="text-decoration: none;" id="entrar">Sair<span class="material-symbols-outlined">
+                        person
+                    </span></button></a>
 
 
                 <i onclick="acao()" class='bx bx-x' id="X"></i>
@@ -123,56 +121,54 @@ if(empty($_SESSION)){
 
     <div id="video-container">
         <main>
-            <iframe id="principal-video" width="560" height="500" src="https://www.youtube.com/embed/rdAIUcPqpTY"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
+            <iframe id="principal-video" width="560" height="500" src="https://www.youtube.com/embed/rdAIUcPqpTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
             <div id="video-descricao">
                 <h3>Excel aula 1</h3><br><br>
-                <p>Descrição do curso: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula, libero
-                    ut sagittis tristique, nunc nulla dictum mi, vel condimentum purus velit vel mauris.</p>
+                <p>Aprenda a utilizar o excel do básico ao avançado</p>
                 <ul>
-                    <li>Duração: 5 horas</li>
-                    <li>Instrutor: John Doe</li>
-                    <li>Categoria: Programação</li>
+                    <li>Duração:5 horas</li>
+                    <li>Instrutor:Clenio Emidio</li>
+                    <li>Categoria:ADM</li>
                 </ul>
             </div>
+            <div class="reverse">
 
-            <div id="comentarios"></div>
             <form action="coment.php" method="post" id="formulario-comentario">
-               <h3>Comentários</h3>
+                <h3>Comentários</h3>
                 <br>
                 <textarea name="coment" id="comentario" placeholder="Digite seu comentário" required></textarea>
                 <br>
                 <button name="enviar" type="submit">Enviar</button><br><br><br>
                 <?php
-include_once('conex.php');
-$sql = "SELECT c.*, a.imagem FROM Comentarios c JOIN Alunos a ON c.Alunos_idAlunos = a.idAlunos";
-$resultado = mysqli_query($conn, $sql);
+                include_once('conex.php');
+                $sql = "SELECT c.*, a.imagem FROM Comentarios c JOIN Alunos a ON c.Alunos_idAlunos = a.idAlunos";
+                $resultado = mysqli_query($conn, $sql);
 
-if (mysqli_num_rows($resultado) > 0) {
-    while ($linha = mysqli_fetch_assoc($resultado)) {
-        $imagem = $linha['imagem'];
-        $nome = $linha['nome'];
-        $dataComentario = $linha['data_comentario'];
-        $comentario = $linha['comentario'];
+                if (mysqli_num_rows($resultado) > 0) {
+                    while ($linha = mysqli_fetch_assoc($resultado)) {
+                        $imagem = $linha['imagem'];
+                        $nome = $linha['nome'];
+                        $dataComentario = $linha['data_comentario'];
+                        $comentario = $linha['comentario'];
 
-        if (!empty($imagem)) {
-            $imagemSrc = $imagem;
-        } else {
-            
-            $imagemSrc = '../img/thumb/149071.png';
-        }
+                        if (!empty($imagem)) {
+                            $imagemSrc = $imagem;
+                        } else {
 
-        echo "<div class='comentar'>";
-        echo "<img src='$imagemSrc' id='fotinhaa'>";
-        echo "<p style='color:white; margin-top:8px ;  margin-left:20px ;'>$nome</p>";
-        echo "<span style='color:white; margin-top:30px ;  margin-left:5px ;' >$comentario</span>";
-        echo "</div><br>";
-    }
-}
-?>
+                            $imagemSrc = '../img/thumb/149071.png';
+                        }
+
+                        echo "<div class='comentar'>";
+                        echo "<img src='$imagemSrc' id='fotinhaa'>";
+                        echo "<div class='teste'>";
+                        echo "<div>@" . $nome . "</div>";
+                        echo "<div>$comentario</div>";
+                        echo "</div>";
+                        echo "</div><br>";
+                    }
+                }
+                ?>
 
             </form>
         </main>
@@ -180,8 +176,7 @@ if (mysqli_num_rows($resultado) > 0) {
         <div id="sidebar">
 
             <div id="content">
-                <a href="#"
-                    onclick="mudarvideo('https://www.youtube.com/embed/rdAIUcPqpTY', 'testando', 'tetskjdfokjdfgowkdejf'); return false;">
+                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/rdAIUcPqpTY', 'testando', 'tetskjdfokjdfgowkdejf'); return false;">
 
                     <div class="video">
                         <img src="../img/thumb/excel.png" alt="Vídeo 1">
@@ -192,8 +187,7 @@ if (mysqli_num_rows($resultado) > 0) {
                     </div>
 
 
-                    <a href="#"
-                        onclick="mudarvideo('https://www.youtube.com/embed/cveufkhb-RA', 'testando', 'Descrição do Vídeo 1'); return false;">
+                    <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/cveufkhb-RA', 'testando', 'Descrição do Vídeo 1'); return false;">
                         <div class="video">
                             <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                             <div>
@@ -203,8 +197,7 @@ if (mysqli_num_rows($resultado) > 0) {
                         </div>
                     </a>
 
-                    <a href="#"
-                        onclick="mudarvideo('https://www.youtube.com/embed/hpayJq30ax4', 'testando', 'Descrição do Vídeo 1'); return false;">
+                    <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/hpayJq30ax4', 'testando', 'Descrição do Vídeo 1'); return false;">
                         <div class="video">
                             <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                             <div>
@@ -253,9 +246,11 @@ if (mysqli_num_rows($resultado) > 0) {
                             </div>
                         </div>
                     </a>
+                    </div>
             </div>
 
 </body>
-<script src="/js/video.js"></script>
+<script src="video.js"></script>
+<script src="menu.js"></script>
 
 </html>

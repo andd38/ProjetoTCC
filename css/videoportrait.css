@@ -1,0 +1,110 @@
+@media screen and (max-width: 1040px) {
+    main {
+        width: 90%;
+    }
+
+    #sidebar {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    #video-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .reverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    
+  #principal-video {
+    margin-left: 0px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 400px;
+  }
+
+  #video-descricao {
+    background-color: #0000006d;
+    color: white;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding-bottom: 45px;
+    margin-top: 25px;
+  
+  }
+
+  #formulario-comentario {    
+      background-color: rgba(0, 0, 0, 0.397);
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      margin-left: 0px;
+  }
+  
+  #formulario-comentario textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      color: white;
+      box-sizing: border-box;
+      background-color: transparent;
+      resize: none;
+  }
+  
+  #formulario-comentario button[type="submit"] {
+      background-color: rgb(99, 252, 201);
+      color: #000000;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 20%;
+      margin-top: 5px;
+  }
+  
+  #formulario-comentario button[type="submit"]:hover {
+      background-color: rgba(99, 252, 201, 0.669);
+  }
+  
+  #formulario-comentario h3 {
+    color: white;
+    font-size: large;
+    font-weight: 300;
+  }
+  
+  span {
+    color: white;
+  }
+  
+  .comentar {
+    background-color: rgba(0, 0, 0, 0.219);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+  }
+  
+  .comentar img{
+   height: 50px;
+   width: 50px;
+   border-radius:50%;
+  }
+  
+  .teste {
+    margin-left: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+}

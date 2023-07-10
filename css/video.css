@@ -23,10 +23,8 @@
     width: 30%;
     display: flex;
     flex-direction: column;
-    height: 800px;
-    border: 2px solid black;
+    max-height: 100vh;
     overflow-y: auto; 
-    border: 1px solid #ccc;
   }
 
   #main-video {
@@ -165,7 +163,7 @@ h1 {
 
 #formulario-comentario button[type="submit"] {
     background-color: rgb(99, 252, 201);
-    color: #ffffff;
+    color: #000000;
     padding: 8px 20px;
     border: none;
     border-radius: 3px;
@@ -180,8 +178,8 @@ h1 {
 
 #formulario-comentario h3 {
   color: white;
-  font-size: small;
-  font-weight: 100;
+  font-weight: 400;
+ 
 }
 
 span {
@@ -200,4 +198,11 @@ span {
  height: 50px;
  width: 50px;
  border-radius:50%;
+}
+
+.teste {
+  margin-left: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
