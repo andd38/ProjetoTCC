@@ -1,4 +1,9 @@
-div.container{
+
+  .mobile{
+    display: flex;
+    flex-direction: column;
+  }
+  div.container{
     display: flex;
     height: 880px;
     flex-wrap: wrap;
@@ -48,7 +53,7 @@ footer{
     flex-direction: column;
     align-items: center;
 }
-header{
+.menu-principal{
     display: none;
 }
  .mobile {
@@ -110,22 +115,8 @@ header{
     gap: 10px;
     margin: 15px;
 }
-#carrinho{
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 45px;
-    width: 140px;
-    border: 1px solid aqua;
-    
-}
-#carrinho:hover{
-    outline: none;
-    border: none;
-    transition: 0.5s;
-   
-}
+
+
 #carrinho>a{
     text-decoration: none;
     color:black;
@@ -145,4 +136,31 @@ header{
     margin: 0;
     padding: 0;
     
+}
+.buttonc input[type="text"] {
+  height:25px;
+  width: 240px;
+  border: 2px solid  rgb(66, 175, 139);
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 16px;
+  color: aquamarine;
+  text-decoration: none;
+  outline: none;
+  transition: .5s;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    height: 150vh;
+}
+
+.historico{
+    width: 450px;
+    height: 1000px;
+
+}
+.sobre{
+    width: 450px;
 }

@@ -25,7 +25,9 @@ if(empty($_SESSION)){
     
   
    <link rel="stylesheet" href="../css/stylealuno.css">
-    <link rel="stylesheet" href="../css/portraitaluno.css" media="screen and (orientation : portrait)">
+   <link rel="stylesheet" href="../css/alunocelular.css" media="screen and (orientation : portrait)">
+
+  
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -39,7 +41,7 @@ if(empty($_SESSION)){
     <title>Brasil Concursos </title>
 </head>
 <body>
-    <header>
+    <header class="menu-principal">
         <div id="logo">
             <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
         </div>
@@ -77,7 +79,7 @@ if(empty($_SESSION)){
     </header>
     <header class="mobile">
         <div id="logo">
-            <a href="index.html"><img src="img/logo2pequena.png" alt=""></a>
+            <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
               <!--botão pesquisar-->
         <form action="pesquisar.php" method="post">
             <div class="buttonc">
@@ -321,7 +323,21 @@ if (mysqli_num_rows($resultado) > 0) {
 
     </footer>
     <script src="quadro.js"></script>
-    <script src="menu.js"></script>
+   <script>
+    function acao(){
+
+let x = document.getElementById("nav-menu") ;
+
+
+if (x.style.display == "block") {
+  x.style.display = "none";
+} else {
+  x.style.display = "block";
+}
+
+}
+
+   </script>
     <script src="modal.js"></script>
     <script src="cep.js"></script>
 

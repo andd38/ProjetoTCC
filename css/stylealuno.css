@@ -16,7 +16,7 @@ height: 120px;
  body{
     /* background: linear-gradient(to top , rgb(83, 121, 121) 80px,rgb(21, 70, 70));*/
     background: rgb(83,121,121);
-background: linear-gradient(17deg, rgba(83,121,121,1) 22%, rgba(21,70,70,1) 83%);
+    background: linear-gradient(17deg, rgba(83,121,121,1) 22%, rgba(21,70,70,1) 83%);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -235,7 +235,7 @@ header>  button:hover{
   }
     
   .historico{
-    background-color:#0b090951 ; ;
+    background-color:#0b090951 ; 
    width: 1050px;
    height: 850px;
    border-radius: 15px;
@@ -322,3 +322,4 @@ input[type=date]{
 span {
   color: #fdfdfd;
 }
+
