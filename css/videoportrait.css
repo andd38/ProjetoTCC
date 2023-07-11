@@ -4,7 +4,7 @@
     }
 
     #sidebar {
-        width: 90%;
+        width: 89%;
         margin-top: 20px;
     }
 
@@ -40,13 +40,13 @@
   
   }
 
-  #formulario-comentario {    
-      background-color: rgba(0, 0, 0, 0.397);
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
-      margin-left: 0px;
+  #formulario-comentario {
+    background-color: rgba(0, 0, 0, 0.397);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto ;
+    width: 97%;
+     
   }
   
   #formulario-comentario textarea {
@@ -106,5 +106,10 @@
     display: flex;
     flex-direction: column;
   }
+
+  .um {
+    display: none;
+  }
+  
 
 }
