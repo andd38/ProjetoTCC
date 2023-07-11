@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <title>Bem vindo o professor</title>
     <style>
-        @charset "utf-8";
+       @charset "utf-8";
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
        
 
@@ -93,14 +93,15 @@ main{
 .box1{
     width: 450px;
     height: 450px;
-    background-color: #fff;
+    background-color:#0b090951;
     border-radius: 15px;
     margin: 25px 25px;
+    color: #fff;
 }
 .box2{
     width: 650px;
     height: 925px;
-    background-color: #fff;
+    background-color: #0b090951;
     border-radius: 15px;
     margin: 25px 25px;
 }
@@ -109,6 +110,7 @@ main{
     margin: 25px 5px 25px 5px;
     align-items: center;
     justify-content: center;
+    color: #fff;
 }
 .description p{
     font-size: 21px;
@@ -120,10 +122,40 @@ form{
     justify-content: center;
     align-items: center;
 }
-form >  button,input[type=file]{
+input{
     width: 150px;
-    height: 50px;
-    background-color: rgb(83,121,121);
+    size: 250px;
+    border: 1px solid aqua;
+    border-radius:30px ;
+    background-color: transparent;
+    color: #fff;
+}
+.enviaulas{
+    display: flex;
+    gap: 15px;
+}
+
+@media screen and (max-width : 1040px) {
+        main{
+            display: flex;
+            flex-direction: column;
+            max-width: 150vh;
+            justify-content: center;
+        }
+        .description{
+            display: flex;
+            flex-direction: column;
+        }
+        .box2{
+            display: flex;
+            flex-direction: column;
+            max-width: 450px;
+
+        }
+        img{
+            width: 150px;
+        }
+        
 }
 
     </style>
