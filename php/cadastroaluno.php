@@ -173,6 +173,10 @@
                         <input type="text" name="complemento" id="complemento">
                         <label for="num">Numero</label>
                         <input type="text" name="numero" id="numero">
+                        <input type="hidden" name="bairro" id="bairro-hidden">
+                        <input type="hidden" name="logradouro" id="logradouro-hidden">
+                        <input type="hidden" name="cidade" id="cidade-hidden">
+                        <input type="hidden" name="uf" id="uf-hidden">
                     
                 </div>
 
