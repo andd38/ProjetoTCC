@@ -5,21 +5,40 @@ div.container{
     justify-content: center;
     align-items: center;
     gap: 100px;
-    
+    margin-top: 70%;
 }
 .carta{
     
     gap: 80px;
 }
-.section{
-    
+.section {
+    margin-top: 100px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    color: #fff;
-    font-size: 21px;
-}
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25vh;
+  }
+
+  .fotos {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .fotos i {
+    font-size: 70px;
+    color: rgb(250, 250, 250);
+    border: 1px solid rgb(255, 255, 255);
+    width: 80px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .fotos p {
+    font-size: 15px;
+    margin-top: 30px;
+    color: #ffffff;
+  }
+
 .box2{
     display: flex;
     height: 550px;

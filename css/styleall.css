@@ -165,30 +165,33 @@ button:hover{
 main{
     border: none;
 }
-.section{
-    
+.section {
+    margin-top: 100px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: #fff;
-    font-size: 21px;
-}
-.section >img{
-    border-radius: 50px ;
-}
-.fotos{
-    margin-top: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 450px;
-    height: 550px;
-    color: #fff;
-    font-size: 21px;
-}
-.fotos >img{
-    border-radius: 50px ;
-}
+    justify-content: space-between;
+    height: 25vh;
+  }
+
+  .fotos {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .fotos i {
+    font-size: 100px;
+    color: rgb(250, 250, 250);
+    border: 1px solid rgb(255, 255, 255);
+    width: 100px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .fotos p {
+    font-size: 20px;
+    margin-top: 30px;
+    color: #ffffff;
+  }
+
 div.container{
     display: flex;
     height: 550px;
