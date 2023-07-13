@@ -323,3 +323,16 @@ span {
   color: #fdfdfd;
 }
 
+.botaofoto {
+    width: 275px; /* Defina a largura desejada para o botão */
+    height: 90px; /* Defina a altura desejada para o botão */
+    background-color: rgba(0, 0, 255, 0.227); /* Defina a cor de fundo desejada para o botão */
+    color: white; /* Defina a cor do texto do botão */
+    font-size: 16px; /* Defina o tamanho da fonte do texto do botão */
+    border: none; /* Remova a borda do botão */
+    border-radius: 0px 0px 270px 270px;
+}
+
+.botaofoto:hover {
+  background-color: rgb(255, 255, 255);
+}

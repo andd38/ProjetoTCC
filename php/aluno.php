@@ -153,6 +153,46 @@ if ($resultado && $resultado->num_rows > 0) {
     $caminhoImagem = $row['imagem'];
 
     if (!empty($caminhoImagem)) {
+        echo "<div class='imgdois' style='width: 275px; height: 275px; background-image: url(\"$caminhoImagem\"); background-size: cover; background-position:center; border-radius:50% ;'>";
+        echo('<button type="button" class="botaofoto" style="position: relative; top:190px; z-index: 2;" data-bs-toggle="modal" data-bs-target="#exampleFoto">
+        Alterar
+         </button></div>');
+    } else {
+        echo "<div class='img'></div>";
+    }
+} else {
+    echo "<div class='img'></div>";
+}
+?>
+
+
+    
+
+<!-- Modal -->
+<div class="modal fade" id="exampleFoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+ <div class="modal-content">
+   <div class="modal-header">
+     <h1 class="modal-title fs-5" id="exampleModalLabel">Atualizar</h1>
+     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+   </div>
+   <div class="modal-body">
+   <div class="rodape"><!-- header -->
+                         
+                     </div>
+                     <div class="modal-principal"><!-- main -->
+                     <!-- Inserindo imagen -->
+<?php
+include_once('conex.php');
+$id = $_SESSION['idAlunos'];
+$sql = "SELECT imagem FROM Alunos WHERE idAlunos = $id";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+    $row = $resultado->fetch_assoc();
+    $caminhoImagem = $row['imagem'];
+
+    if (!empty($caminhoImagem)) {
         echo "<div class='imgdois' style='width: 275px; height: 275px; background-image: url(\"$caminhoImagem\"); background-size: cover; background-position:center; border-radius:50%;'></div>";
     } else {
         echo "<div class='img'></div>";
@@ -167,6 +207,20 @@ if ($resultado && $resultado->num_rows > 0) {
    <input type="file" name="imagem">
    <input type="submit" name="legal" value="Enviar">
  </form>
+                     </div>
+
+   </div>
+   <div class="modal-footer">
+     <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Fechar</button>
+   </div>
+ </div>
+</div>
+</div>
+
+
+  
+
+  
              
             </div>
             <div class="niveldeplano"><!-- informações do curso que o aluno tá fazendo -->
