@@ -195,6 +195,7 @@ main{
 div.container{
     display: flex;
     height: 550px;
+    margin-top: 200px;
    align-items: center;
    justify-content: center;
 }

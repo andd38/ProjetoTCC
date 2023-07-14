@@ -154,9 +154,7 @@ if ($resultado && $resultado->num_rows > 0) {
 
     if (!empty($caminhoImagem)) {
         echo "<div class='imgdois' style='width: 275px; height: 275px; background-image: url(\"$caminhoImagem\"); background-size: cover; background-position:center; border-radius:50% ;'>";
-        echo('<button type="button" class="botaofoto" style="position: relative; top:190px; z-index: 2;" data-bs-toggle="modal" data-bs-target="#exampleFoto">
-        Alterar
-         </button></div>');
+        echo('</div>');
     } else {
         echo "<div class='img'></div>";
     }
@@ -165,8 +163,9 @@ if ($resultado && $resultado->num_rows > 0) {
 }
 ?>
 
-
-    
+<button type="button" class="botaofoto" style="position: relative;" data-bs-toggle="modal" data-bs-target="#exampleFoto">
+        Alterar
+         </button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleFoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -205,7 +204,7 @@ if ($resultado && $resultado->num_rows > 0) {
 
 <form method="post" enctype="multipart/form-data">
    <input type="file" name="imagem">
-   <input type="submit" name="legal" value="Enviar">
+   <input type="submit" name="legal" value="Confirmar">
  </form>
                      </div>
 
