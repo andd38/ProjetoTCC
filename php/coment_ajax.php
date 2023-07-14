@@ -12,9 +12,9 @@ if (isset($_POST['coment'])) {
     $exec = mysqli_query($conn, $sql);
 
     if ($exec) {
-        echo 'success';
+        echo 'successo';
     } else {
-        echo 'error';
+        echo 'erro';
     }
 }
 ?>
