@@ -151,7 +151,7 @@ if (empty($_SESSION)) {
         <div id="sidebar">
 
             <div id="content">
-                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/rdAIUcPqpTY', 'testando', 'tetskjdfokjdfgowkdejf'); return false;">
+                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/rdAIUcPqpTY', 'testando', 'tetskjdfokjdfgowkdejf'); ">
                     <div class="video">
                         <img src="../img/thumb/excel.png" alt="Vídeo 1">
                         <div>
@@ -161,7 +161,7 @@ if (empty($_SESSION)) {
                     </div>
                 </a>
 
-                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/cveufkhb-RA', 'testando', 'Descrição do Vídeo 1'); return false;">
+                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/cveufkhb-RA', 'testando', 'Descrição do Vídeo 1'); ">
                     <div class="video">
                         <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                         <div>
@@ -171,7 +171,7 @@ if (empty($_SESSION)) {
                     </div>
                 </a>
 
-                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/hpayJq30ax4', 'testando', 'Descrição do Vídeo 1'); return false;">
+                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/hpayJq30ax4', 'testando', 'Descrição do Vídeo 1'); ">
                     <div class="video">
                         <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                         <div>
@@ -181,7 +181,7 @@ if (empty($_SESSION)) {
                     </div>
                 </a>
 
-                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/QOiwGrjwSbY', 'testando', 'Descrição do Vídeo 1'); return false;">
+                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/QOiwGrjwSbY', 'testando', 'Descrição do Vídeo 1'); ">
                     <div class="video">
                         <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                         <div>
@@ -191,7 +191,7 @@ if (empty($_SESSION)) {
                     </div>
                 </a>
 
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
+                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); ">
                     <div class="video">
                         <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                         <div>
@@ -201,7 +201,7 @@ if (empty($_SESSION)) {
                     </div>
                 </a>
 
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
+                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); ">
                     <div class="video">
                         <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                         <div>
@@ -211,7 +211,7 @@ if (empty($_SESSION)) {
                     </div>
                 </a>
 
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); return false;">
+                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); ">
                     <div class="video">
                         <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
                         <div>
@@ -235,18 +235,18 @@ if (empty($_SESSION)) {
     <script src="menu.js"></script>
     <script>
         $(document).ready(function() {
-            $('#formulario-comentario').submit(function(event) {
-                event.preventDefault();
+            $('#formulario-comentario').submit(function(event) { //Verifica o formulário
+                event.preventDefault(); // impede o envio do action padrão
 
-                var formData = $(this).serialize();
+                var formData = $(this).serialize(); //serializa os dados
 
                 $.ajax({
                     type: 'POST',
                     url: $(this).attr('action'),
                     data: formData,
                     success: function(response) {
-                        if (response === 'success') {
-                            loadComments();
+                        if (response === 'successo') {
+                            loadComments(); //Caso retorne sucesso , é executada a função que carrega os comentários
                         } else {
                             alert('Erro .');
                         }

@@ -14,7 +14,7 @@ if (isset($_POST['coment'])) {
     if ($exec) {
         echo 'successo';
     } else {
-        echo 'erro';
+        echo 'error';
     }
 }
 ?>
