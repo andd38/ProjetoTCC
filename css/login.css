@@ -251,6 +251,10 @@
     z-index: -1;
     animation: deslocamentoDir 1.5s;
 }
+
+.erro span{
+    color: red;
+}
 /* animação para o conteudo */
 
 @keyframes deslocamento {

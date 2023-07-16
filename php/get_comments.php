@@ -11,11 +11,11 @@ if (mysqli_num_rows($resultado) > 0) {
         $comentarios[] = $linha;
     }
 
-    for ($i = count($comentarios) - 1; $i >= 0; $i--) {
-        $imagem = $comentarios[$i]['imagem'];
-        $nome = $comentarios[$i]['nome'];
-        $dataComentario = $comentarios[$i]['data_comentario'];
-        $comentario = $comentarios[$i]['comentario'];
+    foreach ($comentarios as $comentario) {
+        $imagem = $comentario['imagem'];
+        $nome = $comentario['nome'];
+        $dataComentario = $comentario['data_comentario'];
+        $textoComentario = $comentario['comentario'];
 
         if (!empty($imagem)) {
             $imagemSrc = $imagem;
@@ -27,7 +27,7 @@ if (mysqli_num_rows($resultado) > 0) {
         echo "<img src='$imagemSrc' id='fotinhaa'>";
         echo "<div class='teste'>";
         echo "<div>@" . $nome . "</div>";
-        echo "<div>$comentario</div>";
+        echo "<div>$textoComentario</div>";
         echo "</div>";
         echo "</div><br>";
     }

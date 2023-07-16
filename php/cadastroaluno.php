@@ -130,7 +130,6 @@
            </div>
            <nav>
                <a href="../html/pesquisa.html">Cursos</a>
-               <a href="CursosGratuitos">Cursos Gratuitos</a>
                <a href="Quem somos">Quem somos</a>
                <a href="Contato">Contato</a>
            </nav>
@@ -151,8 +150,6 @@
                     <h3>Informações sigilosas</h3>
                     <label for="CPF">CPF:*</label>
                     <input type="text" name="cpf" id="cpf" required maxlength="11">
-                    <label for="RG">RG:*</label>
-                    <input type="text" name="rg" id="rg" required maxlength="7">
                     <button type="button" onclick="validarCPF()" id="validaII">Validar</button>
                     <span id="validar"></span>
                     <br>
@@ -184,8 +181,6 @@
 
                 <h3>Informações de contato:</h3>
 
-                <label for="tefone-fixo">Telefone(fixo)*</label>
-                <input type="tel" id="tel-fix" name="tel-fix" required>
                 <label for="telefone-celuar">Telefone(celular)*</label>
                 <input type="tel" name="tel-cel" id="tel-cel">
                 </div>

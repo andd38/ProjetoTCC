@@ -5,9 +5,7 @@ if(isset($_POST['insert'])) {
   $id = $_SESSION['idAlunos'];
   $dataNascimento = $_POST['data'];
   $cpf = $_POST['cpf'];
-  $rg = $_POST['rg'];
   $cep = $_POST['cep'];
-  $telefoneFixo = $_POST['tel-fix'];
   $telefoneCelular = $_POST['tel-cel'];
   $logradouro = $_POST['logradouro'];
   $bairro = $_POST['bairro'];
@@ -21,9 +19,7 @@ if(isset($_POST['insert'])) {
   }
   $dataNascimento = mysqli_real_escape_string($conn, $dataNascimento);
   $cpf = mysqli_real_escape_string($conn, $cpf);
-  $rg = mysqli_real_escape_string($conn, $rg);
   $cep = mysqli_real_escape_string($conn, $cep);
-  $telefoneFixo = mysqli_real_escape_string($conn, $telefoneFixo);
   $telefoneCelular = mysqli_real_escape_string($conn, $telefoneCelular);
   $logradouro = mysqli_real_escape_string($conn, $logradouro);
   $bairro = mysqli_real_escape_string($conn, $bairro);
@@ -36,9 +32,7 @@ if(isset($_POST['insert'])) {
   $sql = "UPDATE Alunos SET 
           data_nascimento = '$dataNascimento',
           cpf = '$cpf',
-          rg = '$rg',
           cep = '$cep',
-          telefonefixo = '$telefoneFixo',
           telefone = '$telefoneCelular',
           logradouro = '$logradouro',
           bairro = '$bairro',

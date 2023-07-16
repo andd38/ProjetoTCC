@@ -42,7 +42,6 @@ if (empty($_SESSION)) {
 
         <nav>
             <a href="/html/pesquisa.html">Cursos</a>
-            <a href="CursosGratuitos">Cursos Gratuitos</a>
             <a href="Quem somos">Quem somos</a>
             <a href="Contato">Contato</a>
         </nav>
