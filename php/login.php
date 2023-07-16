@@ -2,7 +2,7 @@
 session_start();
 include('conex.php');
 
-// Variáveis para armazenar as mensagens de erro
+//armazenar mensagens de erro exibidas
 $erroMensagem = "";
 $erroEmail = "";
 
@@ -36,9 +36,11 @@ if (isset($_POST['criar'])) {
                 echo "Bem-vindo(a) $nome";
 
                 if ($tipoUsuario == 0) {
-                    header('location: cadastroaluno.php');
+                    header('Location: cadastroaluno.php');
+                    exit();
                 } elseif ($tipoUsuario == 1) {
-                    header('location: cadastroaluno.php');
+                    header('Location: cadastroprofessor.php');
+                    exit();
                 }
             } else {
                 echo "ERRO - O usuário não foi adicionado!" . mysqli_error($conn);
@@ -46,6 +48,36 @@ if (isset($_POST['criar'])) {
         }
     }
 }
+
+if (isset($_POST['entrar'])) {
+    $email = $_POST['email'];
+    $pass = $_POST['senha'];
+
+    $query = "SELECT * FROM Alunos WHERE email = '$email' AND senha = '$pass'";
+    $result = mysqli_query($conn, $query);
+
+    if (mysqli_num_rows($result) == 1) {
+       
+        $row = mysqli_fetch_assoc($result);
+
+        $_SESSION['idAlunos'] = $row['idAlunos'];
+        $_SESSION['nome'] = $row['nome'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['tipoUsuario'] = $row['tipo_usuario'];
+
+        if ($row['tipo_usuario'] == 0) {
+            header('Location: aluno.php');
+            exit();
+        } elseif ($row['tipo_usuario'] == 1) {
+            header('Location: enviaraulas.php');
+            exit();
+        }
+    } else {
+      
+        echo "Credenciais inválidas. Por favor, verifique seu e-mail e senha.";
+    }
+}
+
 
 ?>
 
@@ -90,7 +122,7 @@ if (isset($_POST['criar'])) {
                 </div>
                 <p class="description description-second">Ou use seu E-mail para cadastrar:</p>
 
-                <form action="" class="form" method="post">
+                <form  class="form" method="post">
                     <div class="erro"><span><?php echo $erroMensagem; ?></span></div>
                     <div class="erro"><span><?php echo $erroEmail; ?></span></div>
                     <label for="" class="label-input"><i class='bx bx-user icon'></i>
@@ -130,7 +162,7 @@ if (isset($_POST['criar'])) {
 
                 </div>
                 <p class="description">Ou use seu E-mail</p>
-                <form action="" class="form" method="post">
+                <form  class="form" method="post">
                     <label for="" class="label-input"><i class='bx bx-envelope  icon'></i>
                         <input type="email" name="email" id="" placeholder="E-mail">
                     </label>
