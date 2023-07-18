@@ -147,7 +147,7 @@ if (isset($_GET['id'])) {
     $idCurso = $_GET['id'];
     include_once('conex.php');
 
-    $sql = "SELECT link FROM video WHERE Cursos_idCursos = $idCurso LIMIT 1;";
+    $sql = "SELECT * FROM video WHERE Cursos_idCursos = $idCurso LIMIT 1;";
     $resultado = $conn->query($sql);
 
     if ($resultado && $resultado->num_rows > 0) {
@@ -156,16 +156,16 @@ if (isset($_GET['id'])) {
    
 ?>
         
-
+            
             <div id="video-descricao">
                 <button style="float: right; padding:1px;" id="seta">&#9660;</button>
                 <div id="conteudo">
-                    <h3 style="font-size: 25px; margin-left:20px;"><?php      ?></h3>
+                    <h3 style="font-size: 25px; margin-left:20px;"><?php  echo $row['titulo'];    ?></h3>
                     <div style="display:flex; flex-direction:row;"><img id="fotovideo" src="<?php      ?>" alt="" srcset=""><span style="font-size:20px; margin-top:50px; margin-left:15px;">Clenio Emidio</span> </div>
                     <br><br>
                     <h3 style="font-size: 25px; margin-left:20px;">DESCRIÇÂO:</h3>
                     <br>
-                    <p><?php      ?></p>
+                    <p><?php echo $row['descrição'];     ?></p>
                 </div>
             </div>
 
