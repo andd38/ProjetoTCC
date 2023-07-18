@@ -2,7 +2,7 @@
 if(isset($_POST['update'])) {
   session_start();
   include_once('conex.php');
-  $id = $_SESSION['idAlunos'];
+  $id = $_SESSION['idUsuarios'];
   $dataNascimento = $_POST['data'];
   $cpf = $_POST['cpf'];
   $cep = $_POST['cep'];
@@ -31,7 +31,7 @@ if(isset($_POST['update'])) {
   $numero = mysqli_real_escape_string($conn, $numero);
 
 
-  $sql = "UPDATE Alunos SET 
+  $sql = "UPDATE Usuarios SET 
           data_nascimento = '$dataNascimento',
           cpf = '$cpf',
           cep = '$cep',
@@ -42,7 +42,7 @@ if(isset($_POST['update'])) {
           uf = '$uf',
           complemento = '$comple',
           numero = '$numero'
-          WHERE idAlunos = '$id'";
+          WHERE idUsuarios = '$id'";
 
  
   if (mysqli_query($conn, $sql)) {

@@ -1,7 +1,15 @@
 <?php
+
+if (isset($_GET['id'])) {
+    $idPagina = $_GET['id'];
 include_once('conex.php');
 
-$sql = "SELECT c.*, a.imagem FROM Comentarios c JOIN Alunos a ON c.Alunos_idAlunos = a.idAlunos ORDER BY c.data_comentario DESC";
+$sql = "SELECT c.*, u.imagem
+FROM Comentarios c
+JOIN Usuarios u ON c.Usuarios_idUsuarios = u.idUsuarios
+WHERE c.Cursos_idCursos = $idPagina
+ORDER BY c.data_comentario DESC;";
+
 $resultado = mysqli_query($conn, $sql);
 
 $comentarios = array();
@@ -31,5 +39,5 @@ if (mysqli_num_rows($resultado) > 0) {
         echo "</div>";
         echo "</div><br>";
     }
-}
+}}
 ?>

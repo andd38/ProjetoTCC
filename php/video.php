@@ -5,7 +5,7 @@ function get_total_all_records()
 {
     include('conex.php');
 
-    $stmt = $connection->prepare("SELECT * FROM Alunos");
+    $stmt = $connection->prepare("SELECT * FROM Usuarios");
     $stmt->execute();
     $result = $stmt->fetchAll();
     return $stmt->rowCount();
@@ -13,6 +13,21 @@ function get_total_all_records()
 
 if (empty($_SESSION)) {
     print("<script>location.href='login.php'</script>");
+}
+
+if (isset($_GET['id'])) {
+    $idCurso = $_GET['id'];
+    include_once('conex.php');
+
+  
+    $sql = "SELECT * FROM Cursos WHERE idCursos = '$idCurso';";
+    $resultado = $conn->query($sql);
+
+    if ($resultado && $resultado->num_rows > 0) {
+   
+        $row = $resultado->fetch_assoc();
+        $nome = $row['nome'];
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -30,6 +45,15 @@ if (empty($_SESSION)) {
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Brasil Concursos</title>
+    <style>
+          iframe {
+    margin-left: 25px;
+    border-radius: 10px;
+    max-height: 700px;
+    height: 600px;
+    width: 100%;
+}
+    </style>
 </head>
 
 <body>
@@ -118,21 +142,34 @@ if (empty($_SESSION)) {
 
     <div id="video-container">
         <main>
-            <iframe id="principal-video" width="560" height="500" src="https://www.youtube.com/embed/rdAIUcPqpTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <?php
+        if (isset($_GET['id'])) {
+    $idCurso = $_GET['id'];
+    include_once('conex.php');
+
+    $sql = "SELECT link FROM video WHERE Cursos_idCursos = $idCurso LIMIT 1;";
+    $resultado = $conn->query($sql);
+
+    if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+        echo '<iframe id="principal-video" width="560" height="500" src="'.$row['link'].'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+   
+?>
+        
 
             <div id="video-descricao">
                 <button style="float: right; padding:1px;" id="seta">&#9660;</button>
                 <div id="conteudo">
-                    <h3 style="font-size: 25px; margin-left:20px;">AULA 1: DESCRIÇÂO DOS ELEMENTOS</h3>
-                    <div style="display:flex; flex-direction:row;"><img id="fotovideo" src="../img/clenio.jpg" alt="" srcset=""><span style="font-size:20px; margin-top:50px; margin-left:15px;">Clenio Emidio</span> </div>
+                    <h3 style="font-size: 25px; margin-left:20px;"><?php      ?></h3>
+                    <div style="display:flex; flex-direction:row;"><img id="fotovideo" src="<?php      ?>" alt="" srcset=""><span style="font-size:20px; margin-top:50px; margin-left:15px;">Clenio Emidio</span> </div>
                     <br><br>
                     <h3 style="font-size: 25px; margin-left:20px;">DESCRIÇÂO:</h3>
                     <br>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea quidem harum, unde placeat voluptas autem natus nobis? Pariatur facere quasi est obcaecati, illum aliquam sunt eum corrupti, enim exercitationem expedita?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero repudiandae aliquid accusamus illum. Quae, sapiente. Enim laboriosam magni temporibus quibusdam nulla. Quibusdam, odio nulla. Autem deleniti unde molestiae quasi delectus!</p>
+                    <p><?php      ?></p>
                 </div>
             </div>
 
-            <form action="coment_ajax.php" method="post" id="formulario-comentario">
+            <form action="coment_ajax.php?id=<?php echo $idCurso ?>" method="post" id="formulario-comentario">
                 <h3>Comentários</h3>
                 <br>
                 <textarea name="coment" id="comentario" placeholder="Digite seu comentário" required></textarea>
@@ -150,78 +187,50 @@ if (empty($_SESSION)) {
         <div id="sidebar">
 
             <div id="content">
-                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/rdAIUcPqpTY', 'testando', 'tetskjdfokjdfgowkdejf'); ">
-                    <div class="video">
-                        <img src="../img/thumb/excel.png" alt="Vídeo 1">
-                        <div>
-                            <h4> Excel aula 1</h4>
-                            <p>Descrição do Video</p>
-                        </div>
-                    </div>
-                </a>
+            <?php
+if (isset($_GET['id'])) {
+    $idCurso = $_GET['id'];
 
-                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/cveufkhb-RA', 'testando', 'Descrição do Vídeo 1'); ">
-                    <div class="video">
-                        <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
-                        <div>
-                            <h4>Excel aula 2</h4>
-                            <p>Descrição do Video</p>
-                        </div>
-                    </div>
-                </a>
+    $sql = "SELECT * FROM `Video` WHERE `Cursos_idCursos` = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $idCurso);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/hpayJq30ax4', 'testando', 'Descrição do Vídeo 1'); ">
-                    <div class="video">
-                        <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
-                        <div>
-                            <h4> Excel aula 3</h4>
-                            <p>Descrição do Video</p>
-                        </div>
-                    </div>
-                </a>
+    while ($row = $result->fetch_assoc()) {
+        echo '<a href="#" onclick="mudarvideo(\'' . $row['link'] . '\', \'' . $row['titulo'] . '\', \'' . $row['descrição'] . '\')">';
+        echo '<div class="video">';
+        echo '<img src="' . $row['thumb'] . '" alt="Vídeo 1">'; 
+        echo '<div>';
+        echo '<h4>' . $row['titulo'] . '</h4>';
+        echo '<p>' . $row['descrição'] . '</p>';
+        echo '</div>';
+        echo '</div>';
+        echo '</a>';
+    }
+}
+?>
 
-                <a href="#" onclick="mudarvideo('https://www.youtube.com/embed/QOiwGrjwSbY', 'testando', 'Descrição do Vídeo 1'); ">
-                    <div class="video">
-                        <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
-                        <div>
-                            <h4> Vídeo 4</h4>
-                            <p>Descrição do Video</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); ">
-                    <div class="video">
-                        <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
-                        <div>
-                            <h4> Vídeo 5</h4>
-                            <p>Descrição do Video</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); ">
-                    <div class="video">
-                        <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
-                        <div>
-                            <h4> Vídeo 6</h4>
-                            <p>Descrição do Video</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" onclick="mudarvideo('', 'testando', 'Descrição do Vídeo 1'); ">
-                    <div class="video">
-                        <img src="../img/thumb/excel 02.png" alt="Vídeo 1">
-                        <div>
-                            <h4> Vídeo 7</h4>
-                            <p>Descrição do Video</p>
-                        </div>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
+
+    <script>
+    function mudarvideo(videoSrc, videoTitle, videoDescription) {
+        
+        var videoPlayer = document.getElementById('principal-video');
+        var videoTitleElement = document.getElementById('conteudo').getElementsByTagName('h3')[0];
+        var videoDescriptionElement = document.getElementById('conteudo').getElementsByTagName('p')[0];
+
+
+        videoPlayer.src = videoSrc;
+
+       
+        videoTitleElement.innerText = videoTitle;
+        videoDescriptionElement.innerText = videoDescription;
+    }
+</script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -233,35 +242,38 @@ if (empty($_SESSION)) {
     <script src="video.js"></script>
     <script src="menu.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#formulario-comentario').submit(function(event) { //Verifica o formulário
-                event.preventDefault(); // impede o envio do action padrão
+    var idPagina = <?php echo $idCurso; ?>; 
 
-                var formData = $(this).serialize(); //serializa os dados
+$(document).ready(function() {
+    $('#formulario-comentario').submit(function(event) { //Verifica o formulário
+        event.preventDefault(); // impede o envio do action padrão
 
-                $.ajax({
-                    type: 'POST',
-                    url: $(this).attr('action'),
-                    data: formData,
-                    success: function(response) {
-                        if (response === 'successo') {
-                            loadComments(); //Caso retorne sucesso , é executada a função que carrega os comentários
-                        } else {
-                            alert('Erro .');
-                        }
-                    }
-                });
-            });
+        var formData = $(this).serialize(); //serializa os dados
 
-            loadComments();
-
-            function loadComments() {
-                $.get('get_comments.php', function(response) {
-                    $('#comentarios-container').html(response);
-                });
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: formData + '&id=' + idPagina, // Adiciona o ID da página à data do formulário
+            success: function(response) {
+                if (response === 'successo') {
+                    loadComments(); //Caso retorne sucesso , é executada a função que carrega os comentários
+                } else {
+                    alert('Erro.');
+                }
             }
         });
+    });
+
+    loadComments();
+
+    function loadComments() {
+        $.get('get_comments.php?id=' + idPagina, function(response) { //Gambiarra que Passa o ID da página para o arquivo get_comments.php
+            $('#comentarios-container').html(response);
+        });
+    }
+});
     </script>
+      <?php   }}  ?>
 </body>
 
 </html>

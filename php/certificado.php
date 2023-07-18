@@ -11,7 +11,7 @@ $pdf->SetTitle('Certificado de conclusão');
 $pdf->SetSubject('esrer');
 $pdf->SetKeywords('palavra-chave, PDF, PHP');
 
-    $id = $_SESSION['idAlunos'];
+    $id = $_SESSION['idUsuarios'];
     $nome = $_SESSION['nome'];
     $email = $_SESSION['email'];
     $dataConclusao =  date("Y/m/d");
