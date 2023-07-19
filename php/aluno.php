@@ -30,7 +30,7 @@ if(empty($_SESSION)){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <title>Brasil Concursos</title>
@@ -42,6 +42,7 @@ if(empty($_SESSION)){
         </div>
         <nav>
             <a href="../php/pesquisa.php">Cursos</a>
+            <a href="editais">Editais</a>
             <a href="Quem somos">Quem somos</a>
             <a href="Contato">Contato</a>
         </nav>
@@ -133,14 +134,14 @@ if(empty($_SESSION)){
                     echo "<div class='img'></div>";
                 }
                 ?>
-                <button type="button" class="botaofoto" style="position: relative;" data-bs-toggle="modal" data-bs-target="#exampleFoto">
+                <button type="button" class="btn btn-success" style="position: relative;" data-bs-toggle="modal" data-bs-target="#exampleFoto">
                     Alterar
                 </button>
                 <div class="modal fade" id="exampleFoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
+                        <div class="modal-content" style="background-color: #0000005a;">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Atualizar</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Alterar foto</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -224,42 +225,47 @@ if(empty($_SESSION)){
                             <span><?php echo $linha['telefone'];?></span>
                             <div>
                                 <br>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#meumodal">
                                     Atualizar
                                 </button>
                             </div>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Atualizar</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal fade t-modal" id="meumodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                                <div class="modal-dialog modal-lg ">
+                                    <div class="modal-content" style="background-color:  #0000005a;">
+                                        <div class="modal-header" >
+
+                                            <h1 class="modal-title fs-5" style="color: white;" id="exampleModalLabel" style="color: black;">Atualizar</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"  style="color: white;" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="rodape"></div>
-                                            <div class="modal-principal">
-                                                <form action="update.php" method="post" autocomplete="off">
+                                            
+                                            <div class="modal-principal"  style="color: white;" >
+                                                <form action="update.php" method="post" autocomplete="off" style="display :flex ; flex-direction:column; align-items:center">
                                                     <label for="dt_nascimento">Data de nascimento:*</label>
-                                                    <input type="date" name="data" id="data" value="<?php echo $linha['data_nascimento']; ?>" required>
+                                                    <input type="date" name="data" id="data" style="border: 1px solid aqua; background-color:transparent; color:white;" <?php echo $linha['data_nascimento']; ?> required>
                                                     <br>
                                                     <label for="CPF">CPF:*</label> 
-                                                    <input type="text" name="cpf" id="cpf" value="<?php echo $linha['cpf']; ?>" required >  
+                                                    <input type="text" name="cpf" id="cpf" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['cpf']; ?>" required >  
                                                     <button type="button" onclick="validarCPF()" id="valida">Validar</button>
                                                     <span style="color: black;" id="validar"></span>
                                                     <br>
                                                     <h6>Informações do Endereço:</h6>
                                                     <label for="cep">CEP:</label>
-                                                    <input type="text" name="cep" id="cep" value="<?php echo $linha['cep']; ?>" required>
+                                                    <input type="text" name="cep" id="cep" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['cep']; ?>" required>
                                                     <button type="button" onclick="consultarCEP()" id="valida">Consultar</button>
-                                                    <p>CEP: <input type="text" id="logradouro" value="<?php echo $linha['logradouro']; ?>" name="logradouro"></p>
-                                                    <p>Logradouro: <input type="text" id="bairro" value="<?php echo $linha['bairro']; ?>" name="bairro"></p>
-                                                    <p>Cidade <input type="text" id="cidade" value="<?php echo $linha['cidade']; ?>" name="cidade"></p>
-                                                    <p>UF <input type="text" id="uf" value="<?php echo $linha['uf']; ?>" name="uf"></p>
-                                                    <p>Complemento <input type="text" id="complemento" value="<?php echo $linha['complemento']; ?>" name="complemento"></p>
-                                                    <p>Número <input type="text" id="numero" value="<?php echo $linha['numero']; ?>" name="numero"></p>
+                                                    <div style="display: flex;">
+                                                        <p>CEP: <input type="text" id="logradouro" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['logradouro']; ?>" name="logradouro"></p>
+                                                        <p>Logradouro: <input type="text" id="bairro" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['bairro']; ?>" name="bairro"></p>
+                                                    </div>
+                                                    <div style="display: flex;">
+                                                        <p>Cidade <input type="text" id="cidade" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['cidade']; ?>" name="cidade"></p>
+                                                        <p>UF <input type="text" id="uf" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['uf']; ?>" name="uf"></p>
+                                                    </div>
+                                                    <p>Complemento <input type="text" id="complemento" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['complemento']; ?>" name="complemento"></p>
+                                                    <p>Número <input type="text" id="numero" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['numero']; ?>" name="numero"></p>
                                                     <label for="telefone-celuar">Telefone(celular)*</label>
-                                                    <input type="tel" name="tel-cel" value="<?php echo $linha['telefone']; ?>" id="tel-cel">
-                                                    <button type="submit" name="update" class="btn btn-primary">Confirmar</button>
+                                                    <input type="tel" name="tel-cel" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['telefone']; ?>" id="tel-cel">
+                                                    <button type="submit" name="update" class="btn btn-success">Confirmar</button>
                                                 </form>
                                             </div>
                                             <?php

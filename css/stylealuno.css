@@ -263,13 +263,9 @@ header>  button:hover{
   border-radius: 5px;
 
  }
- .btn-primary{
-  width: 150px;
+ /* modal */
 
- }
- .btn-secondary{
-  width: 150px;
- }
+
 
  .img{
   width: 275px;
@@ -323,9 +319,6 @@ span {
   color: #fdfdfd;
 }
 
-.botaofoto {
-
-}
 
 .botaofoto:hover {
   background-color: rgb(255, 255, 255);

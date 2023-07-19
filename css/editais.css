@@ -36,6 +36,9 @@ background: linear-gradient(17deg, rgba(83,121,121,1) 22%, rgba(21,70,70,1) 83%)
  nav>a:hover{
     color: rgb(116, 211, 179);
  }
+ .mobile{
+  display: none;
+ }
 
 .material-symbols-outlined {
   font-variation-settings:
@@ -161,3 +164,4 @@ button:hover{
       width: 25px;
       font-size: 20px;
   }
+  

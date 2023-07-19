@@ -1,0 +1,44 @@
+div.container{
+    display: flex;
+    height: 880px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-top: 70%;
+}
+
+.section {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25vh;
+  }
+
+  .fotos {
+    text-align: center;
+    margin: 20px;
+    
+  }
+
+ 
+
+
+footer{
+    margin-top: 1200px;
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   
+
+}
+
+header{
+    display: none;
+}
+ .mobile {
+    display: flex;
+    flex-direction: column;
+}
