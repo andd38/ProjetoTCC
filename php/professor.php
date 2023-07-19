@@ -1,6 +1,18 @@
 <?php 
 session_start();
+include_once('conex.php');
 
+$id = $_SESSION['idUsuarios'];
+
+$query = "SELECT tipo_usuario FROM Usuarios Where idUsuarios = '$id';";
+
+$resultado = $conn->query($query);
+$row = $resultado->fetch_assoc();
+if ($row['tipo_usuario'] == 1){
+}else {
+    header('Location: aluno.php');
+exit();
+}
 function get_total_all_records(){
     include('conex.php');
     $stmt = $connection->prepare("SELECT * FROM Usuarios");
