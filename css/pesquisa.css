@@ -23,17 +23,22 @@ height: 120px;
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
+   
+  
  }
+ 
  nav>a{
     color: #fff;
     text-decoration: none;
     margin: 15px;
     font-size: 21px;
     transition: .3s;
+    
  }
  nav>a:hover{
     color: rgb(116, 211, 179);
  }
+ 
 
 .material-symbols-outlined {
   font-variation-settings:
@@ -165,7 +170,7 @@ button:hover{
     display: flex;
     flex-direction: column;
     width: 100px;
-    
+  
     
   }
 .areas > .concurso{
@@ -240,4 +245,6 @@ button:hover{
  button:hover{
   cursor: pointer;
 }
-
+.menu{
+  position: fixed;
+}

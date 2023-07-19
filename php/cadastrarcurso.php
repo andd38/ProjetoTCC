@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <title>cadastre o seu curso</title>
     <style>
-        @charset "utf-8";
+        @charset 'utf-8';
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
        
 
@@ -80,6 +80,7 @@ h2{
     flex-direction: column;
     justify-self: center;
     align-items: center;
+   
  
 
 }
@@ -91,6 +92,8 @@ form{
     display: flex;
     flex-direction: column;
     border-radius: 15px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.359);
 }
 .dados{
     margin: 25px 25px;
@@ -105,6 +108,33 @@ button{
 button :hover{
     border: rgb(56, 214, 161);
     background-color: #fff;
+}
+input[type=text]{
+    border: 1px solid aqua;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+    padding: 5px;
+}
+#carreiras{
+    border: 1px solid aqua;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+}
+#carreiras:focus{
+    color: #000000;
+}
+#resumo{
+    border: 1px solid aqua;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+    resize: none;
+    padding: 25px;
 }
   </style>
 </head>
@@ -140,18 +170,14 @@ button :hover{
                 </div>
                 <label for="descrição">Descrição do curso:</label>
                     <div class="dados">
-                    <textarea name="resumo" id="resumo" cols="30" rows="10">
+                    <textarea name="resumo" id="resumo" cols="30" rows="10" >
                               
     
-                    </textarea>
+                    </textarea >
 
                     </div>
                     <button>Enviar Curso</button>
-  <?php 
   
-    echo "curso cadastrado";
-  
-  ?>
             </form>
     </main>
 </body>

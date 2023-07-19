@@ -221,9 +221,9 @@
 
 
 
-                <div class=" nascimento">
-                    <label for="">Escolha o seu Curso:</label>
-                    <select name="plan" id="plan">
+                <div class="nascimento">
+                    <label for="">Escolha o seu Plano:</label>
+                    <select name="plan" class="plan">
 
                         <option value="Gratuito">Gratuito</option>
                         <option value="vitalicio">Vitalício</option>

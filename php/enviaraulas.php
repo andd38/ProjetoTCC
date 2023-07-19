@@ -116,30 +116,52 @@ main{
     font-size: 21px;
     margin-left: 8px;
 }
+.aula{
+   
+    display: flex;
+    margin: 25px 5px 25px 5px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+
+}
 form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-input{
+
+#aula-btn{
     width: 150px;
     size: 250px;
     border: 1px solid aqua;
-    border-radius:30px ;
-    background-color: transparent;
-    color: #fff;
+    background-color: aqua;
+    color: #000;
+    border-radius: 5px;
+}
+#aula-btn:hover{
+    background-color: aquamarine;
 }
 .enviaulas{
     display: flex;
     gap: 15px;
+}
+#descrição{
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid aqua;
+    outline: none;
+    color: #fff;
+    font-size: 21px;
+    
 }
 
 @media screen and (max-width : 1040px) {
         main{
             display: flex;
             flex-direction: column;
-            max-width: 150vh;
+            align-items: center;
             justify-content: center;
         }
         .description{
@@ -150,6 +172,8 @@ input{
             display: flex;
             flex-direction: column;
             max-width: 450px;
+            gap: 15px;
+            height: 1000px;
 
         }
         img{
@@ -195,11 +219,11 @@ input{
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ab totam necessitatibus explicabo ut? Rerum explicabo accusantium voluptate eum beatae est sunt magni corrupti quis recusandae officiis, itaque pariatur eveniet!</p>
             </div>
             <h2>Enviar aula</h2>
-            <div class="description">
+            <div class="aula">
                 <form action="enviaraulas.php" method="$_POST">
-                    <input type="file" name="aula" id="aula">
-                    <textarea name="descrição " id="descrição" cols="30" rows="10">descrição</textarea>
-                    <button id="aula">Enviar aula</button>
+                    <input type="file" name="aula" id="aula-btn">
+                    <textarea name="descrição " id="descrição" cols="30" rows="10" placeholder="descrição"></textarea>
+                    <button id="aula-btn">Enviar aula</button>
                 </form>
             </div>
             
