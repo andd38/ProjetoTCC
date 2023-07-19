@@ -1,5 +1,19 @@
 <?php
 session_start();
+if (isset($_GET['id']) && isset($_POST['userinsert'])) {
+    include_once('conex.php');
+    $idCurso = $_GET['id'];
+    $idaluno = $_SESSION['idUsuarios'];
+    $Query = "SELECT * FROM Matricula WHERE Usuarios_idUsuarios = '$idaluno' AND Cursos_idCursos = '$idCurso'";
+    $result = $conn->query($Query);
+
+    if ($result->num_rows == 0) {
+        $insertsql = "INSERT INTO Matricula VALUES (null, '$idaluno', '$idCurso')";
+        $conn->query($insertsql);
+    } else {
+        echo "O aluno já está matriculado neste curso.";
+    }
+}
 
 function get_total_all_records()
 {

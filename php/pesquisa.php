@@ -102,12 +102,13 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
-    
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
         echo '<br>Mais de 20 pdfs de aulas</br>';
-        echo '<br><a href="video.php?id=' . $idCurso . '"><button>Acessar</button></a></br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
+        echo '</form>';
     
 }
 ?>
@@ -127,12 +128,13 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
-    
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
         echo '<br>Mais de 20 pdfs de aulas</br>';
-        echo '<br><a href="video.php?id=' . $idCurso . '"><button>Acessar</button></a></br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
+        echo '</form>';
     
 }
 ?>
@@ -150,12 +152,13 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
-    
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
         echo '<br>Mais de 20 pdfs de aulas</br>';
-        echo '<br><a href="video.php?id=' . $idCurso . '"><button>Acessar</button></a></br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
+        echo '</form>';
     
 }
 ?>
@@ -173,12 +176,14 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
-    
+
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
         echo '<br>Mais de 20 pdfs de aulas</br>';
-        echo '<br><a href="video.php?id=' . $idCurso . '"><button>Acessar</button></a></br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
+        echo '</form>';
     
 }
 ?>
@@ -197,11 +202,13 @@ if ($resultado && $resultado->num_rows > 0) {
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
     
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
         echo '<br>Mais de 20 pdfs de aulas</br>';
-        echo '<br><a href="video.php?id=' . $idCurso . '"><button>Acessar</button></a></br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
+        echo '</form>';
     
 }
 ?>
@@ -220,11 +227,13 @@ if ($resultado && $resultado->num_rows > 0) {
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
     
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
         echo '<br>Mais de 20 pdfs de aulas</br>';
-        echo '<br><a href="video.php?id=' . $idCurso . '"><button>Acessar</button></a></br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
+        echo '</form>';
     
 }
 ?>
@@ -245,11 +254,13 @@ if ($resultado && $resultado->num_rows > 0) {
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
     
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
         echo '<br>Mais de 20 pdfs de aulas</br>';
-        echo '<br><a href="video.php?id=' . $idCurso . '"><button>Acessar</button></a></br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
+        echo '</form>';
     
 }
 ?>
@@ -268,11 +279,13 @@ if ($resultado && $resultado->num_rows > 0) {
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
     
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
         echo '<br>Mais de 20 pdfs de aulas</br>';
-        echo '<br><a href="video.php?id=' . $idCurso . '"><button>Acessar</button></a></br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
+        echo '</form>';
     
 }
 ?>
