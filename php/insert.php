@@ -2,7 +2,7 @@
 session_start();
 if(isset($_POST['insert'])) {
   include_once('conex.php');
-  $id = $_SESSION['idAlunos'];
+  $id = $_SESSION['idUsuarios'];
   $dataNascimento = $_POST['data'];
   $cpf = $_POST['cpf'];
   $cep = $_POST['cep'];
@@ -29,7 +29,7 @@ if(isset($_POST['insert'])) {
   $numero = mysqli_real_escape_string($conn, $numero);
   $plano = mysqli_real_escape_string($conn, $plano);
 
-  $sql = "UPDATE Alunos SET 
+  $sql = "UPDATE Usuarios SET 
           data_nascimento = '$dataNascimento',
           cpf = '$cpf',
           cep = '$cep',
@@ -41,10 +41,10 @@ if(isset($_POST['insert'])) {
           complemento = '$comple',
           numero = '$numero',
           plano = '$plano'
-          WHERE idAlunos = '$id'";
+          WHERE idUsuarios = '$id'";
 
   if (mysqli_query($conn, $sql)) {
- header('location:aluno.php');
+    header('location:aluno.php');
   } else {
     echo "Erro ao inserir os dados: " . mysqli_error($conn);
   }

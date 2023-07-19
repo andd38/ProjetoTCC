@@ -1,9 +1,10 @@
+
 <?php 
 session_start();
 
 function get_total_all_records(){
     include('conex.php');
-    $stmt = $connection->prepare("SELECT * FROM Alunos");
+    $stmt = $connection->prepare("SELECT * FROM Usuarios");
     $stmt->execute();
     $result = $stmt->fetchAll();
     return $stmt->rowCount();
@@ -106,17 +107,17 @@ if(empty($_SESSION)){
                 <?php
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['legal'])) {
                     include_once('conex.php');
-                    $id = $_SESSION['idAlunos'];
+                    $id = $_SESSION['idUsuarios'];
                     $destino = '../img/alunosimg/' . $_FILES['imagem']['name'];
                     move_uploaded_file($_FILES['imagem']['tmp_name'], $destino);
                     $caminhoImagem = $conn->real_escape_string($destino);
-                    $sql = "UPDATE Alunos SET imagem = '$caminhoImagem' WHERE idAlunos = $id";
+                    $sql = "UPDATE Usuarios SET imagem = '$caminhoImagem' WHERE idUsuarios = $id";
                     $conn->query($sql);
                 }
 
                 include_once('conex.php');
-                $id = $_SESSION['idAlunos'];
-                $sql = "SELECT imagem FROM Alunos WHERE idAlunos = $id";
+                $id = $_SESSION['idUsuarios'];
+                $sql = "SELECT imagem FROM Usuarios WHERE idUsuarios = $id";
                 $resultado = $conn->query($sql);
 
                 if ($resultado && $resultado->num_rows > 0) {
@@ -147,8 +148,8 @@ if(empty($_SESSION)){
                                 <div class="modal-principal">
                                     <?php
                                     include_once('conex.php');
-                                    $id = $_SESSION['idAlunos'];
-                                    $sql = "SELECT imagem FROM Alunos WHERE idAlunos = $id";
+                                    $id = $_SESSION['idUsuarios'];
+                                    $sql = "SELECT imagem FROM Usuarios WHERE idUsuarios = $id";
                                     $resultado = $conn->query($sql);
 
                                     if ($resultado && $resultado->num_rows > 0) {
@@ -193,7 +194,7 @@ if(empty($_SESSION)){
         <div class="container2">
             <div class="sobre"><!-- informações que aluno pode adicionar ou mudar no seu perfil -->
                 <h2>Sobre mim</h2>
-                <form action="insert.php" method="post" autocomplete="off">
+                <form action="update.php" method="post" autocomplete="off">
                     <h4>Informações adicionais</h4>
                     <?php 
                     include('conex.php');
@@ -204,8 +205,8 @@ if(empty($_SESSION)){
 
                     <?php
                     include('conex.php');
-                    $id = $_SESSION['idAlunos'];
-                    $sql = "SELECT * FROM Alunos where idAlunos = $id";
+                    $id = $_SESSION['idUsuarios'];
+                    $sql = "SELECT * FROM Usuarios where idUsuarios = $id";
                     $resultado = mysqli_query($conn, $sql);
 
                     if (mysqli_num_rows($resultado) > 0) {

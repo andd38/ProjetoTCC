@@ -91,177 +91,204 @@ include ('conex.php');
                     <div class="concurso">
                         <div class="grupo1">
                             <div class="content adm">
-                                <div class="carta">
-                                    <br><h1>Concurso PRF</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Concurso PRF</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Concurso PRF</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                            
-                            
+                            <?php
+session_start();
+include_once('conex.php');
+
+$sql = "SELECT * FROM Cursos WHERE Categoria = 'adm';";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+        $idCurso = $row['idCursos']; 
+        $nome = $row['nome'];
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
+        echo '<div class="carta">';
+        echo '<br><h1>' . $nome . '</h1></br>';
+        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+        echo '</div>';
+        echo '</form>';
+    
+}
+?>
+
                             </div>
+
+
                             <div class="content medicinal">
-                                <div class="carta">
-                                    <br><h1>Concurso hran</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Concurso Hospital de Santa Maria</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Concurso Hospital de taguatinga</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                            
+                            <?php
+
+include_once('conex.php');
+
+$sql = "SELECT * FROM Cursos WHERE Categoria = 'medicinal';";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+        $idCurso = $row['idCursos']; 
+        $nome = $row['nome'];
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
+        echo '<div class="carta">';
+        echo '<br><h1>' . $nome . '</h1></br>';
+        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+        echo '</div>';
+        echo '</form>';
+    
+}
+?>
                             
                             </div>
                             <div class="content bancario">
-                                <div class="carta" >
-                                    <br><h1>Concurso banco do brasil</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta" >
-                                    <br><h1>Concurso banco centra</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Concurso caixa</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                            
-                            </div>
+                            <?php
+
+include_once('conex.php');
+
+$sql = "SELECT * FROM Cursos WHERE Categoria = 'bancario';";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+        $idCurso = $row['idCursos']; 
+        $nome = $row['nome'];
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
+        echo '<div class="carta">';
+        echo '<br><h1>' . $nome . '</h1></br>';
+        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+        echo '</div>';
+        echo '</form>';
+    
+}
+?>
                         </div>
                         <div class="grupo1">
                             <div class="content tech">
-                                <div class="carta" >
-                                    <br><h1>Concurso agente de tecnologia da caixa</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta" >
-                                    <br><h1>Concurso agente de TI do banco central </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Concurso caixa asssitente de TI </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
+                            <?php
+
+include_once('conex.php');
+
+$sql = "SELECT * FROM Cursos WHERE Categoria = 'tecnologia';";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+        $idCurso = $row['idCursos']; 
+        $nome = $row['nome'];
+
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
+        echo '<div class="carta">';
+        echo '<br><h1>' . $nome . '</h1></br>';
+        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+        echo '</div>';
+        echo '</form>';
+    
+}
+?>
                             
                             </div>
                             <div class="content direito">
-                                <div class="carta" >
-                                    <br><h1>Concurso da PM</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta" >
-                                    <br><h1>Concurso TJDFT </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Concurso TRF </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
+                            <?php
+
+include_once('conex.php');
+
+$sql = "SELECT * FROM Cursos WHERE Categoria = 'direito';";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+        $idCurso = $row['idCursos']; 
+        $nome = $row['nome'];
+    
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
+        echo '<div class="carta">';
+        echo '<br><h1>' . $nome . '</h1></br>';
+        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+        echo '</div>';
+        echo '</form>';
+    
+}
+?>
                             
                             </div>
                             <div class="content engenharia">
-                                <div class="carta" >
-                                    <br><h1>Concurso da PM</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta" >
-                                    <br><h1>Concurso TJDFT </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Concurso TRF </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
+                            <?php
+
+include_once('conex.php');
+
+$sql = "SELECT * FROM Cursos WHERE Categoria = 'engenharia';";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+        $idCurso = $row['idCursos']; 
+        $nome = $row['nome'];
+    
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
+        echo '<div class="carta">';
+        echo '<br><h1>' . $nome . '</h1></br>';
+        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+        echo '</div>';
+        echo '</form>';
+    
+}
+?>
                             
                             </div>
                         </div>
                         <div class="grupo1">
                             <div class="content militar">
-                                <div class="carta" >
-                                    <br><h1>Concurso da ITA</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta" >
-                                    <br><h1>Concurso eear </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Concurso esa </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
+                            <?php
+
+include_once('conex.php');
+
+$sql = "SELECT * FROM Cursos WHERE Categoria = 'militar';";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+        $idCurso = $row['idCursos']; 
+        $nome = $row['nome'];
+    
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
+        echo '<div class="carta">';
+        echo '<br><h1>' . $nome . '</h1></br>';
+        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+        echo '</div>';
+        echo '</form>';
+    
+}
+?>
                             
                             </div>
                             <div class="content vestibular">
-                                <div class="carta" >
-                                    <br><h1>Enem</h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta" >
-                                    <br><h1>PAS </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
-                                <div class="carta">
-                                    <br><h1>Vestibular tradicional </h1></br>
-                                    <br>500 hrs de Aulas</br>
-                                    <br>Mais de 20 pdfs de aulas
-                                    <br><button>Acessar</button>
-                                </div>
+                            <?php
+
+include_once('conex.php');
+
+$sql = "SELECT * FROM Cursos WHERE Categoria = 'vestibular';";
+$resultado = $conn->query($sql);
+
+if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+        $idCurso = $row['idCursos']; 
+        $nome = $row['nome'];
+    
+        echo '<form action="video.php?id='.$idCurso.'" method="post">';
+        echo '<div class="carta">';
+        echo '<br><h1>' . $nome . '</h1></br>';
+        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+        echo '</div>';
+        echo '</form>';
+    
+}
+?>
                             
                             </div>
                         </div>
@@ -277,6 +304,6 @@ include ('conex.php');
     <footer>
 
     </footer>
-    <script src="/js/pesquisa.js"></script>
+    <script src="../js/pesquisa.js"></script>
 </body>
 </html>

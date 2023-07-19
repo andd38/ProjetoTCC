@@ -9,12 +9,12 @@
     height: 100%; 
   }
 
-  #principal-video {
+  iframe {
     margin-left: 25px;
     border-radius: 10px;
     max-height: 700px;
     width: 100%;
-  }
+}
 
   #sidebar {
     background-color: rgba(0, 0, 0, 0.397);

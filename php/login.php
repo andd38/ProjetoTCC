@@ -16,7 +16,7 @@ if (isset($_POST['criar'])) {
         $erroMensagem = "A senha deve ter no mínimo 6 caracteres e conter letras e números.";
     } else {
         // Verificação do email no nosso banco, caso tenha um email igual, não será aceito.
-        $checkQuery = "SELECT idAlunos FROM Alunos WHERE email = '$email'";
+        $checkQuery = "SELECT idUsuarios FROM Usuarios WHERE email = '$email'";
         $checkResult = mysqli_query($conn, $checkQuery);
 
         if (mysqli_num_rows($checkResult) > 0) {
@@ -24,10 +24,10 @@ if (isset($_POST['criar'])) {
         } else {
             $tipoUsuario = 0;
 
-            $query = "INSERT INTO `db_senac`.`Alunos` (`idAlunos`, `nome`, `email`, `senha`, `tipo_usuario`) VALUES (null, '$nome', '$email', '$pass', '$tipoUsuario')";
+            $query = "INSERT INTO `db_senac`.`Usuarios` (`idUsuarios`, `nome`, `email`, `senha`, `tipo_usuario`) VALUES (null, '$nome', '$email', '$pass', '$tipoUsuario')";
 
             if (mysqli_query($conn, $query)) {
-                $_SESSION['idAlunos'] = mysqli_insert_id($conn);
+                $_SESSION['idUsuarios'] = mysqli_insert_id($conn);
                 $_SESSION['nome'] = $nome;
                 $_SESSION['email'] = $email;
                 $_SESSION['tipoUsuario'] = $tipoUsuario;
@@ -39,7 +39,7 @@ if (isset($_POST['criar'])) {
                     header('Location: cadastroaluno.php');
                     exit();
                 } elseif ($tipoUsuario == 1) {
-                    header('Location: cadastroprofessor.php');
+                    header('Location: cadastroaluno.php');
                     exit();
                 }
             } else {
@@ -53,14 +53,14 @@ if (isset($_POST['entrar'])) {
     $email = $_POST['email'];
     $pass = $_POST['senha'];
 
-    $query = "SELECT * FROM Alunos WHERE email = '$email' AND senha = '$pass'";
+    $query = "SELECT * FROM Usuarios WHERE email = '$email' AND senha = '$pass'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 1) {
        
         $row = mysqli_fetch_assoc($result);
 
-        $_SESSION['idAlunos'] = $row['idAlunos'];
+        $_SESSION['idUsuarios'] = $row['idUsuarios'];
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['tipoUsuario'] = $row['tipo_usuario'];
@@ -69,7 +69,7 @@ if (isset($_POST['entrar'])) {
             header('Location: aluno.php');
             exit();
         } elseif ($row['tipo_usuario'] == 1) {
-            header('Location: enviaraulas.php');
+            header('Location: professor.php');
             exit();
         }
     } else {

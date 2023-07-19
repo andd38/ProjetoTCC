@@ -1,5 +1,6 @@
-<?php 
+<?php
 include_once('conex.php');
+session_start();
 
 $id = $_SESSION['idUsuarios'];
 
@@ -14,23 +15,29 @@ if ($row['tipo_usuario'] == 1){
 exit();
 }
 
-session_start();
-if(isset($_POST['enviar'])) {
-  include_once('conex.php');
-  $id = $_SESSION['idUsuarios'];
-  $carreira = $_POST['carreiras'];
-  $nome = $_POST['nome'];
-  $descricao = $_POST['resumo'];
-  $query = "INSERT INTO Cursos values (null,'$nome','$descricao','$carreira','$id');";
+if (isset($_POST['envia'])) {
+    if (isset($_GET['id'])) {
+        $idCurso = $_GET['id'];
+        echo $idCurso;
+        $aula = $_POST["aula"];
+        $titulo = $_POST["titulo"];
+        $descricao = $_POST["descricao"];
 
-if (mysqli_query($conn,$query)){
-    include_once('conex.php');
-header('location:professor.php');
-} else {
-    echo "erro";
-}
+        include_once('conex.php');
+
+        $thumbDestino = '../img/thumb/' . $_FILES["thumbnail"]["name"];
+        move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $thumbDestino);
+        $caminhoThumbnail = $conn->real_escape_string($thumbDestino);
+
+        $sql = "INSERT INTO `Video` (`link`, `titulo`, `descrição`, `thumb`, `Cursos_idCursos`) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sssss", $aula, $titulo, $descricao, $caminhoThumbnail, $idCurso);
+        $stmt->execute();
+        header('location:professor.php');
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -146,7 +153,7 @@ button :hover{
     <header>
     <nav>
        
-       <a href="professor.php"><img src="../img/logo2pequena.png" alt=""></a>
+       <a href="enviaraulas.php"><img src="../img/logo2pequena.png" alt=""></a>
   <h2>Cadastrar cursos</h2>
    <a href="#" style="text-decoration: none;"
    id="entrar"><i class='bx bxs-user'><!-- nome do professor (php) --></i>
@@ -155,33 +162,37 @@ button :hover{
    </nav>
     </header>
     <main>
-            <form method="post" autocomplete="off">
-                <div class="dados">
-                    <label for="nome">Nome do curso:</label>
-                    <input type="text" name="nome" id="nome">
-                </div>
-                <div class="dados">
-                    <label for="Carreiras">Carreira do curso:</label>
-                    <select name="carreiras" id="carreiras">
-                        <option value="adm">ADM</option>
-                        <option value="militar">Militar</option>
-                        <option value="medicinal">Medicinal</option>
-                        <option value="tecnologia">Tecnologia</option>
-                        <option value="engenharia">Engenharia</option>
-                        <option value="direito">Direito</option>
-                        <option value="bancario">Bancario</option>
-                    </select>
-                </div>
-                <label for="descrição">Descrição do curso:</label>
-                    <div class="dados">
-                    <textarea name="resumo" id="resumo" cols="30" rows="10">
-                              
-    
-                    </textarea>
+    <h2>Enviar aula</h2>
+            <div class="description">
+            <!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Video</title>
+</head>
+<body>
+    <form action="" enctype="multipart/form-data" method="post">
+        <label for="aula">Link Vídeo</label>
+        <input type="text" name="aula">
+        <label for="titulo">Título</label>
+        <input type="text" name="titulo">
+        <textarea name="descricao" cols="30" rows="10" placeholder="Descrição"></textarea>
+        <label for="thumb">Thumbnail</label>
+        <img id="thumbnail-preview" src="" alt="" style="max-width: 200px;">
+        <input type="file" name="thumbnail" id="thumb" onchange="previewThumbnail()">
+        <button type="submit" name="envia">Enviar aula</button>
+    </form>
 
-                    </div>
-                    <button type="submit" name="enviar">Enviar Curso</button>
-            </form>
+    <script>
+        function previewThumbnail() {
+            const thumbnailInput = document.getElementById('thumb');
+            const thumbnailPreview = document.getElementById('thumbnail-preview');
+            thumbnailPreview.src = thumbnailInput.files ? URL.createObjectURL(thumbnailInput.files[0]) : "";
+        }
+    </script>
+</body>
+</html>
+
+            </div>
     </main>
 </body>
 </html>
