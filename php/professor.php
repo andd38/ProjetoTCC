@@ -2,17 +2,6 @@
 session_start();
 include_once('conex.php');
 
-$id = $_SESSION['idUsuarios'];
-
-$query = "SELECT tipo_usuario FROM Usuarios Where idUsuarios = '$id';";
-
-$resultado = $conn->query($query);
-$row = $resultado->fetch_assoc();
-if ($row['tipo_usuario'] == 1){
-}else {
-    header('Location: aluno.php');
-exit();
-}
 function get_total_all_records(){
     include('conex.php');
     $stmt = $connection->prepare("SELECT * FROM Usuarios");
@@ -139,14 +128,20 @@ main{
 }
 .description{
     display: flex;
-    margin: 25px 5px 25px 5px;
+    margin: 50px 5px 25px 5px;
     align-items: center;
     justify-content: center;
     color: #fff;
+    flex-direction: column;
+    gap: 15px;
 }
 .description p{
     font-size: 21px;
     margin-left: 8px;
+}
+.description img{
+    border-radius: 50%;
+    width: 150px;
 }
 form{
     display: flex;
@@ -184,8 +179,43 @@ width: 80%;
 height: 40px;
 }
 
-#cursocontent{
- text-align: center;
+#cursocontent {
+
+ display: flex;
+ flex-wrap:wrap ;
+ gap: 15px;
+ 
+
+}
+#cursocontent>a{
+    text-decoration: none;
+    background-color: aqua;
+    color: #000000;
+    border-radius: 5px;
+    padding: 10px;
+}
+.en{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;height: 280px;
+
+}
+.send-course{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: aqua;
+    color: #000000;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    transition: 0.5s;
+}
+.send-course:hover{
+    border: aqua 1px solid;
+    background-color: transparent;
+    color: #fff;
 }
 
 @media screen and (max-width : 1040px) {
@@ -208,7 +238,8 @@ height: 40px;
         img{
             width: 150px;
         }
-        
+       
+      
 }
 
     </style>
@@ -249,8 +280,8 @@ if ($resultado && $resultado->num_rows > 0) {
 
 
     <!-- link para adicionar curso , coloquei aqui aleatoriamente ,temos que achar um lugar para ele -->
-    <a href="cadastrarcurso.php"><input style="margin-top: 60%;" type="submit" value="Enviar Curso"></a>
-    </div>
+</div>
+    <div class="en"><a href="../php/cadastrarcurso.php" class="send-course">Enviar curso</a></div>
     </div>
 <div class="box1">
 <h2>Certificações/História</h2>
@@ -292,12 +323,12 @@ if ($resultado && $resultado->num_rows > 0) {
                 }
                 ?>
 
-                <button type="button" class="botaofoto" style="position: relative;" data-bs-toggle="modal" data-bs-target="#exampleFoto">
+                <button type="button" class="btn btn-success" style="position: relative;" data-bs-toggle="modal" data-bs-target="#exampleFoto">
                     Alterar
                 </button>
                 <div class="modal fade" id="exampleFoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
+                        <div class="modal-content" style="background-color:#00000051;">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Atualizar</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -318,10 +349,10 @@ if ($resultado && $resultado->num_rows > 0) {
                                         if (!empty($caminhoImagem)) {
                                             echo "<img src='$caminhoImagem' alt='user' width='250px'>";
                                         } else {
-                                            echo "<img src='../img/thumb/149071.png' alt='user' width='250px'>";
+                                            echo "<img style='display:flex; justify-content:center;' src='../img/thumb/149071.png' alt='user' width='250px'>";
                                         }
                                     } else {
-                                        echo "<img src='../img/thumb/149071.png' alt='user' width='250px'>";
+                                        echo "<img style='display:flex; justify-content:center;'  src='../img/thumb/149071.png' alt='user' width='250px'>";
                                     }
                                     ?>
 

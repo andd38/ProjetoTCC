@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/sobre.css">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
+        </div>
+        <!-- menu-->
+
+
+        <nav>
+            <a href="../ProjetoTCC/html/pesquisa.html">Cursos</a>
+            <a href="CursosGratuitos">Editais</a>
+            <a href="Quem somos">Sobre</a>
+            <a href="Contato">Contato</a>
+        </nav>
+        <!--botão pesquisar-->
+        <form action="../php/pesquisar.php" method="post">
+            <div class="buttonc">
+                <input type="text" id="search" placeholder="Buscar curso...">
+                <button type="submit"><i class='bx bx-search-alt-2'></i></button>
+            </div>
+        </form><!--botao do carrinho de compras-->
+
+        <a href="#" id="carrinho">
+            Carrinho
+            <span class="material-symbols-outlined">
+                shopping_cart
+            </span>
+        </a>
+        <!--botao de entrar na área do aluno-->
+
+        <a href="html/login.html" style="text-decoration: none;" id="entrar">Entrar<span
+                class="material-symbols-outlined">
+                person
+            </span>
+        </a>
+
+
+    </header>
+    <!--menu versao mobile-->
+    <header class="mobile">
+        <div id="logo">
+            <a href="index.html"><img src="img/logo2pequena.png" alt=""></a>
+            <!--botão pesquisar-->
+            <form action="../php/pesquisar.php" method="post">
+                <div class="buttonc">
+                    <input type="text" id="search" placeholder="Buscar curso...">
+                    <button type="submit"><i class='bx bx-search-alt-2'></i></button>
+                </div>
+            </form>
+            <i onclick="acao()" id="menu" class='bx bx-menu'></i>
+        </div>
+        <!-- menu-->
+
+
+
+
+        <!--botao do carrinho de compras-->
+        <div class="nav-menu" id="nav-menu">
+            <div class="btn-user">
+
+                <button id="carrinho">
+                    Carrinho
+                    <span class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                </button>
+                <!--botao de entrar na área do aluno-->
+
+
+                <a href="html/login.html"> <button id="carrinho">Entrar</a><span class="material-symbols-outlined">
+                    person
+                </span></button></a>
+
+
+                <i onclick="acao()" class='bx bx-x' id="X"></i>
+
+            </div>
+            <nav>
+                <a href="#">Cursos</a>
+                <a href="#">Editais</a>
+                <a href="#">Sobre</a>
+                <a href="Contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container1">
+
+            <h1>Quem somos?</h1><!-- Sobre nos -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse adipisci laborum fuga quae suscipit incidunt eligendi, sunt dolorem consequatur nostrum. Laboriosam incidunt nulla excepturi. Accusantium maxime nulla iure aut . Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, magnam quibusdam voluptatibus ducimus ea, optio impedit inventore exercitationem perspiciatis deserunt quos nihil debitis eveniet distinctio omnis facere amet mollitia. Laudantium!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptate explicabo dolorem molestiae itaque laborum quis consequatur ea odio aperiam quisquam sapiente quibusdam mollitia, quod at unde, modi totam nobis.</p>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, illum vel dolores impedit, cum debitis autem consequatur incidunt quasi velit quas odit nesciunt molestiae doloremque nemo enim, veniam maxime eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nemo consequuntur, voluptatum molestias ipsa eius. Adipisci, vero itaque quisquam et perferendis voluptatum illum alias excepturi neque assumenda impedit, quidem aliquam.</p>
+           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore ea, voluptatibus quidem culpa mollitia quis ab perferendis voluptate tempora expedita nulla laboriosam odit facere, quos omnis, labore deserunt eius eaque. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, id. Amet impedit, temporibus assumenda ratione omnis blanditiis odio fuga ipsum molestias dolorem voluptates non! Magnam eos quia eius maxime adipisci?</p>
+        
+        </div>
+        <div class="container2"><!-- missão , visao e valores -->
+            <div class="card missao">
+                <h1>Missao</h1>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, nesciunt. Suscipit ex ducimus maxime, officia tempore non qui cupiditate tenetur ipsum doloribus cumque necessitatibus natus commodi fuga aperiam explicabo omnis.
+            </div>
+            <div class="card visao">
+                <h1>visao</h1>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit voluptatem dolorem, consequatur exercitationem voluptates eaque alias debitis qui, inventore illum eos quos obcaecati. Vel repellendus nam eius labore ex blanditiis.
+            </div>
+            <div class="card valores">
+                <h1>valores</h1>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quia cum aliquid consequatur aspernatur debitis explicabo corporis cupiditate blanditiis voluptate laudantium eum facilis perferendis magni, vel suscipit doloremque! Odit, natus!
+            </div>
+        </div>
+
+
+    </main>
+    <footer>
+        <img src="../img/logo2pequena.png" alt="">
+        <div class="titulo">
+            <h1> Redes Sociais</h1>
+            <ul type="none">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+            </ul>
+
+        </div>
+        <div class="titulo">
+            <h1>LICENSE</h1>
+            <a href="LICENSE">Licença e termos de uso</a>
+        </div>
+
+        <div class="titulo">
+            <h1>Extras</h1>
+            <ul type="none">
+                <li><a href="#">Trabalhe conosco</a></li>
+                <li><a href="#">Suporte</a></li>
+                <li><a href="#">Atendimento ao aluno</a></li>
+            </ul>
+
+        </div>
+
+    </footer>
+    <script src="js/menu.js"></script>
+</body>
+</html>

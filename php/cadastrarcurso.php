@@ -1,18 +1,8 @@
 <?php 
 include_once('conex.php');
 
-$id = $_SESSION['idUsuarios'];
-
-$query = "SELECT tipo_usuario FROM Usuarios Where idUsuarios = '$id';";
 
 
-$resultado = $conn->query($query);
-$row = $resultado->fetch_assoc();
-if ($row['tipo_usuario'] == 1){
-}else {
-    header('Location: aluno.php');
-exit();
-}
 
 session_start();
 if(isset($_POST['enviar'])) {

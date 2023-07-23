@@ -26,6 +26,9 @@ background: linear-gradient(17deg, rgba(83,121,121,1) 22%, rgba(21,70,70,1) 83%)
     display: flex;
     justify-content: space-around;
  }
+ .mobile{
+    display: none;
+ }
  nav>a{
     color: #fff;
     text-decoration: none;
@@ -35,9 +38,6 @@ background: linear-gradient(17deg, rgba(83,121,121,1) 22%, rgba(21,70,70,1) 83%)
  }
  nav>a:hover{
     color: rgb(116, 211, 179);
- }
- .mobile{
-  display: none;
  }
 
 .material-symbols-outlined {
@@ -92,7 +92,6 @@ button:hover{
     border: none;
     background-color: #fff;
     color: #000000;
-    color: #00000051;
 }
 #entrar:hover{
     background-color: rgb(56, 214, 161);
@@ -166,3 +165,62 @@ button:hover{
       font-size: 20px;
   }
   
+  .container1{
+    margin: 50px;
+  }
+  .container1 >h1{
+    font-family:'Inconsolata';
+    font-size: 80px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+    color: rgb(76, 160, 132);
+  }
+  .container1 >p{
+    font-size: 25px;
+    color: #ffffff;
+    margin: 15px;
+  }
+  .container2{
+    display: flex;
+    flex-direction: row;   
+    gap: 250px;
+    
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  .card{
+    color: #fff;
+    font-size: 25px;
+    background-color: rgb(23, 159, 113);
+    border-radius:15px ;
+    width: 350px;
+    padding: 15px;
+    
+  }
+  .card >h1{
+    text-align: center;
+   
+    
+  }
+  footer{
+    padding-top: 50px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.titulo{
+    color: #fff;
+    
+}
+.titulo a{
+    text-decoration: none;
+    list-style: style ;
+    color: #fff;
+    font-size: 21px;
+    transition: .3s;
+}
+.titulo a:hover{
+    color: rgb(116, 211, 179);
+}
