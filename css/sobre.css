@@ -26,6 +26,9 @@ background: linear-gradient(17deg, rgba(83,121,121,1) 22%, rgba(21,70,70,1) 83%)
     display: flex;
     justify-content: space-around;
  }
+ .mobile{
+    display: none;
+ }
  nav>a{
     color: #fff;
     text-decoration: none;
@@ -35,9 +38,6 @@ background: linear-gradient(17deg, rgba(83,121,121,1) 22%, rgba(21,70,70,1) 83%)
  }
  nav>a:hover{
     color: rgb(116, 211, 179);
- }
- .mobile{
-  display: none;
  }
 
 .material-symbols-outlined {
@@ -92,7 +92,6 @@ button:hover{
     border: none;
     background-color: #fff;
     color: #000000;
-    color: #00000051;
 }
 #entrar:hover{
     background-color: rgb(56, 214, 161);
@@ -165,51 +164,43 @@ button:hover{
       width: 25px;
       font-size: 20px;
   }
-  main{
+  
+  .container1{
+    margin: 50px;
+  }
+  .container1 >h1{
+    font-family:'Inconsolata';
+    font-size: 80px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+    color: rgb(76, 160, 132);
+  }
+  .container1 >p{
+    font-size: 25px;
+    color: #ffffff;
+    margin: 15px;
+  }
+  .container2{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .concursos{
-    border-radius: 15px;
-    width: 850px;
+    flex-direction: row;   
+    gap: 250px;
     
-    border: 1px aquamarine solid;
+    justify-content: center;
+    margin-bottom: 50px;
   }
-  .concursos> h1{
-    color: #fff;
-    text-align: center;
-    margin: 15px 15px;
-  }
-  .concursos > p{
-    color: #fff;
-    font-size: 21px;
-    margin: 20px;
-  }
-  .concursos >h3{
+  .card{
     color: #fff;
     font-size: 25px;
-    margin-left: 50px;
-  }
-  .acessar{
-    display: flex;
+    background-color: rgb(23, 159, 113);
+    border-radius:15px ;
+    width: 350px;
+    padding: 15px;
     
-    justify-content: center;
   }
-  .concursos >.acessar> a{
-    text-decoration: none;
-    color: #000000;
-    background-color: aquamarine;
-    height: 35px;
-    width: 180px;
-    margin: 21px;
-    border-radius: 12px;
+  .card >h1{
     text-align: center;
-
-
-  }.concursos >.acessar> a:hover{
-    background-color: rgb(50, 180, 136);
+   
+    
   }
   footer{
     padding-top: 50px;
