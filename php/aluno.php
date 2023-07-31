@@ -34,6 +34,24 @@ if(empty($_SESSION)){
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <title>Brasil Concursos</title>
+    <style>
+        .progress-bar {
+            width: 200px;
+            height: 20px;
+            border-radius: 10px ;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: rgba(99, 252, 201, 0.692);
+        }
+
+        .label {
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
     <header class="menu-principal">
@@ -186,10 +204,16 @@ if(empty($_SESSION)){
                 <input type="radio" name="gratuito" id="gratuito" value="gratuito">
             </div>
             <div class="conquistas">
-                <h2>Conquistas</h2>
-                <form action="../php/certificado.php" method="post">
-                    <input type="submit" name="certi" value="Emitir Certificado">
-                </form>
+           <h1>Progresso dos Cursos</h1>
+
+<div id="cursos-progresso">
+ 
+</div>
+
+<div id="emitir-certificado">
+    
+    </div>
+
             </div>
         </div>
         <div class="container2">
@@ -305,5 +329,6 @@ if(empty($_SESSION)){
     </script>
     <script src="modal.js"></script>
     <script src="cep.js"></script>
+    <script src="progresso.js"></script>
 </body>
 </html>
