@@ -1,20 +1,5 @@
 <?php
 session_start();
-if (isset($_GET['idc']) && isset($_POST['userinsert'])) {
-    include_once('conex.php');
-    $idCurso = $_GET['id'];
-    $idaluno = $_SESSION['idUsuarios'];
-    $Query = "SELECT * FROM Matricula WHERE Usuarios_idUsuarios = '$idaluno' AND Cursos_idCursos = '$idCurso'";
-    $result = $conn->query($Query);
-
-    if ($result->num_rows == 0) {
-        $insertsql = "INSERT INTO Matricula VALUES (null, '$idaluno', '$idCurso')";
-        $conn->query($insertsql);
-    } else {
-        echo "O aluno já está matriculado neste curso.";
-    }
-}
-
 function get_total_all_records()
 {
     include('conex.php');
@@ -29,8 +14,8 @@ if (empty($_SESSION)) {
     print("<script>location.href='login.php'</script>");
 }
 
-if (isset($_GET['id'])) {
-    $idCurso = $_GET['id'];
+if (isset($_GET['id2'])) {
+    $idCurso = $_GET['id2'];
     include_once('conex.php');
 
   
@@ -157,17 +142,18 @@ if (isset($_GET['id'])) {
     <div id="video-container">
         <main>
             <?php
-        if (isset($_GET['id'])) {
-    $idCurso = $_GET['id'];
+        if (isset($_GET['id2']) && (($_GET['id1']))) {
+    $idCurso = $_GET['id2'];
+    $idvideo = $_GET['id1'];
     include_once('conex.php');
 
-    $sql = "SELECT * FROM video WHERE Cursos_idCursos = $idCurso LIMIT 1;";
+    $sql = "SELECT * FROM video WHERE Cursos_idCursos = $idCurso and idvideo = $idvideo;";
     $resultado = $conn->query($sql);
 
     if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
 ?>
-<iframe class="principal-video" id="<?php echo $row['idvideo'] ?>" width="560" height="315" src="<?php echo $row['link']; ?>/<?php echo $row['idvideo'] ?>?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+<iframe id="<?php echo $row['idvideo'] ?>" width="560" height="315" src="<?php echo $row['link']; ?>/<?php echo $row['idvideo'] ?>?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
 
 
 <script>
@@ -199,11 +185,11 @@ function sendDataToServer() {
   console.log('Dados enviados para o servidor:');
   console.log('Vídeo <?php echo $row['idvideo'] ?> assistido:', videoWatched);
 
-
+  // Objeto com os dados que serão enviados ao servidor
   const data = {
     videoId: '<?php echo $row['idvideo'] ?>',
     watched: videoWatched ,
-    curso:'<?php echo $idCurso ?>'
+    curso: '<?php echo $idCurso ?>'
   };
 
   const xhr = new XMLHttpRequest();
@@ -220,6 +206,7 @@ function sendDataToServer() {
   };
   xhr.send(JSON.stringify(data));
 }
+
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
             
@@ -254,8 +241,8 @@ function sendDataToServer() {
 
             <div id="content">
             <?php
-if (isset($_GET['id'])) {
-    $idCurso = $_GET['id'];
+if (isset($_GET['id2'])) {
+    $idCurso = $_GET['id2'];
 
     $sql = "SELECT * FROM `Video` WHERE `Cursos_idCursos` = ?";
     $stmt = $conn->prepare($sql);
