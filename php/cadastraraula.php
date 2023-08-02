@@ -132,9 +132,9 @@ if (isset($_POST['envia'])) {
 
     form {
       width: 550px;
-      height: 650px;
+      height: 750px;
       align-items: center;
-      background-color: #fff;
+      background-color: rgba(0, 0, 0, 0.397);
       display: flex;
       flex-direction: column;
       border-radius: 15px;
@@ -156,6 +156,76 @@ if (isset($_POST['envia'])) {
       border: rgb(56, 214, 161);
       background-color: #fff;
     }
+
+    label {
+      color: white;
+    }
+
+    #veri {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      border-radius: 5px;
+      padding: 2px;
+      background-color: transparent;
+      outline: none;
+      border: 1px solid aqua;
+      color: white;
+    }
+
+    textarea {
+      resize: none;
+      outline: none;
+      border: none;
+      width: 80%;
+      margin-top: 20px;
+      background-color: transparent;
+      border: 1px solid aqua;
+      color: white;
+      border-radius: 5px;
+      vertical-align: top
+
+    }
+
+    #thumbl {
+      margin-top: 20px;
+    }
+
+    #thumbnail-preview {
+      margin-top: 20px;
+    }
+
+    form button {
+      margin-top: 20px;
+    }
+
+    .custom-file-input input[type="file"] {
+            position: absolute;
+            width: 300px;
+            opacity: 0;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .custom-file-input label {
+            display: block;
+            pointer-events: none;
+            color: black;
+            padding: 2px;
+            cursor: pointer;
+        }
+        .custom-file-input {
+          background-color: aqua;
+          color: black;
+          margin-top: 15px;
+          border-radius:5px ;
+          outline: none;
+          border: none;
+          cursor: pointer;
+        }
+
+
   </style>
 </head>
 
@@ -176,14 +246,17 @@ if (isset($_POST['envia'])) {
       <form action="" enctype="multipart/form-data" method="post">
         <label for="videoUrl">Insira o link do vídeo do YouTube:</label>
         <input type="text" id="videoUrl" name="videoUrl" placeholder="https://www.youtube.com/watch?v=bkWvLQXIDeI">
-        <button onclick="getVideoDuration(); return false;">VERIFICAR VÍDEO</button>
-        <p id="videoDurationText" style="color: black;"></p>
+        <button id="veri" onclick="getVideoDuration(); return false;">VERIFICAR VÍDEO</button>
+        <p id="videoDurationText" style="color: white;"></p>
         <label for="titulo">Título</label>
         <input type="text" name="titulo">
         <textarea name="descricao" cols="30" rows="10" placeholder="Descrição"></textarea>
-        <label for="thumb">Thumbnail</label>
+        <label id="thumbl" for="thumb">Thumbnail</label>
         <img id="thumbnail-preview" src="" alt="" style="max-width: 200px;">
-        <input type="file" name="thumbnail" id="thumb" onchange="previewThumbnail()">
+        <div class="custom-file-input">
+          <input type="file" name="thumbnail" id="thumb" onchange="previewThumbnail()">
+          <label for="thumbnail">Escolher arquivo</label>
+        </div>
         <input type="hidden" name="duracao" id="duracao">
         <button onclick="getVideoDuration()" type="submit" name="envia">Enviar aula</button>
       </form>
@@ -205,9 +278,9 @@ if (isset($_POST['envia'])) {
         .then(data => {
           const videoDuration = data.items[0].contentDetails.duration;
           const formattedDuration = formatDuration(videoDuration);
-          document.getElementById('duracao').value = formattedDuration; 
+          document.getElementById('duracao').value = formattedDuration;
 
-       
+
           document.getElementById("videoDurationText").innerText = `Video Verificado`;
         })
         .catch(error => console.error("Erro ao coletar Vídeo", error));
@@ -234,9 +307,9 @@ if (isset($_POST['envia'])) {
       thumbnailPreview.src = thumbnailInput.files ? URL.createObjectURL(thumbnailInput.files[0]) : "";
 
       function submitForm() {
-        getVideoDuration(); 
+        getVideoDuration();
         setTimeout(function() {
-          document.getElementById('enviaForm').submit(); 
+          document.getElementById('enviaForm').submit();
         }, 1000);
       }
     }

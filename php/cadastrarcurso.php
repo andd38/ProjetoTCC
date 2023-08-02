@@ -69,6 +69,7 @@ header('location:professor.php');
     margin: 15px;
     font-size: 21px;
     transition: .3s;
+    color:white;    
  }
 h2{
     color: rgb(83,121,121);
@@ -111,7 +112,7 @@ form{
     width: 550px;
     height: 650px;
     align-items: center;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.397);
     display: flex;
     flex-direction: column;
     border-radius: 15px;
@@ -129,6 +130,37 @@ button{
 button :hover{
     border: rgb(56, 214, 161);
     background-color: #fff;
+}
+label {
+    color: white;
+}
+input[type="text"] {
+  border-radius:5px ;
+  padding: 2px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid aqua;
+  color: white;
+}
+textarea {
+    resize: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    border:1px solid aqua;
+    color: white;
+    vertical-align: top
+
+}
+
+select {
+    background-color: rgb(56, 214, 161);
+    padding: 2px;
+    border: none;
+}
+option{
+    background-color: white;
 }
   </style>
 </head>
@@ -164,11 +196,7 @@ button :hover{
                 </div>
                 <label for="descrição">Descrição do curso:</label>
                     <div class="dados">
-                    <textarea name="resumo" id="resumo" cols="30" rows="10">
-                              
-    
-                    </textarea>
-
+                    <textarea name="resumo" id="resumo" cols="30" rows="10"></textarea>
                     </div>
                     <button type="submit" name="enviar">Enviar Curso</button>
             </form>
