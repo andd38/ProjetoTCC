@@ -45,13 +45,21 @@ if (isset($_GET['id2'])) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Brasil Concursos</title>
     <style>
-          iframe {
-    margin-left: 25px;
-    border-radius: 10px;
-    max-height: 700px;
-    height: 600px;
-    width: 100%;
-}
+               iframe{
+            margin: auto;
+            max-height: 700px;
+            height: 700px;
+            margin-left: 25px;
+        }
+        @media screen and (max-width: 1040px) {
+        iframe {
+            margin: auto;
+        }
+           
+        
+        
+
+        }
     </style>
 </head>
 
@@ -210,7 +218,7 @@ function sendDataToServer() {
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
             
-            <div id="video-descrição">
+            <div id="video-descricao">
                 <button style="float: right; padding:1px;" id="seta">&#9660;</button>
                 <div id="conteudo">
                     <h3 style="font-size: 25px; margin-left:20px;"><?php  echo $row['titulo'];    ?></h3>

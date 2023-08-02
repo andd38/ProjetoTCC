@@ -25,11 +25,10 @@ if (empty($_SESSION)) {
 
     <link rel="stylesheet" href="../css/stylealuno.css">
     <link rel="stylesheet" href="../css/alunocelular.css" media="screen and (orientation: portrait)">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -205,6 +204,79 @@ textarea {
     padding: 10px;
     vertical-align: top
 }
+
+
+.quadro{
+  padding: 8px;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid aqua;
+  height:50vh;
+  border-radius:5px ;
+
+ }
+ .quadradinho{
+  width: 15px;
+  height: 15px;
+  background-color:#0b090951 ;
+  border: 1px solid rgb(47, 151, 146);
+  margin: 5px;
+
+
+ }
+ 
+
+.tooltip {
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .quadradinho:hover .tooltip {
+    opacity: 1;
+  }
+
+  .quadradinho-com-info {
+    background-color: aqua;
+    color: #fff;
+  }
+  @media screen and (max-width: 1040px) {
+    .quadro{
+  padding: 8px;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid aqua;
+  height:60vh;
+  border-radius:5px ;
+
+ }
+
+ textarea {
+    resize: none;
+    width: 60%;
+    margin-top: 20px;
+    border-radius:10px ;
+    height: 15vh;
+    margin: auto;
+    color: white;
+    background-color: transparent;
+    border: 2px solid aqua;
+    outline: none;
+    padding: 10px;
+    vertical-align: top
+}
+  }
     </style>
 </head>
 
@@ -474,7 +546,6 @@ textarea {
     </main>
     <footer>
     </footer>
-    <script src="quadro.js"></script>
     <script>
         function acao() {
             let x = document.getElementById("nav-menu");
@@ -486,6 +557,61 @@ textarea {
             }
         }
     </script>
+<script>
+  const quadro = document.querySelector('.quadro');
+
+  for (let i = 0; i < 365; i++) {
+    const quadradinho = document.createElement('div');
+    quadradinho.classList.add('quadradinho');
+
+    const date = new Date();
+    date.setMonth(0); 
+    date.setDate(i + 1); 
+
+    quadro.appendChild(quadradinho);
+  }
+
+  async function fetchDataAndPopulateQuadradinhos() {
+    try {
+
+      const response = await fetch('get_watch.php');
+      const data = await response.json();
+
+      data.forEach((item) => {
+        const dateAssistido = new Date(item.data_assistido);
+        const dayOfYear = Math.floor(
+          (dateAssistido - new Date(dateAssistido.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24
+        );
+        const quadradinhos = document.querySelectorAll('.quadradinho');
+        if (quadradinhos[dayOfYear]) {
+          const totalVideos = item.total;
+          const formattedDate = dateAssistido.toLocaleDateString('pt-BR', {
+            month: 'short',
+            day: 'numeric'
+          });
+
+          const tooltip = document.createElement('span');
+          tooltip.classList.add('tooltip');
+          tooltip.textContent = `${totalVideos} vídeos assistidos em ${formattedDate}`;
+
+          quadradinhos[dayOfYear].addEventListener('mouseenter', () => {
+            quadradinhos[dayOfYear].appendChild(tooltip);
+          });
+
+          quadradinhos[dayOfYear].addEventListener('mouseleave', () => {
+            quadradinhos[dayOfYear].removeChild(tooltip);
+          });
+
+          quadradinhos[dayOfYear].classList.add('quadradinho-com-info');
+        }
+      });
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+  }
+
+  fetchDataAndPopulateQuadradinhos();
+</script>
     <script src="modal.js"></script>
     <script src="cep.js"></script>
     <script src="progresso.js"></script>

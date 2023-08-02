@@ -263,6 +263,7 @@ header>  button:hover{
  } 
  .quadro{
   display: flex;
+  border: 4px solid white;
   flex-wrap: wrap;
   justify-content: center;
   padding: 8px;
