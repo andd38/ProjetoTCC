@@ -547,18 +547,8 @@ textarea {
     <footer>
     </footer>
     <script>
-        function acao() {
-            let x = document.getElementById("nav-menu");
-
-            if (x.style.display == "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
-    </script>
-<script>
   const quadro = document.querySelector('.quadro');
+  const totalVideosByDay = {};
 
   for (let i = 0; i < 365; i++) {
     const quadradinho = document.createElement('div');
@@ -571,40 +561,59 @@ textarea {
     quadro.appendChild(quadradinho);
   }
 
-  async function fetchDataAndPopulateQuadradinhos() {
+  function populateQuadradinhosWithTooltip(data) {
     try {
+      const quadradinhos = document.querySelectorAll('.quadradinho');
 
-      const response = await fetch('get_watch.php');
-      const data = await response.json();
-
+      // Calculate the total videos watched on each day
       data.forEach((item) => {
         const dateAssistido = new Date(item.data_assistido);
-        const dayOfYear = Math.floor(
-          (dateAssistido - new Date(dateAssistido.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24
-        );
-        const quadradinhos = document.querySelectorAll('.quadradinho');
-        if (quadradinhos[dayOfYear]) {
-          const totalVideos = item.total;
-          const formattedDate = dateAssistido.toLocaleDateString('pt-BR', {
-            month: 'short',
-            day: 'numeric'
-          });
+        const startOfYear = new Date(dateAssistido.getFullYear(), 0, 0);
+        const dayOfYear = Math.floor((dateAssistido - startOfYear) / 1000 / 60 / 60 / 24);
 
-          const tooltip = document.createElement('span');
-          tooltip.classList.add('tooltip');
-          tooltip.textContent = `${totalVideos} vídeos assistidos em ${formattedDate}`;
-
-          quadradinhos[dayOfYear].addEventListener('mouseenter', () => {
-            quadradinhos[dayOfYear].appendChild(tooltip);
-          });
-
-          quadradinhos[dayOfYear].addEventListener('mouseleave', () => {
-            quadradinhos[dayOfYear].removeChild(tooltip);
-          });
-
-          quadradinhos[dayOfYear].classList.add('quadradinho-com-info');
+        if (!totalVideosByDay[dayOfYear]) {
+          totalVideosByDay[dayOfYear] = 0;
         }
+
+        totalVideosByDay[dayOfYear] += item.total;
       });
+
+      // Update the tooltip messages
+      Object.keys(totalVideosByDay).forEach((day) => {
+        const totalVideos = totalVideosByDay[day];
+        const dateAssistido = new Date();
+        dateAssistido.setMonth(0);
+        dateAssistido.setDate(parseInt(day) + 1);
+
+        const formattedDate = dateAssistido.toLocaleDateString('pt-BR', {
+          month: 'short',
+          day: 'numeric',
+        });
+
+        const tooltip = document.createElement('span');
+        tooltip.classList.add('tooltip');
+        tooltip.textContent = `${totalVideos} vídeos assistidos em ${formattedDate}`;
+
+        quadradinhos[day].addEventListener('mouseenter', () => {
+          quadradinhos[day].appendChild(tooltip);
+        });
+
+        quadradinhos[day].addEventListener('mouseleave', () => {
+          quadradinhos[day].removeChild(tooltip);
+        });
+
+        quadradinhos[day].classList.add('quadradinho-com-info');
+      });
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+  }
+
+  async function fetchDataAndPopulateQuadradinhos() {
+    try {
+      const response = await fetch('get_watch.php');
+      const data = await response.json();
+      populateQuadradinhosWithTooltip(data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }

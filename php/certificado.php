@@ -3,7 +3,7 @@ if (isset($_POST['certi'])) {
 session_start();
 require_once('tcpdf/tcpdf.php');
 
-$pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8');
+$pdf = new TCPDF('L', 'mm', 'A4', true, 'UTF-8');
 
 $pdf->SetCreator('Brasil Concursos');
 $pdf->SetAuthor('');
@@ -13,9 +13,9 @@ $pdf->SetKeywords('palavra-chave, PDF, PHP');
 
     $id = $_SESSION['idUsuarios'];
     $nome = $_SESSION['nome'];
-    $email = $_SESSION['email'];
     $dataConclusao =  date("Y/m/d");
-    $curso = 'Astronauta';
+    $curso = $_POST['curso'];
+   
     
     $pdf->AddPage();
     
@@ -39,7 +39,7 @@ $pdf->SetKeywords('palavra-chave, PDF, PHP');
     $pdf->SetFont('helvetica', '', 14);
     
 
-    $pdf->Cell(0, 10, 'concluiu com sucesso o curso de', 0, 1, 'C');
+    $pdf->Cell(0, 10, 'Concluiu com sucesso o curso de', 0, 1, 'C');
     $pdf->SetFont('helvetica', 'B', 16);
     $pdf->Cell(0, 15, $curso, 0, 1, 'C');
     $pdf->SetFont('helvetica', '', 14);
