@@ -13,6 +13,7 @@ if(isset($_POST['update'])) {
   $uf = $_POST['uf'];
   $comple = $_POST['complemento'];
   $numero = $_POST['numero'];
+  $nome = $_POST['nome'];
 
   if (!$conn) {
     die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
@@ -29,9 +30,10 @@ if(isset($_POST['update'])) {
   $uf = mysqli_real_escape_string($conn, $uf);
   $comple = mysqli_real_escape_string($conn, $comple);
   $numero = mysqli_real_escape_string($conn, $numero);
-
+  $nome = mysqli_real_escape_string($conn, $nome);
 
   $sql = "UPDATE Usuarios SET 
+          nome = '$nome',
           data_nascimento = '$dataNascimento',
           cpf = '$cpf',
           cep = '$cep',
@@ -51,6 +53,20 @@ if(isset($_POST['update'])) {
     echo "Erro ao inserir os dados: " . mysqli_error($conexao);
   }
 
-  mysqli_close($conn);
-}
+}  if(isset($_POST['en'])) {
+  session_start();
+  include('conex.php');
+  $id = $_SESSION['idUsuarios'];
+  $sobre = $_POST['sobre'];
+  
+  $query = "UPDATE Usuarios SET 
+  sobre ='$sobre'
+  WHERE idUsuarios = $id";
+  
+  if (mysqli_query($conn , $query)) {
+   echo "legal foi";
+  }
+  }
+
+
 ?>

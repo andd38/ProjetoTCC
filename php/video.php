@@ -92,19 +92,8 @@ if (isset($_GET['id'])) {
             <a href="Contato">Contato</a>
         </nav>
         <!--botão pesquisar-->
-        <form action="pesquisar.php" method="post">
-            <div class="buttonc">
-                <custom-file-input><input type="text" id="search" placeholder="Buscar curso..."></custom-type-input>
-                <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-            </div>
-        </form><!--botao do carrinho de compras-->
+<!--botao do carrinho de compras-->
 
-        <a href="#" id="carrinho">
-            Carrinho
-            <span class="material-symbols-outlined">
-                shopping_cart
-            </span>
-        </a>
         <!--botao de entrar na área do aluno-->
 
         <a href="../php/logout.php" style="text-decoration: none;" id="entrar">Sair<span class="material-symbols-outlined">
@@ -132,16 +121,9 @@ if (isset($_GET['id'])) {
 
 
 
-        <!--botao do carrinho de compras-->
         <div class="nav-menu" id="nav-menu">
             <div class="btn-user">
 
-                <button id="carrinho">
-                    Carrinho
-                    <span class="material-symbols-outlined">
-                        shopping_cart
-                    </span>
-                </button>
                 <!--botao de entrar na área do aluno-->
 
 

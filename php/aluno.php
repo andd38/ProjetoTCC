@@ -196,7 +196,7 @@ textarea {
     width: 500px;
     margin-top: 20px;
     border-radius:10px ;
-    height: 15vh;
+    height: 20vh;
     color: white;
     background-color: transparent;
     border: 2px solid aquamarine;
@@ -296,18 +296,6 @@ textarea {
             <a href="Quem somos">Quem somos</a>
             <a href="Contato">Contato</a>
         </nav>
-        <form action="pesquisar.php" method="post">
-            <div class="buttonc">
-                <input type="text" id="search" placeholder="Buscar curso...">
-                <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-            </div>
-        </form>
-        <a href="#" id="carrinho">
-            Carrinho
-            <span class="material-symbols-outlined">
-                shopping_cart
-            </span>
-        </a>
         <a href="../php/logout.php" style="text-decoration: none;" id="entrar">
             Sair
             <span class="material-symbols-outlined">
@@ -318,22 +306,10 @@ textarea {
     <header class="mobile">
         <div id="logo">
             <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
-            <form action="pesquisar.php" method="post">
-                <div class="buttonc">
-                    <input type="text" id="search" placeholder="Buscar curso...">
-                    <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-                </div>
-            </form>
             <i onclick="acao()" id="menu" class='bx bx-menu'></i>
         </div>
         <div class="nav-menu" id="nav-menu">
             <div class="btn-user">
-                <button id="carrinho">
-                    Carrinho
-                    <span class="material-symbols-outlined">
-                        shopping_cart
-                    </span>
-                </button>
                 <a href="/html/login.html">
                     <button id="carrinho">
                         Entrar
@@ -480,10 +456,10 @@ textarea {
 
   <div class="sobrevoce">
     <h2>Fale sobre você:</h2>
-    <form action="sobre.php">
-        <textarea name="sobre" id="areasobre" placeholder="Fale sobre você..." >
-        
-        </textarea>
+    <form action="update.php"  method="post">
+        <textarea name="sobre" id="areasobre" placeholder="Fale sobre você..." ><?php echo $linha['sobre']; ?></textarea>
+     <br>
+    <input style="width:150px; margin-left:160px;" class="btn btn-secondary" name="en" type="submit" value="enviar">
     </form>
   </div>
                             <div>
@@ -500,8 +476,10 @@ textarea {
 
                                             <div class="modal-principal" style="color: white;">
                                                 <form action="update.php" method="post" autocomplete="off" style="display :flex ; flex-direction:column; align-items:center">
+                                                    <label for="name">Nome</label>
+                                                    <input type="text" name="nome" id="nome" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['nome']; ?>" required>
                                                     <label for="dt_nascimento">Data de nascimento:*</label>
-                                                    <input type="date" name="data" id="data" style="border: 1px solid aquamarine; background-color:transparent; color:white;" <?php echo $linha['data_nascimento']; ?> required>
+                                                    <input type="date" name="data" id="data" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['data_nascimento']; ?>" required>
                                                     <br>
                                                     <label for="CPF">CPF:*</label>
                                                     <input type="text" name="cpf" id="cpf" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['cpf']; ?>" required>
@@ -524,7 +502,8 @@ textarea {
                                                     <p>Número <input type="text" id="numero" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['numero']; ?>" name="numero"></p>
                                                     <label for="telefone-celuar">Telefone(celular)*</label>
                                                     <input type="tel" name="tel-cel" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['telefone']; ?>" id="tel-cel">
-                                                    </form>
+                                                   
+                                                    
                                             </div>
                                     <?php
                                 }
@@ -536,7 +515,9 @@ textarea {
                                         <div class="modal-footer">
                                             <button type="submit" name="update"  class="btn btn-secondary">Confirmar</button>
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
                                         </div>
+                                        </form>
                 </form>
             </div>
         </div>
