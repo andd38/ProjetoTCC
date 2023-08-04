@@ -239,14 +239,13 @@ button:hover{
     display: none;
 }
  .mobile {
-    display:block;
-  }
-  #logo{
     display: flex;
     flex-direction: column;
+}
+#logo{
+    display: flex;
     justify-content: space-between;
-    
-    
+    max-width: 1040px;
     
 }
   
@@ -336,7 +335,7 @@ button:hover{
     
   }
   footer{
-    margin-top: 1200px;
+    
     display: flex;
    flex-direction: column;
    justify-content: center;
@@ -352,6 +351,11 @@ button:hover{
   .titulo > ul{
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  .container1{
+    max-width:450px;
+    display: flex;
     align-items: center;
   }
 }

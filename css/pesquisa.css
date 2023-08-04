@@ -26,6 +26,9 @@ height: 120px;
    
   
  }
+ .mobile{
+  display: none;
+ }
  
  nav>a{
     color: #fff;
@@ -247,4 +250,163 @@ button:hover{
 }
 .menu{
   position: fixed;
+}
+footer{
+  padding-top: 50px;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.titulo{
+  color: #fff;
+  
+}
+.titulo a{
+  text-decoration: none;
+  list-style: style ;
+  color: #fff;
+  font-size: 21px;
+  transition: .3s;
+}
+.titulo a:hover{
+  color: rgb(116, 211, 179);
+}
+@media  screen and (max-width:1040px) {
+ 
+  header{
+    display: none;
+}
+ .mobile {
+    display: flex;
+    flex-direction: column;
+}
+#logo{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1040px;
+    
+}
+  
+  
+  .bx-menu {
+    
+    color: #fff;
+    cursor: pointer;
+    padding: 0px;
+    height: 35px;
+    width: 80px;
+    text-align: center;
+    
+    margin-right: 25px;
+    border-radius: 50px;
+   
+   
+   
+    font-size: 35px;
+  }
+  .bx-menu:hover{
+    background-color: aquamarine;
+    transition: 0.5s;
+  }
+  .nav-menu{
+    position: sticky;
+    top: 0px;
+    right: 5px;
+    background-color: #fff;
+    backdrop-filter: blur(5px);
+    box-shadow:0px 0px 15px black ;
+    margin-left: 180px;
+    height: 450px;
+    border-radius: 15px;
+    position: fixed;
+    z-index: 1;
+    display: none;
+  
+  }
+  .nav-menu > nav > a{
+    color: black;
+    display: flex;
+  
+  }
+  .nav-menu > nav > a:hover{
+    color: rgb(48, 118, 95);
+  }
+  .btn-user{
+    display: flex;
+    gap: 10px;
+    margin: 15px;
+  }
+  #carrinho{
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 45px;
+    width: 140px;
+    border: 1px solid aqua;
+    
+  }
+  #carrinho:hover{
+    outline: none;
+    border: none;
+    transition: 0.5s;
+   
+  }
+  #carrinho>a{
+    text-decoration: none;
+    color:black;
+  }
+  .bx-x{
+    font-size: 45px;
+    height: 45px;
+    width: 45px;
+    border-radius:50% ;
+    
+  }
+  .bx-x:hover{
+    cursor: pointer;
+    background-color: aquamarine;
+  }
+  #menu{
+    margin: 0;
+    padding: 0;
+    
+  }
+  footer{
+    
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   
+  
+  }
+  .titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .titulo > ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* main do pesquisa*/
+  .concurso{
+    display: flex;
+    flex-direction: column;
+  }
+  .carta{
+    max-width:400px;
+  }
+
+
+}
+@media screen  and (max-width : 750px){
+  .carta{
+    max-width: 250px;
+  }
+  
 }

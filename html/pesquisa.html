@@ -54,6 +54,52 @@
       
 
     </header>
+    <header class="mobile">
+        <div id="logo">
+            <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
+            <!--botão pesquisar-->
+            <form action="../php/pesquisar.php" method="post">
+                <div class="buttonc">
+                    <input type="text" id="search" placeholder="Buscar curso...">
+                    <button type="submit"><i class='bx bx-search-alt-2'></i></button>
+                </div>
+            </form>
+            <i onclick="acao()" id="menu" class='bx bx-menu'></i>
+        </div>
+        <!-- menu-->
+
+
+
+
+        <!--botao do carrinho de compras-->
+        <div class="nav-menu" id="nav-menu">
+            <div class="btn-user">
+
+                <button id="carrinho">
+                    Carrinho
+                    <span class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                </button>
+                <!--botao de entrar na área do aluno-->
+
+
+                <a href="html/login.html"> <button id="carrinho">Entrar</a><span class="material-symbols-outlined">
+                    person
+                </span></button></a>
+
+
+                <i onclick="acao()" class='bx bx-x' id="X"></i>
+
+            </div>
+            <nav>
+                <a href="#">Cursos</a>
+                <a href="#">Editais</a>
+                <a href="#">Sobre</a>
+                <a href="Contato">Contato</a>
+            </nav>
+        </div>
+    </header>
     <main>
         <div class="areas">
 
@@ -265,8 +311,32 @@
 
     </main>
     <footer>
+        <img src="../img/logo2pequena.png" alt="">
+        <div class="titulo">
+            <h1> Redes Sociais</h1>
+            <ul type="none">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+            </ul>
 
+        </div>
+        <div class="titulo">
+            <h1>LICENSE</h1>
+            <a href="LICENSE">Licença e termos de uso</a>
+        </div>
+
+        <div class="titulo">
+            <h1>Extras</h1>
+            <ul type="none">
+                <li><a href="#">Trabalhe conosco</a></li>
+                <li><a href="#">Suporte</a></li>
+                <li><a href="#">Atendimento ao aluno</a></li>
+            </ul>
+
+        </div>
     </footer>
     <script src="../js/pesquisa.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
 </html>
