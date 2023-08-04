@@ -23,7 +23,11 @@ include ('conex.php');
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   
-
+    <style>
+     a {
+        text-decoration: none;
+     }
+    </style>
     <title>Brasil Concursos </title>
 </head>
 <body>
@@ -56,11 +60,12 @@ include ('conex.php');
                 </a>
       <!--botao de entrar na área do aluno-->
        
-            <a href="/html/login.html" style="text-decoration: none;"
-             id="entrar">Entrar<span class="material-symbols-outlined">
-                    person
-                    </span>
-            </a>
+      <a href="../php/logout.php" style="text-decoration: none;" id="entrar">
+            Sair
+            <span class="material-symbols-outlined">
+                person
+            </span>
+     </a>
       
 
     </header>
@@ -102,10 +107,11 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
+        $descricao = $row['descrição'];
         echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
-        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br>'.$descricao.'</br>';
         echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
         echo '</form>';
@@ -128,10 +134,11 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
+        $descricao = $row['descrição'];
         echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
-        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br>'.$descricao.'</br>';
         echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
         echo '</form>';
@@ -152,10 +159,11 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
+        $descricao = $row['descrição'];
         echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
-        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br>'.$descricao.'</br>';
         echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
         echo '</form>';
@@ -176,11 +184,11 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
-
+        $descricao = $row['descrição'];
         echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
-        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br>'.$descricao.'</br>';
         echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
         echo '</form>';
@@ -201,11 +209,11 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
-    
+        $descricao = $row['descrição'];
         echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
-        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br>'.$descricao.'</br>';
         echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
         echo '</form>';
@@ -226,11 +234,11 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
-    
+        $descricao = $row['descrição'];
         echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
-        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br>'.$descricao.'</br>';
         echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
         echo '</form>';
@@ -253,11 +261,11 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
-    
+        $descricao = $row['descrição'];
         echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
-        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br>'.$descricao.'</br>';
         echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
         echo '</form>';
@@ -278,11 +286,11 @@ if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
-    
+        $descricao = $row['descrição'];
         echo '<form action="video.php?id='.$idCurso.'" method="post">';
         echo '<div class="carta">';
         echo '<br><h1>' . $nome . '</h1></br>';
-        echo '<br>Mais de 20 pdfs de aulas</br>';
+        echo '<br>'.$descricao.'</br>';
         echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
         echo '</div>';
         echo '</form>';

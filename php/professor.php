@@ -1,7 +1,5 @@
 <?php
 session_start();
-include_once('conex.php');
-
 function get_total_all_records()
 {
     include('conex.php');
@@ -16,6 +14,20 @@ if (empty($_SESSION)) {
 }
 $nome = $_SESSION['nome'];
 $id = $_SESSION['idUsuarios'];
+
+include_once('conex.php');
+
+$id = $_SESSION['idUsuarios'];
+
+$query = "SELECT tipo_usuario FROM Usuarios Where idUsuarios = '$id';";
+
+$resultado = $conn->query($query);
+$row = $resultado->fetch_assoc();
+if ($row['tipo_usuario'] != 1) {
+  header('Location: aluno.php');
+  exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -189,7 +201,7 @@ $id = $_SESSION['idUsuarios'];
         }
 
         #cursocontent>a {
-            background-color: aqua;
+            background-color: aquamarine;
             color: #000000;
             border-radius: 5px;
             padding: 5px;
@@ -210,7 +222,7 @@ $id = $_SESSION['idUsuarios'];
         .en {
             display: flex;
             justify-content:center ;
-            margin-top: 25%;
+            margin-top: 300px;
         }
 
         .send-course {
@@ -218,7 +230,7 @@ $id = $_SESSION['idUsuarios'];
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            background-color: aqua;
+            background-color: aquamarine;
             color: #000000;
             border-radius: 5px;
             padding: 10px;
@@ -227,7 +239,7 @@ $id = $_SESSION['idUsuarios'];
         }
 
         .send-course:hover {
-            border: aqua 1px solid;
+            border: aquamarine 1px solid;
             background-color: transparent;
             color: #fff;
         }
@@ -250,7 +262,7 @@ $id = $_SESSION['idUsuarios'];
         }
 
         .circulo img:hover {
-            border: 3px solid aqua;
+            border: 3px solid aquamarine;
             padding: 3px;
         }
 
@@ -264,7 +276,7 @@ $id = $_SESSION['idUsuarios'];
         .custom-file-input {
             position: relative;
             display: inline-block;
-            background-color: aqua;
+            background-color: aquamarine;
             color: #000000;
             border-radius: 5px;
             padding: 5px;
@@ -276,7 +288,7 @@ $id = $_SESSION['idUsuarios'];
         }
 
         input[type="submit"] {
-            background-color: aqua;
+            background-color: aquamarine;
             color: #000000;
             border-radius: 5px;
             padding: 5px;
@@ -289,7 +301,7 @@ $id = $_SESSION['idUsuarios'];
         }
 
         .btn-secondary {
-            background-color: aqua;
+            background-color: aquamarine;
             color: #000000;
             border-radius: 5px;
             padding: 5px;
@@ -301,7 +313,7 @@ $id = $_SESSION['idUsuarios'];
         }
 
         .btn-secondary:hover {
-            border: aqua 1px solid;
+            border: aquamarine 1px solid;
             background-color: transparent;
             color: #fff;
         }
@@ -309,7 +321,7 @@ $id = $_SESSION['idUsuarios'];
 
 
         input[type="submit"]:hover {
-            border: aqua 1px solid;
+            border: aquamarine 1px solid;
             background-color: transparent;
             color: #fff;
         }
@@ -331,7 +343,7 @@ $id = $_SESSION['idUsuarios'];
         }
 
         .custom-file-input:hover {
-            border: aqua 1px solid;
+            border: aquamarine 1px solid;
             background-color: transparent;
             color: #fff;
         }

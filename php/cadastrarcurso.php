@@ -1,7 +1,17 @@
 <?php 
 include_once('conex.php');
+session_start();
 
+$id = $_SESSION['idUsuarios'];
 
+$query = "SELECT tipo_usuario FROM Usuarios Where idUsuarios = '$id';";
+
+$resultado = $conn->query($query);
+$row = $resultado->fetch_assoc();
+if ($row['tipo_usuario'] != 1) {
+  header('Location: aluno.php');
+  exit();
+}
 
 
 session_start();
@@ -139,7 +149,7 @@ input[type="text"] {
   padding: 2px;
   background-color: transparent;
   outline: none;
-  border: 1px solid aqua;
+  border: 1px solid aquamarine;
   color: white;
 }
 textarea {
@@ -148,7 +158,7 @@ textarea {
     border: none;
     width: 100%;
     background-color: transparent;
-    border:1px solid aqua;
+    border:1px solid aquamarine;
     color: white;
     vertical-align: top
 
@@ -171,7 +181,7 @@ option{
        <a href="professor.php"><img src="../img/logo2pequena.png" alt=""></a>
   <h2>Cadastrar cursos</h2>
    <a href="#" style="text-decoration: none;"
-   id="entrar"><i class='bx bxs-user'><!-- nome do professor (php) --></i>
+   id="entrar"><i class='bx bxs-user'><?php echo $_SESSION['nome']; ?></i>
 </a>
  
    </nav>

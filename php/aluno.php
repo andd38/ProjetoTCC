@@ -11,7 +11,7 @@ function get_total_all_records()
 }
 
 if (empty($_SESSION)) {
-    echo "<script>location.href='php/login.php'</script>";
+    echo "<script>location.href='../php/login.php'</script>";
 }
 ?>
 
@@ -45,7 +45,7 @@ if (empty($_SESSION)) {
 
         .progress-fill {
             height: 100%;
-            background-color: aqua;
+            background-color: aquamarine;
         }
 
         .label {
@@ -72,7 +72,7 @@ if (empty($_SESSION)) {
         }
 
         .custom-file-input {
-            background-color: aqua;
+            background-color: aquamarine;
             color: #000000;
             border-radius: 5px;
             padding: 5px;
@@ -88,7 +88,7 @@ if (empty($_SESSION)) {
         }
 
         .custom-file-input:hover {
-            border: aqua 1px solid;
+            border: aquamarine 1px solid;
             background-color: transparent;
             color: #fff;
         }
@@ -100,7 +100,7 @@ if (empty($_SESSION)) {
         }
 
         input[type="submit"] {
-            background-color: aqua;
+            background-color: aquamarine;
             color: #000000;
             border-radius: 5px;
             padding: 5px;
@@ -114,13 +114,13 @@ if (empty($_SESSION)) {
         }
 
         input[type="submit"]:hover {
-            border: aqua 1px solid;
+            border: aquamarine 1px solid;
             background-color: transparent;
             color: #fff;
         }
 
         .btn-secondary {
-            background-color: aqua;
+            background-color: aquamarine;
             color: #000000;
             border-radius: 5px;
             padding: 5px;
@@ -132,13 +132,13 @@ if (empty($_SESSION)) {
         }
 
         .btn-secondary:hover {
-            border: aqua 1px solid;
+            border: aquamarine 1px solid;
             background-color: transparent;
             color: #fff;
         }
 
         #ui {
-            background-color: aqua;
+            background-color: aquamarine;
             color: #000000;
             border-radius: 5px;
             padding: 5px;
@@ -151,7 +151,7 @@ if (empty($_SESSION)) {
         }
 
         #ui:hover {
-            border: aqua 1px solid;
+            border: aquamarine 1px solid;
             background-color: transparent;
             color: #fff;
         }
@@ -178,7 +178,7 @@ h2 {
 
 .dados strong {
   width: 100px;
-  color: aqua;
+  color: aquamarine;
   display: inline-block;
 }
 
@@ -199,7 +199,7 @@ textarea {
     height: 15vh;
     color: white;
     background-color: transparent;
-    border: 2px solid aqua;
+    border: 2px solid aquamarine;
     outline: none;
     padding: 10px;
     vertical-align: top
@@ -212,7 +212,7 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 1px solid aqua;
+  border: 1px solid aquamarine;
   height:50vh;
   border-radius:5px ;
 
@@ -236,6 +236,8 @@ textarea {
     border-radius: 3px;
     font-size: 12px;
     z-index: 1;
+    margin-right: 50px;
+    margin-top: -30px;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s;
@@ -246,8 +248,9 @@ textarea {
   }
 
   .quadradinho-com-info {
-    background-color: aqua;
+    background-color: aquamarine;
     color: #fff;
+
   }
   @media screen and (max-width: 1040px) {
     .quadro{
@@ -256,7 +259,7 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 1px solid aqua;
+  border: 1px solid aquamarine;
   height:60vh;
   border-radius:5px ;
 
@@ -271,12 +274,14 @@ textarea {
     margin: auto;
     color: white;
     background-color: transparent;
-    border: 2px solid aqua;
+    border: 2px solid aquamarine;
     outline: none;
     padding: 10px;
     vertical-align: top
 }
   }
+
+
     </style>
 </head>
 
@@ -410,10 +415,10 @@ textarea {
                                         if (!empty($caminhoImagem)) {
                                             echo "<div class='imgdois' style='width: 275px; height: 275px; background-image: url(\"$caminhoImagem\"); background-size: cover; background-position:center; border-radius:50%;'></div>";
                                         } else {
-                                            echo "<div class='img'></div>";
+                                            echo "<div class='img' style='border-radius:50%;'></div>";
                                         }
                                     } else {
-                                        echo "<div class='img'></div>";
+                                        echo "<div class='img' style='border-radius:50%;></div>";
                                     }
                                     ?>
 
@@ -496,29 +501,29 @@ textarea {
                                             <div class="modal-principal" style="color: white;">
                                                 <form action="update.php" method="post" autocomplete="off" style="display :flex ; flex-direction:column; align-items:center">
                                                     <label for="dt_nascimento">Data de nascimento:*</label>
-                                                    <input type="date" name="data" id="data" style="border: 1px solid aqua; background-color:transparent; color:white;" <?php echo $linha['data_nascimento']; ?> required>
+                                                    <input type="date" name="data" id="data" style="border: 1px solid aquamarine; background-color:transparent; color:white;" <?php echo $linha['data_nascimento']; ?> required>
                                                     <br>
                                                     <label for="CPF">CPF:*</label>
-                                                    <input type="text" name="cpf" id="cpf" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['cpf']; ?>" required>
+                                                    <input type="text" name="cpf" id="cpf" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['cpf']; ?>" required>
                                                     <button type="button" onclick="validarCPF()" id="valida">Validar</button>
                                                     <span style="color: black;" id="validar"></span>
                                                     <br>
                                                     <h6>Informações do Endereço:</h6>
                                                     <label for="cep">CEP:</label>
-                                                    <input type="text" name="cep" id="cep" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['cep']; ?>" required>
+                                                    <input type="text" name="cep" id="cep" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['cep']; ?>" required>
                                                     <button type="button" onclick="consultarCEP()" id="valida">Consultar</button>
                                                     <div style="display: flex;">
-                                                        <p>CEP: <input type="text" id="logradouro" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['logradouro']; ?>" name="logradouro"></p>
-                                                        <p>Logradouro: <input type="text" id="bairro" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['bairro']; ?>" name="bairro"></p>
+                                                        <p>CEP: <input type="text" id="logradouro" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['logradouro']; ?>" name="logradouro"></p>
+                                                        <p>Logradouro: <input type="text" id="bairro" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['bairro']; ?>" name="bairro"></p>
                                                     </div>
                                                     <div style="display: flex;">
-                                                        <p>Cidade <input type="text" id="cidade" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['cidade']; ?>" name="cidade"></p>
-                                                        <p>UF <input type="text" id="uf" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['uf']; ?>" name="uf"></p>
+                                                        <p>Cidade <input type="text" id="cidade" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['cidade']; ?>" name="cidade"></p>
+                                                        <p>UF <input type="text" id="uf" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['uf']; ?>" name="uf"></p>
                                                     </div>
-                                                    <p>Complemento <input type="text" id="complemento" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['complemento']; ?>" name="complemento"></p>
-                                                    <p>Número <input type="text" id="numero" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['numero']; ?>" name="numero"></p>
+                                                    <p>Complemento <input type="text" id="complemento" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['complemento']; ?>" name="complemento"></p>
+                                                    <p>Número <input type="text" id="numero" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['numero']; ?>" name="numero"></p>
                                                     <label for="telefone-celuar">Telefone(celular)*</label>
-                                                    <input type="tel" name="tel-cel" style="border: 1px solid aqua; background-color:transparent; color:white;" value="<?php echo $linha['telefone']; ?>" id="tel-cel">
+                                                    <input type="tel" name="tel-cel" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['telefone']; ?>" id="tel-cel">
                                                     </form>
                                             </div>
                                     <?php

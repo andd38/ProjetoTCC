@@ -170,7 +170,7 @@ if (isset($_POST['envia'])) {
       padding: 2px;
       background-color: transparent;
       outline: none;
-      border: 1px solid aqua;
+      border: 1px solid aquamarine;
       color: white;
     }
 
@@ -181,7 +181,7 @@ if (isset($_POST['envia'])) {
       width: 80%;
       margin-top: 20px;
       background-color: transparent;
-      border: 1px solid aqua;
+      border: 1px solid aquamarine;
       color: white;
       border-radius: 5px;
       vertical-align: top
@@ -216,7 +216,7 @@ if (isset($_POST['envia'])) {
             cursor: pointer;
         }
         .custom-file-input {
-          background-color: aqua;
+          background-color: aquamarine;
           color: black;
           margin-top: 15px;
           border-radius:5px ;
@@ -235,7 +235,7 @@ if (isset($_POST['envia'])) {
 
       <a href="enviaraulas.php"><img src="../img/logo2pequena.png" alt=""></a>
       <h2>Cadastrar cursos</h2>
-      <a href="#" style="text-decoration: none;" id="entrar"><i class='bx bxs-user'><!-- nome do professor (php) --></i>
+      <a href="#" style="text-decoration: none;" id="entrar"><i class='bx bxs-user'><?php echo $_SESSION['nome']; ?></i>
       </a>
 
     </nav>
