@@ -140,7 +140,9 @@
                             WHERE nome LIKE '%$pesquisa%' 
                             OR descrição LIKE '%$pesquisa%'
                             OR Categoria LIKE '%$pesquisa%';";
-
+                    } else {
+                    $sql = "select * from Cursos";
+                    }
                     $resultado = $conn->query($sql);
 
                     while ($row = $resultado->fetch_assoc()) {
@@ -155,7 +157,7 @@
                       </svg><a></td>';
                         echo '</tr>';
                             }
-                        }?>
+                        ?>
             </table>
                 </div>
 
