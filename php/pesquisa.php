@@ -46,11 +46,7 @@ include ('conex.php');
         </nav>
         <!--botão pesquisar-->
         <form action="pesquisar.php" method="post">
-              <div class="buttonc">
-        <input type="text" id="search" name="pesquisa" placeholder="Buscar curso...">
-        <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-      </div>
-        </form><!--botao do carrinho de compras-->
+        </form>
     
       <!--botao de entrar na área do aluno-->
        

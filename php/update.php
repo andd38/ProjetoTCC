@@ -67,6 +67,62 @@ if(isset($_POST['update'])) {
    echo "legal foi";
   }
   }
+  if (isset($_POST['updatemod'])) {
+    include('conex.php');
 
+    if (!$conn) {
+      die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
+    }
+  
 
-?>
+    $id = $_GET['id'];
+    $dataNascimento = mysqli_real_escape_string($conn, $_POST['data']);
+    $cpf = mysqli_real_escape_string($conn, $_POST['cpf']);
+    $cep = mysqli_real_escape_string($conn, $_POST['cep']);
+    $telefoneCelular = mysqli_real_escape_string($conn, $_POST['tel-cel']);
+    $logradouro = mysqli_real_escape_string($conn, $_POST['logradouro']);
+    $bairro = mysqli_real_escape_string($conn, $_POST['bairro']);
+    $cidade = mysqli_real_escape_string($conn, $_POST['cidade']);
+    $uf = mysqli_real_escape_string($conn, $_POST['uf']);
+    $comple = mysqli_real_escape_string($conn, $_POST['complemento']);
+    $numero = mysqli_real_escape_string($conn, $_POST['numero']);
+    $nome = mysqli_real_escape_string($conn, $_POST['nome']);
+    $senha = mysqli_real_escape_string($conn, $_POST['senha']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $tipo = mysqli_real_escape_string($conn, $_POST['tipo']);
+
+    $sql = "UPDATE Usuarios SET 
+            nome = '$nome',
+            senha = '$senha',
+            email = '$email',
+            tipo_usuario = '$tipo',
+            data_nascimento = '$dataNascimento',
+            cpf = '$cpf',
+            cep = '$cep',
+            telefone = '$telefoneCelular',
+            logradouro = '$logradouro',
+            bairro = '$bairro',
+            cidade = '$cidade',
+            uf = '$uf',
+            complemento = '$comple',
+            numero = '$numero'
+            WHERE idUsuarios = '$id'";
+
+    if (mysqli_query($conn, $sql)) {
+        mysqli_close($conn);
+        if ($tipo == 0) {
+            header('Location: alunossearch.php');
+            exit();
+        } elseif ($tipo == 1) {
+            header('Location: professorsearch.php');
+            exit();
+        }
+    } else {
+        echo "Erro na atualização: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
+}
+  ?>
+  
+
