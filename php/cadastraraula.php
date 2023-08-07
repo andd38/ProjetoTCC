@@ -236,7 +236,7 @@ if (isset($_POST['envia'])) {
 
       <a href="enviaraulas.php"><img src="../img/logo2pequena.png" alt=""></a>
       <h2>Cadastrar cursos</h2>
-      <a href="#" style="text-decoration: none;" id="entrar"><i class='bx bxs-user'><?php echo $_SESSION['nome']; ?></i>
+      <a href="../php/professor.php" style="text-decoration: none; font-family:'Poppins';" id="entrar"><i class='bx bxs-user'>Voltar</i>
       </a>
 
     </nav>

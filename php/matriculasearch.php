@@ -71,7 +71,7 @@
         </nav>
         <!--botao de entrar na área do aluno-->
 
-        <a href="html/login.html" style="text-decoration: none;" id="entrar">Entrar<span class="material-symbols-outlined">
+        <a href="../php/adm.php" style="text-decoration: none;" id="entrar">Voltar<span class="material-symbols-outlined">
                 person
             </span>
         </a>
@@ -109,7 +109,7 @@
         </div>
     </header>
         <main>
-        <h1 style="color:white; text-align:center; margin-top:10px;">Cursos</h1>
+        <h1 style="color:white; text-align:center; margin-top:10px;">Matricula</h1>
             <form action="" method="post">
                 <div style="margin-top: 10px; " class="buttonc">
                     <input name="pesquisa" type="text" id="pesquisa" placeholder="Buscar...">

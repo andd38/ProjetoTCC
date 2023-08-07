@@ -24,13 +24,14 @@ if (isset($_POST['criar'])) {
         } else {
             $tipoUsuario = 0;
 
-            $query = "INSERT INTO `db_senac`.`Usuarios` (`idUsuarios`, `nome`, `email`, `senha`, `tipo_usuario`) VALUES (null, '$nome', '$email', '$pass', '$tipoUsuario')";
+            $query = "INSERT INTO `db_senac`.`Usuarios` (`idUsuarios`, `nome`, `email`, `senha`, `tipo_usuario`,`sobre`) VALUES (null, '$nome', '$email', '$pass', '$tipoUsuario',null)";
 
             if (mysqli_query($conn, $query)) {
                 $_SESSION['idUsuarios'] = mysqli_insert_id($conn);
                 $_SESSION['nome'] = $nome;
                 $_SESSION['email'] = $email;
                 $_SESSION['tipoUsuario'] = $tipoUsuario;
+                $_SESSION['sobre'] = $sobre;
 
                 echo "Usuário $nome adicionado com sucesso!<br><br>";
                 echo "Bem-vindo(a) $nome";

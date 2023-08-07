@@ -40,8 +40,8 @@ include ('conex.php');
 
         <nav>
             <a href="../php/aluno.php">Aluno</a>
-            <a href="Quem somos">Quem somos</a>
-            <a href="Contato">Contato</a>
+            <a href="../html/sobre.html">Quem somos</a>
+            <a href="Contato">Contato</a><!-- api do whatsapp -->
         </nav>
         <!--botão pesquisar-->
         <form action="pesquisar.php" method="post">
@@ -57,6 +57,42 @@ include ('conex.php');
      </a>
       
 
+    </header>
+    <header class="mobile">
+        <div id="logo">
+            <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
+            <!--botão pesquisar-->
+           
+            <i onclick="acao()" id="menu" class='bx bx-menu'></i>
+        </div>
+        <!-- menu-->
+
+
+
+
+        <!--botao do carrinho de compras-->
+        <div class="nav-menu" id="nav-menu">
+            <div class="btn-user">
+
+                
+                <!--botao de entrar na área do aluno-->
+
+
+                <a href="html/login.html"> <button id="carrinho">Entrar</a><span class="material-symbols-outlined">
+                    person
+                </span></button></a>
+
+
+                <i onclick="acao()" class='bx bx-x' id="X"></i>
+
+            </div>
+            <nav>
+                <a href="../php/pesquisa.php">Cursos</a>
+               
+                <a href="../html/sobre.html">Sobre</a>
+                <a href="Contato">Contato</a>
+            </nav>
+        </div>
     </header>
     <main>
         <div class="areas">
@@ -86,7 +122,7 @@ include ('conex.php');
                         <div class="grupo1">
                             <div class="content adm">
                             <?php
-session_start();
+
 include_once('conex.php');
 
 $sql = "SELECT * FROM Cursos WHERE Categoria = 'adm';";
@@ -291,5 +327,6 @@ while ($row = $resultado->fetch_assoc()) {
 
     </footer>
     <script src="../js/pesquisa.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>

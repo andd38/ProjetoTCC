@@ -14,7 +14,7 @@ if ($row['tipo_usuario'] != 1) {
 }
 
 
-session_start();
+
 if(isset($_POST['enviar'])) {
   include_once('conex.php');
   $id = $_SESSION['idUsuarios'];

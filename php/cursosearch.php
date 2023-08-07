@@ -71,7 +71,7 @@
         </nav>
         <!--botao de entrar na área do aluno-->
 
-        <a href="html/login.html" style="text-decoration: none;" id="entrar">Entrar<span class="material-symbols-outlined">
+        <a href="../php/adm.php" style="text-decoration: none;" id="entrar">Voltar<span class="material-symbols-outlined">
                 person
             </span>
         </a>

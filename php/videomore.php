@@ -77,12 +77,7 @@ if (isset($_GET['id2'])) {
             <a href="Contato">Contato</a>
         </nav>
         <!--botão pesquisar-->
-        <form action="pesquisar.php" method="post">
-            <div class="buttonc">
-                <input type="text" id="search" placeholder="Buscar curso...">
-                <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-            </div>
-        </form><!--botao do carrinho de compras-->
+       ><!--botao do carrinho de compras-->
         <!--botao de entrar na área do aluno-->
 
         <a href="../php/logout.php" style="text-decoration: none;" id="entrar">Sair<span class="material-symbols-outlined">
@@ -97,12 +92,7 @@ if (isset($_GET['id2'])) {
         <div id="logo">
             <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
             <!--botão pesquisar-->
-            <form action="pesquisar.php" method="post">
-                <div class="buttonc">
-                    <input type="text" id="search" placeholder="Buscar curso...">
-                    <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-                </div>
-            </form>
+          
             <i onclick="acao()" id="menu" class='bx bx-menu'></i>
         </div>
         <!-- menu-->
@@ -125,9 +115,9 @@ if (isset($_GET['id2'])) {
 
             </div>
             <nav>
-                <a href="Cursos.html">Cursos</a>
-                <a href="CursosGratuitos">Cursos Gratuitos</a>
-                <a href="Quem somos">Quem somos</a>
+                <a href="../index.html">Cursos</a>
+                
+                <a href="../html/sobre.html">Quem somos</a>
                 <a href="Contato">Contato</a>
             </nav>
         </div>
@@ -251,7 +241,7 @@ if (isset($_GET['id2'])) {
         echo '<img src="' . $row['thumb'] . '" alt="Vídeo 1">'; 
         echo '<div>';
         echo '<h4>' . $row['titulo'] . '</h4>';
-        echo '<p>' . $row['descrição'] . '</p>';
+        
         echo '</div>';
         echo '</div>';
         echo '</a>';

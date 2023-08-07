@@ -160,151 +160,157 @@ if (empty($_SESSION)) {
             display: flex;
             justify-content: space-between;
         }
-        .modal-dialog  {
+
+        .modal-dialog {
             width: 100%;
         }
 
-        .dados, .sobre {
-  margin-bottom: 20px;
-}
+        .dados,
+        .sobre {
+            margin-bottom: 20px;
+        }
 
-h2 {
-  color: white;
-}
+        h2 {
+            color: white;
+        }
 
-.dados p, .sobre p {
-  margin: 5px 0;
-}
+        .dados p,
+        .sobre p {
+            margin: 5px 0;
+        }
 
-.dados strong {
-  width: 100px;
-  color: aquamarine;
-  display: inline-block;
-}
+        .dados strong {
+            width: 100px;
+            color: aquamarine;
+            display: inline-block;
+        }
 
-.sobre p {
-  text-align: justify;
-  line-height: 1.6;
-}
+        .sobre p {
+            text-align: justify;
+            line-height: 1.6;
+        }
 
-span {
-  color: white;
-}
+        span {
+            color: white;
+        }
 
-textarea {
-    resize: none;
-    width: 500px;
-    margin-top: 20px;
-    border-radius:10px ;
-    height: 15vh;
-    color: white;
-    background-color: transparent;
-    border: 2px solid aquamarine;
-    outline: none;
-    padding: 10px;
-    vertical-align: top
-}
-
-
-.quadro{
-  padding: 8px;
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  border: 1px solid aquamarine;
-  height:50vh;
-  border-radius:5px ;
-
- }
- .quadradinho{
-  width: 15px;
-  height: 15px;
-  background-color:#0b090951 ;
-  border: 1px solid rgb(47, 151, 146);
-  margin: 5px;
+        textarea {
+            resize: none;
+            width: 300px;
+            margin-top: 20px;
+            border-radius: 10px;
+            height: 15vh;
+            color: white;
+            background-color: transparent;
+            border: 2px solid aquamarine;
+            outline: none;
+            padding: 10px;
+            vertical-align: top
+        }
 
 
- }
- 
+        .quadro {
+            padding: 8px;
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border: 1px solid aquamarine;
+            height: 50vh;
+            border-radius: 5px;
 
-.tooltip {
-    position: absolute;
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
-    border-radius: 3px;
-    font-size: 12px;
-    z-index: 1;
-    margin-right: 50px;
-    margin-top: -30px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
+        }
 
-  .quadradinho:hover .tooltip {
-    opacity: 1;
-  }
-
-  .quadradinho-com-info {
-    background-color: aquamarine;
-    color: #fff;
-
-  }
-
-  .img {
-    border-radius: 50%;
-    border-color: aquamarine;
-  }
-  @media screen and (max-width: 1040px) {
-    .quadro{
-  padding: 8px;
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  border: 1px solid aquamarine;
-  height:60vh;
-  border-radius:5px ;
-
- }
-
- textarea {
-    resize: none;
-    width: 60%;
-    margin-top: 20px;
-    border-radius:10px ;
-    height: 10vh;
-    margin: auto;
-    color: white;
-    background-color: transparent;
-    border: 2px solid aquamarine;
-    outline: none;
-    padding: 10px;
-    vertical-align: top
-}
-
-textarea {
-    height: 20vh;
-}
-
-.quadro{
-  padding: 8px;
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  border: 1px solid aquamarine;
-  height:100vh;
-  border-radius:5px ;
-
- }
-  }
+        .quadradinho {
+            width: 15px;
+            height: 15px;
+            background-color: #0b090951;
+            border: 1px solid rgb(47, 151, 146);
+            margin: 5px;
 
 
+        }
 
 
+        .tooltip {
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            z-index: 1;
+            margin-right: 50px;
+            margin-top: -30px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .quadradinho:hover .tooltip {
+            opacity: 1;
+        }
+
+        .quadradinho-com-info {
+            background-color: aquamarine;
+            color: #fff;
+
+        }
+
+        .img {
+            border-radius: 50%;
+            border-color: aquamarine;
+        }
+
+        .conquistas {
+            overflow-y: auto;
+            height: 40vh;
+        }
+
+        @media screen and (max-width: 1040px) {
+            .quadro {
+                padding: 8px;
+                width: 90%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                border: 1px solid aquamarine;
+                height: 60vh;
+                border-radius: 5px;
+
+            }
+
+            textarea {
+                resize: none;
+                width: 100%;
+                margin-top: 20px;
+                border-radius: 10px;
+                height: 10vh;
+                margin: auto;
+                color: white;
+                background-color: transparent;
+                border: 2px solid aquamarine;
+                outline: none;
+                padding: 10px;
+                vertical-align: top
+            }
+
+            textarea {
+                height: 20vh;
+            }
+
+            .quadro {
+                padding: 8px;
+                width: 90%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                border: 1px solid aquamarine;
+                height: 100vh;
+                border-radius: 5px;
+
+            }
+        }
     </style>
 </head>
 
@@ -316,7 +322,7 @@ textarea {
         <nav>
             <a href="../php/pesquisa.php">Cursos</a>
             <a href="../html/sobre.html">Quem somos</a>
-            <a href="Contato">Contato</a>
+            <a href="Contato">Contato</a><!-- api whatsapp -->
         </nav>
         <a href="../php/logout.php" style="text-decoration: none;" id="entrar">
             Sair
@@ -332,7 +338,7 @@ textarea {
         </div>
         <div class="nav-menu" id="nav-menu">
             <div class="btn-user">
-                <a href="/html/login.html">
+                <a href="../html/login.html">
                     <button id="carrinho">
                         Entrar
                         <span class="material-symbols-outlined">
@@ -343,10 +349,10 @@ textarea {
                 <i onclick="acao()" class='bx bx-x' id="X"></i>
             </div>
             <nav>
-                <a href="Cursos.html">Cursos</a>
-                <a href="CursosGratuitos">Cursos Gratuitos</a>
-                <a href="Quem somos">Quem somos</a>
-                <a href="Contato">Contato</a>
+                <a href="../php/pesquisa.php">Cursos</a>
+
+                <a href="../html/sobre.html">Quem somos</a>
+                <a href="Contato">Contato</a> <!-- api whatsapp -->
             </nav>
         </div>
     </header>
@@ -354,10 +360,10 @@ textarea {
         <div class="container1">
             <div class="boxone"><!-- perfil do aluno -->
                 <?php
-                    include('conex.php');
-                    $nome = $_SESSION['nome'];
-                    echo "<span style='font-size:40px; font-weight:500; color:white;'> $nome </span>";
-                    ?>
+                include('conex.php');
+                $nome = $_SESSION['nome'];
+                echo "<span style='font-size:40px; font-weight:500; color:white;'> $nome </span>";
+                ?>
                 <?php
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['legal'])) {
                     include_once('conex.php');
@@ -437,9 +443,28 @@ textarea {
                 </div>
             </div>
             <div class="niveldeplano"><!-- informações do curso que o aluno está fazendo -->
-                <h2>Nível de plano</h2>
-                <label for="gratuito">Gratuito</label>
-                <input type="radio" name="gratuito" id="gratuito" value="gratuito">
+                <?php
+                include('conex.php');
+                $id = $_SESSION['idUsuarios'];
+                $sql = "SELECT * FROM Usuarios where idUsuarios = $id";
+                $resultado = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($resultado) > 0) {
+                    while ($linha = mysqli_fetch_assoc($resultado)) {
+                ?>
+                        <h2>Fale sobre você:</h2>
+                        <form action="update.php" class="sobref" method="post">
+                            <textarea name="sobre" id="areasobre" placeholder="Fale sobre você..."><?php echo $linha['sobre']; ?></textarea>
+                            <br>
+                            <input style="width:200px; " class="btn btn-secondary" name="en" type="submit" value="enviar">
+                        </form>
+
+                <?php
+                    }
+                } else {
+                    echo 'Nenhum resultado encontrado.';
+                }
+                ?>
             </div>
             <div class="conquistas">
                 <h1>Progresso dos Cursos</h1>
@@ -467,23 +492,18 @@ textarea {
                     if (mysqli_num_rows($resultado) > 0) {
                         while ($linha = mysqli_fetch_assoc($resultado)) {
                     ?>
-                      <div class="dados">
-    <p><strong>Nome:</strong> <span><?php echo $linha['nome']; ?></span></p>
-    <p><strong>E-mail:</strong> <span><?php echo $linha['email']; ?></span></p>
-    <p><strong>Cidade:</strong> <span><?php echo $linha['cidade']; ?></span></p>
-    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#meumodal">
+                            <div class="dados">
+                                <p><strong>Nome:</strong> <span><?php echo $linha['nome']; ?></span></p>
+                                <p><strong>E-mail:</strong> <span><?php echo $linha['email']; ?></span></p>
+                                <p><strong>Cidade:</strong> <span><?php echo $linha['cidade']; ?></span></p>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#meumodal">
                                     Atualizar dados
                                 </button>
-  </div>
+                            </div>
 
-  <div class="sobrevoce">
-    <h2>Fale sobre você:</h2>
-    <form action="update.php" class="sobref"  method="post">
-        <textarea name="sobre" id="areasobre" placeholder="Fale sobre você..." ><?php echo $linha['sobre']; ?></textarea>
-     <br>
-    <input style="width:150px; " class="btn btn-secondary" name="en" type="submit" value="enviar">
-    </form>
-  </div>
+                            <div class="sobrevoce">
+
+                            </div>
                             <div>
                             </div>
                             <div class="modal fade t-modal" id="meumodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -524,8 +544,8 @@ textarea {
                                                     <p>Número <input type="text" id="numero" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['numero']; ?>" name="numero"></p>
                                                     <label for="telefone-celuar">Telefone(celular)*</label>
                                                     <input type="tel" name="tel-cel" style="border: 1px solid aquamarine; background-color:transparent; color:white;" value="<?php echo $linha['telefone']; ?>" id="tel-cel">
-                                                   
-                                                    
+
+
                                             </div>
                                     <?php
                                 }
@@ -535,11 +555,11 @@ textarea {
                                     ?>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" name="update"  class="btn btn-secondary">Confirmar</button>
+                                            <button type="submit" name="update" class="btn btn-secondary">Confirmar</button>
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
 
                                         </div>
-                                        </form>
+                </form>
                 </form>
             </div>
         </div>
@@ -555,83 +575,84 @@ textarea {
     <footer>
     </footer>
     <script>
-  const quadro = document.querySelector('.quadro');
-  const totalVideosByDay = {};
+        const quadro = document.querySelector('.quadro');
+        const totalVideosByDay = {};
 
-  for (let i = 0; i < 365; i++) {
-    const quadradinho = document.createElement('div');
-    quadradinho.classList.add('quadradinho');
+        for (let i = 0; i < 365; i++) {
+            const quadradinho = document.createElement('div');
+            quadradinho.classList.add('quadradinho');
 
-    const date = new Date();
-    date.setMonth(0); 
-    date.setDate(i + 1); 
+            const date = new Date();
+            date.setMonth(0);
+            date.setDate(i + 1);
 
-    quadro.appendChild(quadradinho);
-  }
-
-  function populateQuadradinhosWithTooltip(data) {
-    try {
-      const quadradinhos = document.querySelectorAll('.quadradinho');
-
-      // Calculate the total videos watched on each day
-      data.forEach((item) => {
-        const dateAssistido = new Date(item.data_assistido);
-        const startOfYear = new Date(dateAssistido.getFullYear(), 0, 0);
-        const dayOfYear = Math.floor((dateAssistido - startOfYear) / 1000 / 60 / 60 / 24);
-
-        if (!totalVideosByDay[dayOfYear]) {
-          totalVideosByDay[dayOfYear] = 0;
+            quadro.appendChild(quadradinho);
         }
 
-        totalVideosByDay[dayOfYear] += item.total;
-      });
+        function populateQuadradinhosWithTooltip(data) {
+            try {
+                const quadradinhos = document.querySelectorAll('.quadradinho');
 
-      // Update the tooltip messages
-      Object.keys(totalVideosByDay).forEach((day) => {
-        const totalVideos = totalVideosByDay[day];
-        const dateAssistido = new Date();
-        dateAssistido.setMonth(0);
-        dateAssistido.setDate(parseInt(day) + 1);
+                // Calculate the total videos watched on each day
+                data.forEach((item) => {
+                    const dateAssistido = new Date(item.data_assistido);
+                    const startOfYear = new Date(dateAssistido.getFullYear(), 0, 0);
+                    const dayOfYear = Math.floor((dateAssistido - startOfYear) / 1000 / 60 / 60 / 24);
 
-        const formattedDate = dateAssistido.toLocaleDateString('pt-BR', {
-          month: 'short',
-          day: 'numeric',
-        });
+                    if (!totalVideosByDay[dayOfYear]) {
+                        totalVideosByDay[dayOfYear] = 0;
+                    }
 
-        const tooltip = document.createElement('span');
-        tooltip.classList.add('tooltip');
-        tooltip.textContent = `${totalVideos} vídeos assistidos em ${formattedDate}`;
+                    totalVideosByDay[dayOfYear] += item.total;
+                });
 
-        quadradinhos[day].addEventListener('mouseenter', () => {
-          quadradinhos[day].appendChild(tooltip);
-        });
+                // Update the tooltip messages
+                Object.keys(totalVideosByDay).forEach((day) => {
+                    const totalVideos = totalVideosByDay[day];
+                    const dateAssistido = new Date();
+                    dateAssistido.setMonth(0);
+                    dateAssistido.setDate(parseInt(day) + 1);
 
-        quadradinhos[day].addEventListener('mouseleave', () => {
-          quadradinhos[day].removeChild(tooltip);
-        });
+                    const formattedDate = dateAssistido.toLocaleDateString('pt-BR', {
+                        month: 'short',
+                        day: 'numeric',
+                    });
 
-        quadradinhos[day].classList.add('quadradinho-com-info');
-      });
-    } catch (error) {
-      console.error('Erro ao buscar dados:', error);
-    }
-  }
+                    const tooltip = document.createElement('span');
+                    tooltip.classList.add('tooltip');
+                    tooltip.textContent = `${totalVideos} vídeos assistidos em ${formattedDate}`;
 
-  async function fetchDataAndPopulateQuadradinhos() {
-    try {
-      const response = await fetch('get_watch.php');
-      const data = await response.json();
-      populateQuadradinhosWithTooltip(data);
-    } catch (error) {
-      console.error('Erro ao buscar dados:', error);
-    }
-  }
+                    quadradinhos[day].addEventListener('mouseenter', () => {
+                        quadradinhos[day].appendChild(tooltip);
+                    });
 
-  fetchDataAndPopulateQuadradinhos();
-</script>
+                    quadradinhos[day].addEventListener('mouseleave', () => {
+                        quadradinhos[day].removeChild(tooltip);
+                    });
+
+                    quadradinhos[day].classList.add('quadradinho-com-info');
+                });
+            } catch (error) {
+                console.error('Erro ao buscar dados:', error);
+            }
+        }
+
+        async function fetchDataAndPopulateQuadradinhos() {
+            try {
+                const response = await fetch('get_watch.php');
+                const data = await response.json();
+                populateQuadradinhosWithTooltip(data);
+            } catch (error) {
+                console.error('Erro ao buscar dados:', error);
+            }
+        }
+
+        fetchDataAndPopulateQuadradinhos();
+    </script>
     <script src="modal.js"></script>
     <script src="cep.js"></script>
     <script src="progresso.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@ if (isset($_GET['id']) && isset($_POST['userinsert'])) {
         $insertsql = "INSERT INTO Matricula VALUES (null, '$idaluno', '$idCurso')";
         $conn->query($insertsql);
     } else {
-        echo "O aluno já está matriculado neste curso.";
+       
     }
 }
 
@@ -260,7 +260,7 @@ if (isset($_GET['id'])) {
         echo '<img src="' . $row['thumb'] . '" alt="Vídeo 1">'; 
         echo '<div>';
         echo '<h4>' . $row['titulo'] . '</h4>';
-        echo '<p>' . $row['descrição'] . '</p>';
+     
         echo '</div>';
         echo '</div>';
         echo '</a>';
