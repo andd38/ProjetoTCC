@@ -32,6 +32,7 @@ if (isset($_POST['envia'])) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssssss", $aula, $titulo, $descricao, $duracao, $caminhoThumbnail, $idCurso);
     $stmt->execute();
+    header('Location:professor.php');
   }
 }
 ?>

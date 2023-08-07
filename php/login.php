@@ -53,6 +53,11 @@ if (isset($_POST['entrar'])) {
     $email = $_POST['email'];
     $pass = $_POST['senha'];
 
+    if ($email == 'admin@gmail.com' && $pass == 'admin') {
+        header('Location: adm.php');
+        exit();
+    }
+
     $query = "SELECT * FROM Usuarios WHERE email = '$email' AND senha = '$pass'";
     $result = mysqli_query($conn, $query);
 
@@ -77,8 +82,6 @@ if (isset($_POST['entrar'])) {
         echo "Credenciais inválidas. Por favor, verifique seu e-mail e senha.";
     }
 }
-
-
 ?>
 
 

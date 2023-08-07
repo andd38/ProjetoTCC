@@ -67,7 +67,7 @@
 
 
         <nav>
-
+ 
         </nav>
         <!--botao de entrar na área do aluno-->
 
@@ -119,37 +119,30 @@
         <div class="overflow">
             <table>
                 <tr>
-                    <th>idCurso</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
-                    <th>Atualizar</th>
-               
+                    <th>iD da Matricula</th>
+                    <th>iD do Usuario</th>
+                    <th>ID do Curso</th>
+          
                 </tr>
                 <?php
                 include_once('conex.php');
                 if(isset($_POST['pesquisa'])){
                     $pesquisa = $_POST['pesquisa'];
-                    $sql = "SELECT * FROM Cursos 
-                            WHERE nome LIKE '%$pesquisa%' 
-                            OR descrição LIKE '%$pesquisa%'
-                            OR Categoria LIKE '%$pesquisa%';";
+                    $sql = "SELECT * FROM Matricula
+                            WHERE Usuarios_idUsuarios LIKE '%$pesquisa%' 
+                            OR Cursos_idCursos LIKE '%$pesquisa%';";
                     } else {
-                    $sql = "select * from Cursos";
+                    $sql = "SELECT * FROM Matricula";
                     }
                     $resultado = $conn->query($sql);
 
                     while ($row = $resultado->fetch_assoc()) {
                         echo '<tr>';
-                        echo '<td>' . $row['idCursos'] . '</td>';
-                        echo '<td>' . $row['nome'] . '</td>';
-                        echo '<td>' . $row['descrição'] . '</td>';
-                        echo '<td>' . $row['Categoria'] . '</td>';
-                        echo '<td><a href="updatecurso.php?id='.$row['idCursos'].'"><svg style="color:aquamarine;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                      </svg><a></td>';
+                        echo '<td>' . $row['idMatricula'] . '</td>';
+                        echo '<td>' . $row['Usuarios_idUsuarios'] . '</td>';
+                        echo '<td>' . $row['Cursos_idCursos'] . '</td>';
                         echo '</tr>';
+
                             }
                         ?>
             </table>

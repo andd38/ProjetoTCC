@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_GET['idc']) && isset($_POST['userinsert'])) {
+if (isset($_GET['id']) && isset($_POST['userinsert'])) {
     include_once('conex.php');
     $idCurso = $_GET['id'];
     $idaluno = $_SESSION['idUsuarios'];
@@ -87,7 +87,7 @@ if (isset($_GET['id'])) {
 
 
         <nav>
-            <a href="../php/pesquisa.php">Cursos</a>
+        <a href="../php/aluno.php">Aluno</a>
             <a href="Quem somos">Quem somos</a>
             <a href="Contato">Contato</a>
         </nav>
@@ -280,7 +280,6 @@ if (isset($_GET['id'])) {
             });
         });
     </script>
-    <script src="video.js"></script>
     <script src="menu.js"></script>
     <script>
     var idPagina = <?php echo $idCurso; ?>; 

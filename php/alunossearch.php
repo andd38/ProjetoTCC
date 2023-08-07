@@ -67,14 +67,11 @@
 
 
         <nav>
-            <a href="../ProjetoTCC/html/pesquisa.html">Cursos</a>
-            <a href="CursosGratuitos">Editais</a>
-            <a href="Quem somos">Sobre</a>
-            <a href="Contato">Contato</a>
+
         </nav>
         <!--botao de entrar na área do aluno-->
 
-        <a href="html/login.html" style="text-decoration: none;" id="entrar">Entrar<span class="material-symbols-outlined">
+        <a href="../php/adm.php" style="text-decoration: none;" id="entrar">Voltar<span class="material-symbols-outlined">
                 person
             </span>
         </a>
@@ -107,21 +104,18 @@
 
             </div>
             <nav>
-                <a href="#">Cursos</a>
-                <a href="#">Editais</a>
-                <a href="#">Sobre</a>
-                <a href="Contato">Contato</a>
+
             </nav>
         </div>
     </header>
         <main>
+        <h1 style="color:white; text-align:center; margin-top:10px;">Alunos</h1>
             <form action="" method="post">
                 <div style="margin-top: 10px; " class="buttonc">
                     <input name="pesquisa" type="text" id="pesquisa" placeholder="Buscar...">
                     <button type="submit"><i class='bx bx-search-alt-2'></i></button>
                 </div>
             </form>
-            <h1 style="color:white; text-align:center; margin-top:10px;">Alunos</h1>
             <div class="overflow">
                 <table>
                     <tr>
@@ -143,6 +137,7 @@
                 <th>tipo_usuario</th>
                 <th>Atualizar</th>
                 <th>Apagar</th>
+                <th>Total de Alunos</th>
                     </tr>
                  <?php
                  include_once('conex.php');
@@ -187,9 +182,18 @@
                 echo '<td> <a href="delete.php?id='.$row['idUsuarios'].'"><svg style="color:red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
               </svg></a></td>';
-                echo '</tr>';
                     }
                 ?>
+                                <?php
+ $sql = "SELECT COUNT(*) AS total_usuarios
+ FROM Usuarios where tipo_usuario = 0";
+ $resultado = $conn->query($sql);
+                
+if ($row = $resultado->fetch_assoc()) {
+    echo '<td rowspan="5">' . $row['total_usuarios'] . '</td>';
+    }
+    echo '<tr>';
+?>
                 </table>
                 </div>
 

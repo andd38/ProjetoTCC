@@ -196,7 +196,7 @@ textarea {
     width: 500px;
     margin-top: 20px;
     border-radius:10px ;
-    height: 20vh;
+    height: 15vh;
     color: white;
     background-color: transparent;
     border: 2px solid aquamarine;
@@ -252,6 +252,11 @@ textarea {
     color: #fff;
 
   }
+
+  .img {
+    border-radius: 50%;
+    border-color: aquamarine;
+  }
   @media screen and (max-width: 1040px) {
     .quadro{
   padding: 8px;
@@ -270,7 +275,7 @@ textarea {
     width: 60%;
     margin-top: 20px;
     border-radius:10px ;
-    height: 15vh;
+    height: 10vh;
     margin: auto;
     color: white;
     background-color: transparent;
@@ -279,7 +284,25 @@ textarea {
     padding: 10px;
     vertical-align: top
 }
+
+textarea {
+    height: 20vh;
+}
+
+.quadro{
+  padding: 8px;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid aquamarine;
+  height:100vh;
+  border-radius:5px ;
+
+ }
   }
+
+
 
 
     </style>
@@ -292,8 +315,7 @@ textarea {
         </div>
         <nav>
             <a href="../php/pesquisa.php">Cursos</a>
-            <a href="editais">Editais</a>
-            <a href="Quem somos">Quem somos</a>
+            <a href="../html/sobre.html">Quem somos</a>
             <a href="Contato">Contato</a>
         </nav>
         <a href="../php/logout.php" style="text-decoration: none;" id="entrar">
@@ -456,10 +478,10 @@ textarea {
 
   <div class="sobrevoce">
     <h2>Fale sobre você:</h2>
-    <form action="update.php"  method="post">
+    <form action="update.php" class="sobref"  method="post">
         <textarea name="sobre" id="areasobre" placeholder="Fale sobre você..." ><?php echo $linha['sobre']; ?></textarea>
      <br>
-    <input style="width:150px; margin-left:160px;" class="btn btn-secondary" name="en" type="submit" value="enviar">
+    <input style="width:150px; " class="btn btn-secondary" name="en" type="submit" value="enviar">
     </form>
   </div>
                             <div>

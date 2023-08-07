@@ -67,17 +67,15 @@
 
 
         <nav>
-            <a href="../ProjetoTCC/html/pesquisa.html">Cursos</a>
-            <a href="CursosGratuitos">Editais</a>
-            <a href="Quem somos">Sobre</a>
-            <a href="Contato">Contato</a>
+ 
         </nav>
         <!--botao de entrar na área do aluno-->
 
-        <a href="html/login.html" style="text-decoration: none;" id="entrar">Entrar<span class="material-symbols-outlined">
+        <a href="../php/adm.php" style="text-decoration: none;" id="entrar">Voltar<span class="material-symbols-outlined">
                 person
             </span>
         </a>
+
 
 
     </header>
@@ -107,21 +105,18 @@
 
             </div>
             <nav>
-                <a href="#">Cursos</a>
-                <a href="#">Editais</a>
-                <a href="#">Sobre</a>
-                <a href="Contato">Contato</a>
+
             </nav>
         </div>
     </header>
         <main>
+        <h1 style="color:white; text-align:center; margin-top:10px;">Professores</h1>
             <form action="" method="post">
                 <div style="margin-top: 10px; " class="buttonc">
                     <input name="pesquisa" type="text" id="pesquisa" placeholder="Buscar...">
                     <button type="submit"><i class='bx bx-search-alt-2'></i></button>
                 </div>
             </form>
-            <h1 style="color:white; text-align:center; margin-top:10px;">Professores</h1>
             <div class="overflow">
                 <table>
                     <tr>

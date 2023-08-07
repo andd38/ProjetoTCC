@@ -39,8 +39,7 @@ include ('conex.php');
        
 
         <nav>
-            <a href="Cursos.html">Cursos</a>
-            <a href="CursosGratuitos">Cursos Gratuitos</a>
+            <a href="../php/aluno.php">Aluno</a>
             <a href="Quem somos">Quem somos</a>
             <a href="Contato">Contato</a>
         </nav>
@@ -93,21 +92,20 @@ include_once('conex.php');
 $sql = "SELECT * FROM Cursos WHERE Categoria = 'adm';";
 $resultado = $conn->query($sql);
 
-if ($resultado && $resultado->num_rows > 0) {
-        $row = $resultado->fetch_assoc();
-        $idCurso = $row['idCursos']; 
-        $nome = $row['nome'];
-        $descricao = $row['descrição'];
-        echo '<form action="video.php?id='.$idCurso.'" method="post">';
-        echo '<div class="carta">';
-        echo '<br><h1>' . $nome . '</h1></br>';
-        echo '<br>'.$descricao.'</br>';
-        echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
-        echo '</div>';
-        echo '</form>';
-    
+while ($row = $resultado->fetch_assoc()) {
+    $idCurso = $row['idCursos']; 
+    $nome = $row['nome'];
+    $descricao = $row['descrição'];
+    echo '<form action="video.php?id='.$idCurso.'" method="post">';
+    echo '<div class="carta">';
+    echo '<br><h1>' . $nome . '</h1></br>';
+    echo '<br>'.$descricao.'</br>';
+    echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+    echo '</div>';
+    echo '</form>';
 }
 ?>
+
 
                             </div>
 
@@ -120,7 +118,7 @@ include_once('conex.php');
 $sql = "SELECT * FROM Cursos WHERE Categoria = 'medicinal';";
 $resultado = $conn->query($sql);
 
-if ($resultado && $resultado->num_rows > 0) {
+while ($row = $resultado->fetch_assoc()) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
@@ -145,8 +143,7 @@ include_once('conex.php');
 $sql = "SELECT * FROM Cursos WHERE Categoria = 'bancario';";
 $resultado = $conn->query($sql);
 
-if ($resultado && $resultado->num_rows > 0) {
-        $row = $resultado->fetch_assoc();
+while ($row = $resultado->fetch_assoc()) {
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
         $descricao = $row['descrição'];
@@ -170,8 +167,7 @@ include_once('conex.php');
 $sql = "SELECT * FROM Cursos WHERE Categoria = 'tecnologia';";
 $resultado = $conn->query($sql);
 
-if ($resultado && $resultado->num_rows > 0) {
-        $row = $resultado->fetch_assoc();
+while ($row = $resultado->fetch_assoc()) {
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
         $descricao = $row['descrição'];
@@ -195,8 +191,7 @@ include_once('conex.php');
 $sql = "SELECT * FROM Cursos WHERE Categoria = 'direito';";
 $resultado = $conn->query($sql);
 
-if ($resultado && $resultado->num_rows > 0) {
-        $row = $resultado->fetch_assoc();
+while ($row = $resultado->fetch_assoc()) {
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
         $descricao = $row['descrição'];
@@ -220,8 +215,7 @@ include_once('conex.php');
 $sql = "SELECT * FROM Cursos WHERE Categoria = 'engenharia';";
 $resultado = $conn->query($sql);
 
-if ($resultado && $resultado->num_rows > 0) {
-        $row = $resultado->fetch_assoc();
+while ($row = $resultado->fetch_assoc()) {
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
         $descricao = $row['descrição'];
@@ -247,7 +241,7 @@ include_once('conex.php');
 $sql = "SELECT * FROM Cursos WHERE Categoria = 'militar';";
 $resultado = $conn->query($sql);
 
-if ($resultado && $resultado->num_rows > 0) {
+while ($row = $resultado->fetch_assoc()) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
@@ -272,7 +266,7 @@ include_once('conex.php');
 $sql = "SELECT * FROM Cursos WHERE Categoria = 'vestibular';";
 $resultado = $conn->query($sql);
 
-if ($resultado && $resultado->num_rows > 0) {
+while ($row = $resultado->fetch_assoc()) {
         $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
@@ -292,12 +286,6 @@ if ($resultado && $resultado->num_rows > 0) {
                         </div>
                      
                     </div>
-                    
-                
-            
-                
-            
-
     </main>
     <footer>
 

@@ -72,7 +72,7 @@ if (isset($_GET['id2'])) {
 
 
         <nav>
-            <a href="../php/pesquisa.php">Cursos</a>
+           <a href="../php/aluno.php">Aluno</a>
             <a href="Quem somos">Quem somos</a>
             <a href="Contato">Contato</a>
         </nav>
