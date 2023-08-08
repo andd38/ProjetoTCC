@@ -1,56 +1,18 @@
 <?php
-include_once('conex.php');
+include('conex.php');
 session_start();
-$id = $_SESSION['idUsuarios'];
-$query = "SELECT * FROM Usuarios WHERE idUsuarios = $id";
 
-$result = mysqli_query($conn, $query);
 
-if ($result && mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    $tipoUsuario = $row['tipo_usuario'];
-    include_once('conex.php');
+if(isset($_GET['key'])){
+    $query = "SELECT * FROM Usuarios where idUsuarios = $user";
+    $user = $_GET['key'];
+    if (mysqli_query($conn, $query)){
 
-    if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
-        echo "<div id='successBox' style='display: none; background-color: aquamarine ; color: black; padding: 10px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-60%);'>Cadastro finalizado</div>";
-        echo "<script>
-            var successBox = document.getElementById('successBox');
-            successBox.style.display = 'block';
-            setTimeout(function() {
-                successBox.style.display = 'none';
-            }, 000);
-        </script>";
-    }
-} else {
-}   if (isset($_GET['status']) && $_GET['status'] === 'logado') {
-    echo "<div id='successBox' style='display: none; background-color: aquamarine ; color: black; padding: 10px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-70%);'>Sessão iniciada</div>";
-    echo "<script>
-        var successBox = document.getElementById('successBox');
-        successBox.style.display = 'block';
-        setTimeout(function() {
-            successBox.style.display = 'none';
-        }, 3000);
-    </script>";
-}
-else {
-}  
 ?>
-<?php
 
 
-function get_total_all_records()
-{
-    include('conex.php');
-    $stmt = $connection->prepare("SELECT * FROM Usuarios");
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-    return $stmt->rowCount();
-}
 
-if (empty($_SESSION)) {
-    echo "<script>location.href='../php/login.php'</script>";
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -304,9 +266,6 @@ if (empty($_SESSION)) {
             height: 40vh;
         }
 
-        .bi-trash-fill {
-        
-        }
         @media screen and (max-width: 1040px) {
             .quadro {
                 padding: 8px;
@@ -364,7 +323,7 @@ if (empty($_SESSION)) {
             <a href="../html/sobre.html">Quem somos</a>
             <a href="Contato">Contato</a><!-- api whatsapp -->
         </nav>
-        <a href="../php/logout.php?status=" style="text-decoration: none;" id="entrar">
+        <a href="../php/logout.php" style="text-decoration: none;" id="entrar">
             Sair
             <span class="material-symbols-outlined">
                 person
@@ -696,3 +655,39 @@ if (empty($_SESSION)) {
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+    }
+} 
+?>
+

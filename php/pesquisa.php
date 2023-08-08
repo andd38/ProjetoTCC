@@ -278,7 +278,6 @@ $sql = "SELECT * FROM Cursos WHERE Categoria = 'militar';";
 $resultado = $conn->query($sql);
 
 while ($row = $resultado->fetch_assoc()) {
-        $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
         $descricao = $row['descrição'];
@@ -303,7 +302,6 @@ $sql = "SELECT * FROM Cursos WHERE Categoria = 'vestibular';";
 $resultado = $conn->query($sql);
 
 while ($row = $resultado->fetch_assoc()) {
-        $row = $resultado->fetch_assoc();
         $idCurso = $row['idCursos']; 
         $nome = $row['nome'];
         $descricao = $row['descrição'];

@@ -60,6 +60,9 @@ if (isset($_GET['id'])) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Brasil Concursos</title>
     <style>
+        a {
+            text-decoration: none;  
+        }
         iframe{
             margin: auto;
             max-height: 700px;

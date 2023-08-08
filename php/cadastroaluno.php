@@ -1,32 +1,3 @@
-<?php
-include_once('conex.php'); 
-session_start();
-$id = $_SESSION['idUsuarios'];
-$query = "SELECT * FROM Usuarios WHERE idUsuarios = $id"; 
-
-$result = mysqli_query($conn, $query);
-
-if ($result && mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    $tipoUsuario = $row['tipo_usuario']; 
-    include_once('conex.php'); 
-    
-    if (isset($_GET['status']) && $_GET['status'] === 'success') { 
-        echo "<div id='successBox' style='display: none; background-color: aquamarine ; color: black; padding: 10px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-50%);'>Conta criada com sucesso</div>";
-        echo "<script>
-            var successBox = document.getElementById('successBox');
-            successBox.style.display = 'block';
-            setTimeout(function() {
-                successBox.style.display = 'none';
-            }, 5000);
-        </script>";
-
-    }
-} else {
-
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
