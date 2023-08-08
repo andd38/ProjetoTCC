@@ -44,7 +44,7 @@ if(isset($_POST['insert'])) {
           WHERE idUsuarios = '$id'";
 
   if (mysqli_query($conn, $sql)) {
-    header('location:aluno.php');
+    header('location:aluno.php?status=sucesso');
   } else {
     echo "Erro ao inserir os dados: " . mysqli_error($conn);
   }

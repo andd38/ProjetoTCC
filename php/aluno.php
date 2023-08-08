@@ -1,5 +1,31 @@
 <?php
+include_once('conex.php');
 session_start();
+$id = $_SESSION['idUsuarios'];
+$query = "SELECT * FROM Usuarios WHERE idUsuarios = $id";
+
+$result = mysqli_query($conn, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $tipoUsuario = $row['tipo_usuario'];
+    include_once('conex.php');
+
+    if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
+        echo "<div id='successBox' style='display: none; background-color: aquamarine ; color: black; padding: 10px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-50%);'>Cadastro finalizado</div>";
+        echo "<script>
+            var successBox = document.getElementById('successBox');
+            successBox.style.display = 'block';
+            setTimeout(function() {
+                successBox.style.display = 'none';
+            }, 5000);
+        </script>";
+    }
+} else {
+}
+?>
+<?php
+
 
 function get_total_all_records()
 {
@@ -456,7 +482,7 @@ if (empty($_SESSION)) {
                         <form action="update.php" class="sobref" method="post">
                             <textarea name="sobre" id="areasobre" placeholder="Fale sobre você..."><?php echo $linha['sobre']; ?></textarea>
                             <br>
-                            <input style="width:200px; " class="btn btn-secondary" name="en" type="submit" value="enviar">
+                            <input style="width:300px; " class="btn btn-secondary" name="en" type="submit" value="enviar">
                         </form>
 
                 <?php

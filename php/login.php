@@ -2,10 +2,6 @@
 session_start();
 include('conex.php');
 
-//armazenar mensagens de erro exibidas
-$erroMensagem = "";
-$erroEmail = "";
-
 if (isset($_POST['criar'])) {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -13,14 +9,14 @@ if (isset($_POST['criar'])) {
 
     // Definir senhas de no mínimo 6 caracteres com a necessidade de um número pelo menos.
     if (strlen($pass) < 6 || !preg_match("/[a-zA-Z]/", $pass) || !preg_match("/[0-9]/", $pass)) {
-        $erroMensagem = "A senha deve ter no mínimo 6 caracteres e conter letras e números.";
+       echo "<span style='color:red;'>A senha deve ter no mínimo 6 caracteres e conter letras e números.</span>";
     } else {
         // Verificação do email no nosso banco, caso tenha um email igual, não será aceito.
         $checkQuery = "SELECT idUsuarios FROM Usuarios WHERE email = '$email'";
         $checkResult = mysqli_query($conn, $checkQuery);
 
         if (mysqli_num_rows($checkResult) > 0) {
-            $erroEmail = "O email está em uso.";
+            echo "<span style='color:red;'>O email está em uso.</span>";
         } else {
             $tipoUsuario = 0;
 
@@ -37,7 +33,7 @@ if (isset($_POST['criar'])) {
                 echo "Bem-vindo(a) $nome";
 
                 if ($tipoUsuario == 0) {
-                    header('Location: cadastroaluno.php');
+                    header('Location: cadastroaluno.php?status=success');
                     exit();
                 } elseif ($tipoUsuario == 1) {
                     header('Location: cadastroaluno.php');
@@ -80,7 +76,7 @@ if (isset($_POST['entrar'])) {
         }
     } else {
       
-        echo "Credenciais inválidas. Por favor, verifique seu e-mail e senha.";
+        echo "<span style='color:red;'>Credenciais inválidas. Por favor, verifique seu e-mail e senha.</span>";
     }
 }
 ?>
@@ -127,8 +123,8 @@ if (isset($_POST['entrar'])) {
                 <p class="description description-second">Ou use seu E-mail para cadastrar:</p>
 
                 <form  class="form" method="post">
-                    <div class="erro"><span><?php echo $erroMensagem; ?></span></div>
-                    <div class="erro"><span><?php echo $erroEmail; ?></span></div>
+                    <div class="erro"><span></span></div>
+                    <div class="erro"><span></span></div>
                     <label for="" class="label-input"><i class='bx bx-user icon'></i>
                         <input type="text" name="nome" id="" placeholder="Nome">
                     </label>
@@ -173,7 +169,6 @@ if (isset($_POST['entrar'])) {
                     <label for="" class="label-input"><i class='bx bx-lock icon'></i>
                         <input type="password" name="senha" id="" placeholder=" Senha">
                     </label>
-                    <a href="#" class="password">Esqueci minha senha</a>
                     <input type="submit" name="entrar" value="Entrar" class="btn btn-second" />
                 </form>
             </div>

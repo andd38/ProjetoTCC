@@ -1,3 +1,32 @@
+<?php
+include_once('conex.php'); 
+session_start();
+$id = $_SESSION['idUsuarios'];
+$query = "SELECT * FROM Usuarios WHERE idUsuarios = $id"; 
+
+$result = mysqli_query($conn, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $tipoUsuario = $row['tipo_usuario']; 
+    include_once('conex.php'); 
+    
+    if (isset($_GET['status']) && $_GET['status'] === 'success') { 
+        echo "<div id='successBox' style='display: none; background-color: aquamarine ; color: black; padding: 10px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-50%);'>Conta criada com sucesso</div>";
+        echo "<script>
+            var successBox = document.getElementById('successBox');
+            successBox.style.display = 'block';
+            setTimeout(function() {
+                successBox.style.display = 'none';
+            }, 5000);
+        </script>";
+
+    }
+} else {
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,7 +52,7 @@
     font-size: 19px;
     padding-left:5px ;
 
-  
+
   }
   input[type=tel]{
   
@@ -63,25 +92,9 @@
 
 
         <nav>
-            <a href="Cursos.html">Cursos</a>
-            <a href="CursosGratuitos">Cursos Gratuitos</a>
-            <a href="Quem somos">Quem somos</a>
-            <a href="Contato">Contato</a>
         </nav>
         <!--botão pesquisar-->
-        <form action="pesquisar.php" method="post">
-            <div class="buttonc">
-                <input type="text" id="search" placeholder="Buscar curso...">
-                <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-            </div>
-        </form><!--botao do carrinho de compras-->
 
-        <a href="#" id="carrinho">
-            Carrinho
-            <span class="material-symbols-outlined">
-                shopping_cart
-            </span>
-        </a>
         <!--botao de entrar na área do aluno-->
 
         <a href="/html/login.html" style="text-decoration: none;" id="entrar">Entrar<span class="material-symbols-outlined">
@@ -107,16 +120,11 @@
 
       
       
-        <!--botao do carrinho de compras-->
+    
        <div class="nav-menu" id="nav-menu">
            <div class="btn-user">
                
-                   <button id="carrinho">
-                       Carrinho
-                       <span class="material-symbols-outlined">
-                           shopping_cart
-                           </span>
-                   </button>
+
                      <!--botao de entrar na área do aluno-->
                
                    
@@ -129,9 +137,7 @@
 
            </div>
            <nav>
-               <a href="../html/pesquisa.html">Cursos</a>
-               <a href="Quem somos">Quem somos</a>
-               <a href="Contato">Contato</a>
+       
            </nav>
        </div>
     </header>      
@@ -185,52 +191,11 @@
                 <input type="tel" name="tel-cel" id="tel-cel">
                 </div>
 
-              <div class="container2"><!-- Planos da Brasil Consursos -->
-                <div></div>
-                <div><h1>Gratuito</h1></div>
-                <div><h1>Vitalicio</h1></div>
-                <div><h1>Premium</h1></div>
-                <div>Atividades</div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-x'></i></div>
-                <div>Downloads</div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-x'></i></div>
-                <div>Certificado</div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-x'></i></div>
-                <div>Acesso as aulas pagas</div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-x'></i></div>
-                <div>Comentários</div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-x'></i></div>
-                <div>1° mes grátis</div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-check'></i></div>
-                <div><i class='bx bx-x'></i></div>
+   
 
 
 
-              </div>
-
-
-
-                <div class="nascimento">
-                    <label for="">Escolha o seu Plano:</label>
-                    <select name="plan" class="plan">
-
-                        <option value="Gratuito">Gratuito</option>
-                        <option value="vitalicio">Vitalício</option>
-                        <option value="premium">Premium</option>
-                    </select>
-
-                </div>
+      
                 <div class="nascimento"><button type="submit" name="insert" class="btn btn-primary" id="enviar">Confirmar</button></div>
 
             </form>

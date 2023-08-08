@@ -24,8 +24,8 @@ $query = "SELECT tipo_usuario FROM Usuarios Where idUsuarios = '$id';";
 $resultado = $conn->query($query);
 $row = $resultado->fetch_assoc();
 if ($row['tipo_usuario'] != 1) {
-  header('Location: aluno.php');
-  exit();
+    header('Location: aluno.php');
+    exit();
 }
 
 ?>
@@ -221,8 +221,8 @@ if ($row['tipo_usuario'] != 1) {
 
         .en {
             display: flex;
-            justify-content:center ;
-            margin-top: 300px;
+            justify-content: center;
+            margin-top: 200px;
         }
 
         .send-course {
@@ -300,6 +300,53 @@ if ($row['tipo_usuario'] != 1) {
             text-align: center;
         }
 
+         #valida{
+  width: 110px;
+  height: 25px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: #000000;
+  background-color: rgb(130, 214, 186);
+ }
+ #valida:hover{
+  background-color: #fff;
+  color: rgb(123, 200, 174);
+  transition: 0.5s;
+ }
+input[type=text]{
+
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin: 5px;
+  width: 200px;
+
+}
+input[type=tel]{
+
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin: 5px;
+  width: 200px;
+}
+input[type=date]{
+    width: 200px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  margin: 5px;
+  text-align: center;
+}
+.modal-principal{
+ color: #000000;
+}
+
+span {
+  color: #fdfdfd;
+}
+
         .btn-secondary {
             background-color: aquamarine;
             color: #000000;
@@ -348,6 +395,53 @@ if ($row['tipo_usuario'] != 1) {
             color: #fff;
         }
 
+        
+        .dados,
+        .sobre {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        .dados p,
+        .sobre p {
+            margin: 5px 0;
+        }
+
+        .dados strong {
+            width: 100px;
+            color: aquamarine;
+            display: inline-block;
+        }
+
+        .sobre p {
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        span {
+            color: white;
+        }
+        textarea {
+            resize: none;
+            width: 300px;
+            margin-top: 20px;
+            border-radius: 10px;
+            height: 15vh;
+            color: white;
+            background-color: transparent;
+            border: 2px solid aquamarine;
+            outline: none;
+            padding: 10px;
+            vertical-align: top
+        }
+
+        .dados {
+            margin-top: 25px;
+            margin-left: 130px;
+        }
 
         @media screen and (max-width : 1040px) {
             main {
@@ -385,7 +479,7 @@ if ($row['tipo_usuario'] != 1) {
 
             <a href="enviaraulas.php"><img src="../img/logo2pequena.png" alt=""></a>
             <h2>Bem vindo professor</h2>
-            <a href="#" style="text-decoration: none;" id="entrar"><i class='bx bxs-user' style="margin-right: 50px;"><?php echo $nome   ?></i>
+            <a href="../php/login.php" style="text-decoration: none;" id="entrar"><i class='bx bxs-user' style="margin-right: 50px;">Sair</i>
             </a>
         </nav>
     </header>
@@ -414,10 +508,33 @@ if ($row['tipo_usuario'] != 1) {
 
                     <!-- link para adicionar curso , coloquei aqui aleatoriamente ,temos que achar um lugar para ele -->
                 </div>
-                <div class="en"><a href="../php/cadastrarcurso.php" class="send-course">Enviar curso</a></div>
+                <div class="en"><a href="../php/cadastrarcurso.php" style="width: 200px;" class="send-course">Cadastrar curso</a></div>
             </div>
             <div class="box1">
-                <h2>Certificações/História</h2>
+                
+            <?php
+                include('conex.php');
+                $id = $_SESSION['idUsuarios'];
+                $sql = "SELECT * FROM Usuarios where idUsuarios = $id";
+                $resultado = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($resultado) > 0) {
+                    while ($linha = mysqli_fetch_assoc($resultado)) {
+                ?>
+                        <h2>Fale sobre você:</h2>
+                        <form action="update.php" class="sobref" method="post">
+                            <textarea name="sobre" id="areasobre" placeholder="Fale sobre você..."><?php echo $linha['sobre']; ?></textarea>
+                            <br>
+                            <input style="width:300px; " class="btn btn-secondary" name="en" type="submit" value="enviar">
+                        </form>
+
+                <?php
+                    }
+                } else {
+                    echo 'Nenhum resultado encontrado.';
+                }
+                ?>
+
             </div>
 
         </div>
@@ -504,6 +621,84 @@ if ($row['tipo_usuario'] != 1) {
                             </div>
                         </div>
                     </div>
+
+
+
+                    <?php
+                include('conex.php');
+                $id = $_SESSION['idUsuarios'];
+                $sql = "SELECT * FROM Usuarios where idUsuarios = $id";
+                $resultado = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($resultado) > 0) {
+                    while ($linha = mysqli_fetch_assoc($resultado)) {
+                ?>
+                         <div class="dados">
+                                <p><strong>Nome:</strong> <span><?php echo $linha['nome']; ?></span></p>
+                                <p><strong>E-mail:</strong> <span><?php echo $linha['email']; ?></span></p>
+                                <p><strong>Cidade:</strong> <span><?php echo $linha['cidade']; ?></span></p>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#meumodal">
+                            Atualizar dados
+                        </button>
+                         </div>
+                        <div class="modal fade" id="meumodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2);">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Atualizar Dados</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+
+                                        <form action="update.php" method="post" autocomplete="off">
+                                            <label for="name">Nome</label>
+                                            <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $linha['nome']; ?>" required>
+
+                                            <label for="dt_nascimento">Data de nascimento:</label>
+                                            <input type="date" name="data" id="data" class="form-control" value="<?php echo $linha['data_nascimento']; ?>" required>
+
+                                            <label for="CPF">CPF:</label>
+                                            <input type="text" name="cpf" id="cpf" class="form-control" value="<?php echo $linha['cpf']; ?>" required>
+                                            <button type="button" onclick="validarCPF()" id="valida">Validar</button>
+                                            <span style="color: black;" id="validar"></span>
+
+                                            <h6>Informações do Endereço:</h6>
+                                            <label for="cep">CEP:</label>
+                                            <input type="text" name="cep" id="cep" class="form-control" value="<?php echo $linha['cep']; ?>" required>
+                                            <button type="button" onclick="consultarCEP()" id="valida">Consultar</button>
+
+                                            <div style="display: flex;">
+                                                <p>CEP: <input type="text" id="logradouro" class="form-control" value="<?php echo $linha['logradouro']; ?>" name="logradouro"></p>
+                                                <p>Logradouro: <input type="text" id="bairro" class="form-control" value="<?php echo $linha['bairro']; ?>" name="bairro"></p>
+                                            </div>
+
+                                            <div style="display: flex;">
+                                                <p>Cidade <input type="text" id="cidade" class="form-control" value="<?php echo $linha['cidade']; ?>" name="cidade"></p>
+                                                <p>UF <input type="text" id="uf" class="form-control" value="<?php echo $linha['uf']; ?>" name="uf"></p>
+                                            </div>
+
+                                            <p>Complemento <input type="text" id="complemento" class="form-control" value="<?php echo $linha['complemento']; ?>" name="complemento"></p>
+                                            <p>Número <input type="text" id="numero" class="form-control" value="<?php echo $linha['numero']; ?>" name="numero"></p>
+
+                                            <label for="telefone-celuar">Telefone (celular)</label>
+                                            <input type="tel" name="tel-cel" class="form-control" value="<?php echo $linha['telefone']; ?>" id="tel-cel">
+                                        </form>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" name="update" class="btn btn-secondary">Confirmar</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <?php
+                    }
+                }
+
+                ?>
                 </div>
 
 
