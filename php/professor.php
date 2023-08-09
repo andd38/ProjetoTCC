@@ -318,11 +318,18 @@ input[type=text]{
 
   border-radius: 8px;
   outline: none;
-  border: none;
+  border: aqua solid 1px;
   margin: 5px;
   width: 200px;
+  background-color: transparent;
+  color: white;
 
 }
+input[type=text]:focus,input[type=tel]:focus,input[type=date]:focus{
+    background-color: transparent;
+    color: white;
+}
+
 input[type=tel]{
 
   border-radius: 8px;
@@ -330,6 +337,9 @@ input[type=tel]{
   border: none;
   margin: 5px;
   width: 200px;
+  background-color: transparent;
+  color: white;
+  border: aqua solid 1px;
 }
 input[type=date]{
     width: 200px;
@@ -338,6 +348,9 @@ input[type=date]{
   border: none;
   margin: 5px;
   text-align: center;
+  background-color: transparent;
+  color: white;
+  border: aqua solid 1px;
 }
 .modal-principal{
  color: #000000;
@@ -446,20 +459,23 @@ span {
         @media screen and (max-width : 1040px) {
             main {
                 display: flex;
-                flex-direction: column;
+                flex-direction: column-reverse;
                 max-width: 150vh;
                 justify-content: center;
+                align-items: center;
             }
 
             .description {
                 display: flex;
                 flex-direction: column;
+                
+                
             }
 
             .box2 {
                 display: flex;
                 flex-direction: column;
-                max-width: 450px;
+                max-width: 435px;
 
             }
 

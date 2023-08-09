@@ -304,9 +304,7 @@ if (empty($_SESSION)) {
             height: 40vh;
         }
 
-        .bi-trash-fill {
         
-        }
         @media screen and (max-width: 1040px) {
             .quadro {
                 padding: 8px;
