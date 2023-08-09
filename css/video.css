@@ -212,7 +212,14 @@ span {
   border-radius: 10px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between; 
 }
+
+.delete-link {
+  display: flex;
+  align-items: center;
+}
+
 
 .comentar img{
  height: 50px;

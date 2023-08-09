@@ -51,6 +51,41 @@ if (isset($_GET['id2'])) {
             height: 700px;
             margin-left: 25px;
         }
+
+        .comentar {
+  background-color: rgba(0, 0, 0, 0.219);
+  padding: 10px;
+  width: 95%;
+  margin-left: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.teste {
+  margin-left: 10px;
+}
+
+.comentario-texto {
+  word-wrap: break-word;
+}
+
+.delete-section {
+  display: flex;
+  align-items: center;
+}
+
+.delete-link {
+  display: flex;
+  align-items: center;
+}
+
         @media screen and (max-width: 1040px) {
         iframe {
             margin: auto;
@@ -264,36 +299,56 @@ if (isset($_GET['id2'])) {
     <script src="video.js"></script>
     <script src="menu.js"></script>
     <script>
-    var idPagina = <?php echo $idCurso; ?>; 
+        var idPagina = <?php echo $idCurso; ?>;
 
-$(document).ready(function() {
-    $('#formulario-comentario').submit(function(event) { //Verifica o formulário
-        event.preventDefault(); // impede o envio do action padrão
+        $(document).ready(function() {
+            $('#formulario-comentario').submit(function(event) { //Verifica o formulário
+                event.preventDefault(); // impede o envio do action padrão
 
-        var formData = $(this).serialize(); //serializa os dados
+                var formData = $(this).serialize(); //serializa os dados
 
-        $.ajax({
-            type: 'POST',
-            url: $(this).attr('action'),
-            data: formData + '&id=' + idPagina, // Adiciona o ID da página à data do formulário
-            success: function(response) {
-                if (response === 'successo') {
-                    loadComments(); //Caso retorne sucesso , é executada a função que carrega os comentários
-                } else {
-                    alert('Erro.');
-                }
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: formData + '&id=' + idPagina, // Adiciona o ID da página à data do formulário
+                    success: function(response) {
+                        if (response === 'successo') {
+                            loadComments(); //Caso retorne sucesso , é executada a função que carrega os comentários
+                        } else {
+                            alert('Erro.');
+                        }
+                    }
+                });
+            });
+
+            loadComments();
+
+            function loadComments() {
+                $.get('get_comments.php?id=' + idPagina, function(response) { //Gambiarra que Passa o ID da página para o arquivo get_comments.php
+                    $('#comentarios-container').html(response);
+                });
             }
-        });
-    });
 
-    loadComments();
-
-    function loadComments() {
-        $.get('get_comments.php?id=' + idPagina, function(response) { //Gambiarra que Passa o ID da página para o arquivo get_comments.php
-            $('#comentarios-container').html(response);
+            
         });
-    }
-});
+        function loadComments() {
+                $.get('get_comments.php?id=' + idPagina, function(response) { //Gambiarra que Passa o ID da página para o arquivo get_comments.php
+                    $('#comentarios-container').html(response);
+                });
+            }
+
+            function deleteComment(commentId) {
+                var xhr = new XMLHttpRequest();
+                
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        loadComments(); 
+                    }
+                };
+                
+                xhr.open("GET", "delete_comment.php?id=" + commentId, true);
+                xhr.send();
+            }
     </script>
       <?php   }}  ?>
 </body>
