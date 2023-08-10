@@ -33,14 +33,14 @@ include ('conex.php');
 <body>
     <header>
         <div id="logo">
-            <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
+            <a href="../php/aluno.php"><img src="../img/logo2pequena.png" alt=""></a>
         </div>
         <!-- menu-->
        
 
         <nav>
             <a href="../php/aluno.php">Aluno</a>
-            <a href="../html/sobre.html">Quem somos</a>
+            <a href="../html/sobre.html">Sobre</a>
             <a href="Contato">Contato</a><!-- api do whatsapp -->
         </nav>
         <!--botão pesquisar-->

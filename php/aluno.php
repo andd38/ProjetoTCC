@@ -393,11 +393,11 @@ if (empty($_SESSION)) {
 <body>
     <header class="menu-principal">
         <div id="logo">
-            <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
+            <a href="../php/aluno.php"><img src="../img/logo2pequena.png" alt=""></a>
         </div>
         <nav>
             <a href="../php/pesquisa.php">Cursos</a>
-            <a href="../html/sobre.html">Quem somos</a>
+            <a href="../html/sobre.html">Sobre</a>
             <a href="Contato">Contato</a><!-- api whatsapp -->
         </nav>
         <a href="../php/logout.php?status=" style="text-decoration: none;" id="entrar">
