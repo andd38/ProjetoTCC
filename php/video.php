@@ -3,20 +3,6 @@ header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
 session_start();
-if (isset($_GET['id']) && isset($_POST['userinsert'])) {
-    include_once('conex.php');
-    $idCurso = $_GET['id'];
-    $idaluno = $_SESSION['idUsuarios'];
-    $Query = "SELECT * FROM Matricula WHERE Usuarios_idUsuarios = '$idaluno' AND Cursos_idCursos = '$idCurso'";
-    $result = $conn->query($Query);
-
-    if ($result->num_rows == 0) {
-        $insertsql = "INSERT INTO Matricula VALUES (null, '$idaluno', '$idCurso')";
-        $conn->query($insertsql);
-    } else {
-    }
-}
-
 function get_total_all_records()
 {
     include('conex.php');

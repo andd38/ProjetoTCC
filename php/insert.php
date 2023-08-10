@@ -13,7 +13,6 @@ if(isset($_POST['insert'])) {
   $uf = $_POST['uf'];
   $comple = $_POST['complemento'];
   $numero = $_POST['numero'];
-  $plano = $_POST['plan'];
   if (!$conn) {
     die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
   }
@@ -27,7 +26,6 @@ if(isset($_POST['insert'])) {
   $uf = mysqli_real_escape_string($conn, $uf);
   $comple = mysqli_real_escape_string($conn, $comple);
   $numero = mysqli_real_escape_string($conn, $numero);
-  $plano = mysqli_real_escape_string($conn, $plano);
 
   $sql = "UPDATE Usuarios SET 
           data_nascimento = '$dataNascimento',
@@ -39,8 +37,7 @@ if(isset($_POST['insert'])) {
           cidade = '$cidade',
           uf = '$uf',
           complemento = '$comple',
-          numero = '$numero',
-          plano = '$plano'
+          numero = '$numero'
           WHERE idUsuarios = '$id'";
 
   if (mysqli_query($conn, $sql)) {

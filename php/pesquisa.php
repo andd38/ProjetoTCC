@@ -1,9 +1,9 @@
 <?php 
 include ('conex.php');
-
-
-
-
+session_start();
+if (empty($_SESSION)) {
+    print("<script>location.href='login.php'</script>");
+}
 ?>
 
 
@@ -14,10 +14,6 @@ include ('conex.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-  
-   
-  
     <link rel="stylesheet" href="../css/pesquisa.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
@@ -136,7 +132,7 @@ while ($row = $resultado->fetch_assoc()) {
     echo '<div class="carta">';
     echo '<br><h1>' . $nome . '</h1></br>';
     echo '<br>'.$descricao.'</br>';
-    echo '<br><a href="video.php?id=' . $idCurso . '"><button name="userinsert">Acessar</button></a></br>';
+    echo '<br><a href="video.php?id=' . $idCurso . '"><button>Acessar</button></a></br>';
     echo '</div>';
     echo '</form>';
 }

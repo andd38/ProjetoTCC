@@ -402,7 +402,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['atualizado'])) {
           <form method="post" enctype="multipart/form-data" autocomplete="off">
 
             <label for="videoUrl">Insira o link do vídeo do YouTube:</label>
-            <input type="text" id="videoUrl" name="videoUrl" placeholder="https://www.youtube.com/watch?v=bkWvLQXIDeI">
+            <input type="text" id="videoUrl" name="videoUrl" placeholder="Insira seu link">
             <button id="veri" onclick="getVideoDuration(); return false;">VERIFICAR VÍDEO</button>
             <p id="videoDurationText" style="color: white;"></p>
             <label for="titulo">Título</label>
