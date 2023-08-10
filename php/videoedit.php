@@ -335,11 +335,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['atualizado'])) {
       ?>
           <a href="enviaraulas.php" style="margin-top:-45px;"><img src="../img/logo2pequena.png" alt=""></a>
           <h2><?php echo $row['nome'];
-            }
-          }  ?></h2>
-          <a href="../php/professor.php" style="text-decoration: none; font-family:'Poppins';" id="entrar"><i class='bx bxs-user'>Voltar</i>
+           ?></h2>
+          <a href="../php/videoedit.php?id=<?php echo $curso?>" style="text-decoration: none; font-family:'Poppins';" id="entrar"><i class='bx bxs-user'>Voltar</i>
           </a>
+          <?php
+     }
+    }
 
+?>
     </nav>
   </header>
 

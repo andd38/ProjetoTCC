@@ -2,19 +2,38 @@
 include_once('conex.php');
 
 if (isset($_GET['status']) && $_GET['status'] === 'logout') {
-    echo "<div id='successBox' style='display: none; background-color: aquamarine ; color: black; padding: 10px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-50%);'>Sessão finalizada</div>";
+    echo "<div id='successBox' style='display: none; background-color: #FF6B6B; color: white; padding: 40px; border-radius: 5px; position: fixed; top: 20px; left: 730px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000;'>
+        Sessão finalizada
+        <div id='progressBar' style='background-color: lightgray; height: 10px; border-radius: 5px; margin-top: 10px;'>
+            <div id='progressFill' style='background-color: #FF3D3D; height: 100%; width: 0; border-radius: 5px;'></div>
+        </div>
+    </div>";
     echo "<script>
         var successBox = document.getElementById('successBox');
         successBox.style.display = 'block';
-        setTimeout(function() {
-            successBox.style.display = 'none';
-        }, 4000);
+        var progressBar = document.getElementById('progressFill');
+        var duration = 2000; 
+        var interval = 50; 
+
+        var width = 0;
+        var increment = (interval / duration) * 100;
+
+        var progressInterval = setInterval(function() {
+            width += increment;
+            progressBar.style.width = width + '%';
+            if (width >= 100) {
+                clearInterval(progressInterval);
+                setTimeout(function() {
+                    successBox.style.display = 'none';
+                }, 500);
+            }
+        }, interval);
     </script>";
-}
- else {
+} else {
 }
 
 ?>
+
 <?php
 session_start();
 include('conex.php');

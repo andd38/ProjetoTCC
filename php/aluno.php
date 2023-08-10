@@ -12,25 +12,63 @@ if ($result && mysqli_num_rows($result) > 0) {
     include_once('conex.php');
 
     if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
-        echo "<div id='successBox' style='display: none; background-color: aquamarine ; color: black; padding: 10px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-60%);'>Cadastro finalizado</div>";
-        echo "<script>
-            var successBox = document.getElementById('successBox');
-            successBox.style.display = 'block';
-            setTimeout(function() {
-                successBox.style.display = 'none';
-            }, 000);
-        </script>";
-    }
-} else {
-}   if (isset($_GET['status']) && $_GET['status'] === 'logado') {
-    echo "<div id='successBox' style='display: none; background-color: aquamarine ; color: black; padding: 10px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-70%);'>Sessão iniciada</div>";
+        echo "<div id='successBox' style='display: none; background-color: aquamarine; color: black; padding: 40px; border-radius: 5px; position: fixed; top: 20px; left: 730px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000;'>
+        Cadastro Finalizado
+        <div id='progressBar' style='background-color: lightgray; height: 10px; border-radius: 5px; margin-top: 10px;'>
+            <div id='progressFill' style='background-color: #FF3D3D; height: 100%; width: 0; border-radius: 5px;'></div>
+        </div>
+    </div>";
     echo "<script>
         var successBox = document.getElementById('successBox');
         successBox.style.display = 'block';
-        setTimeout(function() {
-            successBox.style.display = 'none';
-        }, 3000);
+        var progressBar = document.getElementById('progressFill');
+        var duration = 2000; 
+        var interval = 50; 
+
+        var width = 0;
+        var increment = (interval / duration) * 100;
+
+        var progressInterval = setInterval(function() {
+            width += increment;
+            progressBar.style.width = width + '%';
+            if (width >= 100) {
+                clearInterval(progressInterval);
+                setTimeout(function() {
+                    successBox.style.display = 'none';
+                }, 500);
+            }
+        }, interval);
     </script>";
+    }
+} else {
+}   if (isset($_GET['status']) && $_GET['status'] === 'logado') {
+    echo "<div id='successBox' style='display: none; background-color: aquamarine; color: black; padding: 30px; border-radius: 5px; position: fixed; top: 20px; left: 730px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000;'>
+    Sessão iniciada
+    <div id='progressBar' style='background-color: lightgray; height: 10px; border-radius: 5px; margin-top: 10px;'>
+        <div id='progressFill' style='background-color: #FF3D3D; height: 100%; width: 0; border-radius: 5px;'></div>
+    </div>
+</div>";
+echo "<script>
+    var successBox = document.getElementById('successBox');
+    successBox.style.display = 'block';
+    var progressBar = document.getElementById('progressFill');
+    var duration = 2000; 
+    var interval = 50; 
+
+    var width = 0;
+    var increment = (interval / duration) * 100;
+
+    var progressInterval = setInterval(function() {
+        width += increment;
+        progressBar.style.width = width + '%';
+        if (width >= 100) {
+            clearInterval(progressInterval);
+            setTimeout(function() {
+                successBox.style.display = 'none';
+            }, 500);
+        }
+    }, interval);
+</script>";
 }
 else {
 }  

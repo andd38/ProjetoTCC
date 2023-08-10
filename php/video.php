@@ -121,6 +121,7 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
+
     <header>
         <div id="logo">
             <a href="index.html"><img src="../img/logo2pequena.png" alt=""></a>
@@ -337,12 +338,13 @@ if (isset($_GET['id'])) {
                     url: $(this).attr('action'),
                     data: formData + '&id=' + idPagina, // Adiciona o ID da página à data do formulário
                     success: function(response) {
-                        if (response === 'successo') {
-                            loadComments(); //Caso retorne sucesso , é executada a função que carrega os comentários
-                        } else {
-                            alert('Erro.');
-                        }
-                    }
+    if (response === 'successo') {
+        loadComments();
+        showAlert("Mensagem enviada com sucesso!"); // Adicione esta linha para exibir um alerta
+    } else {
+        alert('Erro.');
+    }
+}
                 });
             });
 
@@ -363,17 +365,27 @@ if (isset($_GET['id'])) {
             }
 
             function deleteComment(commentId) {
-                var xhr = new XMLHttpRequest();
-                
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        loadComments(); 
-                    }
-                };
-                
-                xhr.open("GET", "delete_comment.php?id=" + commentId, true);
-                xhr.send();
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                loadComments();
+                showAlert("Comentário excluído com sucesso!");
+            } else {
+                showAlert("Ocorreu um erro ao excluir o comentário.");
             }
+        }
+    };
+
+    xhr.open("GET", "delete_comment.php?id=" + commentId, true);
+    xhr.send();
+}
+
+function showAlert(message) {
+    alert(message);
+}
+
     </script>
 <?php   }
             }  ?>
