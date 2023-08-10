@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemplo de Divs com Vídeos</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  .video-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  video {
+    width: 100%;
+    max-width: 400px;
+  }
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="video-container">
+  <video controls>
+    <source src="video1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div class="video-container">
+  <video controls>
+    <source src="video2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<button id="addVideoButton">Adicionar Vídeo</button>
+
+<script>
+  const addButton = document.getElementById('addVideoButton');
+  addButton.addEventListener('click', () => {
+    const videoContainer = document.createElement('div');
+    videoContainer.classList.add('video-container');
+    
+    const video = document.createElement('video');
+    video.controls = true;
+    const source = document.createElement('source');
+    source.src = 'novovideo.mp4'; // Substitua pelo URL do novo vídeo
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    
+    videoContainer.appendChild(video);
+    
+    document.body.insertBefore(videoContainer, addButton);
+  });
+</script>
+</body>
+</html>

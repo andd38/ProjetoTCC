@@ -515,7 +515,7 @@ span {
                         while ($row = $resultado->fetch_assoc()) {
                             $idCurso = $row['idCursos'];
                             $curso = $row['nome'];
-                            echo "<a href='cadastraraula.php?id=$idCurso'>$curso</a><br>";
+                            echo "<a href='videoedit.php?id=$idCurso'>$curso</a><br>";
                         }
                     }
                     ?>
