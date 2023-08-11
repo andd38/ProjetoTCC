@@ -398,7 +398,7 @@ if (empty($_SESSION)) {
         <nav>
             <a href="../php/pesquisa.php">Cursos</a>
             <a href="../html/sobre.html">Sobre</a>
-            <a href="Contato">Contato</a><!-- api whatsapp -->
+            <a href="https://wa.me/5561993838031">Contato</a><!-- api whatsapp -->
         </nav>
         <a href="../php/logout.php?status=" style="text-decoration: none;" id="entrar">
             Sair
