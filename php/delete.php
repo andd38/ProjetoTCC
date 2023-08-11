@@ -1,6 +1,5 @@
 <?php
-include('conex.php');
-
+ include('conex.php');
 $id = $_GET['id'];
 $tipo = $_GET['tipo'];
 

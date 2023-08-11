@@ -242,6 +242,11 @@ if (isset($_GET['id'])) {
                     </script>
                     <script src="https://www.youtube.com/iframe_api"></script>
 
+
+                    <?php
+                    $sql = "SELECT * FROM "
+
+               ?>
                     <div id="video-descricao">
                         <button style="float: right; padding:1px;" id="seta">&#9660;</button>
                         <div id="conteudo">
