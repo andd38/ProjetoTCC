@@ -150,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['atualizado'])) {
       margin-left: 50px;
       margin-top: 25px;
       border-radius: 15px;
-      width: 51%;
+      width: 54%;
       margin: auto;
       height: 750px;
       background-color: rgba(0, 0, 0, 0.397);
@@ -336,7 +336,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['atualizado'])) {
           <a href="enviaraulas.php" style="margin-top:-45px;"><img src="../img/logo2pequena.png" alt=""></a>
           <h2><?php echo $row['nome'];
            ?></h2>
-          <a href="../php/videoedit.php?id=<?php echo $curso?>" style="text-decoration: none; font-family:'Poppins';" id="entrar"><i class='bx bxs-user'>Voltar</i>
+          <a href="../php/professor.php" style="text-decoration: none; font-family:'Poppins';" id="entrar"><i class='bx bxs-user'>Voltar</i>
           </a>
           <?php
      }

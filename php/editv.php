@@ -248,44 +248,44 @@ if (isset($_POST['envia'])) {
   <main>
 
 
-  <?php
-if (isset($_GET['id'])) {
-    include('conex.php');
-    $idvideo = $_GET['id'];
-    $query = "SELECT * FROM Video where idvideo = $idvideo";
+    <?php
+    if (isset($_GET['id'])) {
+      include('conex.php');
+      $idvideo = $_GET['id'];
+      $query = "SELECT * FROM Video where idvideo = $idvideo";
 
-    $result = $conn->query($query);
+      $result = $conn->query($query);
 
-    if ($row = $result->fetch_assoc()) {
-        ?>
+      if ($row = $result->fetch_assoc()) {
+    ?>
         <h2>Atualizar Aula</h2>
         <div class="description">
-            <form action="" enctype="multipart/form-data" method="post" id="enviaForm">
-                <label for="videoUrl">Insira o link do vídeo do YouTube:</label>
-                <input type="text" id="videoUrl" name="videoUrl" value="<?php echo $row['link'] ?>" placeholder="https://www.youtube.com/watch?v=bkWvLQXIDeI">
-                <button id="veri" onclick="getVideoDuration(); return false;">VERIFICAR VÍDEO</button>
-                <p id="videoDurationText" style="color: white;"></p>
-                <label for="titulo">Título</label>
-                <input type="text" name="titulo" value="<?php echo $row['titulo'] ?>">
-                <textarea name="descricao" cols="30" rows="10" placeholder="Descrição"></textarea>
-                <label id="thumb-label" for="thumbnail">Thumbnail</label>
-                <img id="thumbnail-preview" src="" value="" alt="" style="max-width: 200px;">
-                <div class="custom-file-input">
-                    <input type="file" name="thumbnail" id="thumbnail" onchange="previewThumbnail()">
-                    <label for="thumbnail">Escolher arquivo</label>
-                </div>
-                <input type="hidden" name="idvideo" value="<?php echo $row['idvideo'] ?>">
-                <input type="hidden" name="duracao" id="duracao" value="<?php echo $row['duracao'] ?>">
-                <button type="submit" name="envia">Atualizar vídeo</button>
+          <form action="" enctype="multipart/form-data" method="post">
+            <label for="videoUrl">Insira o link do vídeo do YouTube:</label>
+            <input type="text" id="videoUrl" name="videoUrl" value="<?php echo $row['link'] ?>" placeholder="https://www.youtube.com/watch?v=bkWvLQXIDeI">
+            <button id="veri" onclick="getVideoDuration(); return false;">VERIFICAR VÍDEO</button>
+            <p id="videoDurationText" style="color: white;"></p>
+            <label for="titulo">Título</label>
+            <input type="text" name="titulo" value="<?php echo $row['titulo'] ?>">
+            <textarea name="descricao" cols="30" rows="10" placeholder="Descrição"></textarea>
+            <label id="thumbl" for="thumb">Thumbnail</label>
+            <img id="thumbnail-preview" src="<?php echo $row['thumb'] ?>" alt="" style="max-width: 200px;">
+            <div class="custom-file-input">
+              <input type="file" name="thumbnail" id="thumb" value="<?php echo $row['thumb'] ?>" onchange="previewThumbnail()">
+              <label for="thumbnail">Escolher arquivo</label>
+            </div>
+            <input type="hidden" name="idvideo" value="<?php echo $row['idvideo'] ?>">
+            <input type="hidden" name="duracao" id="duracao" value="<?php echo $row['duracao'] ?>">
+            <button type="submit" name="envia">Atualizar vídeo</button>
 
-            </form>
+          </form>
         </div>
-        <?php
+    <?php
+      }
     }
-}
-?>
+    ?>
 
-        </div>
+    </div>
   </main>
 
   <script>
@@ -323,21 +323,23 @@ if (isset($_GET['id'])) {
 
       return `${hours}h ${minutes}m ${seconds}s`;
     }
+  </script>
+    <script>
+        function previewThumbnail() {
+  const thumbnailInput = document.getElementById("thumb");
+  const thumbnailPreview = document.getElementById("thumbnail-preview");
 
-    function previewThumbnail() {
-  const thumbnailInput = document.getElementById('thumbnail');
-  const thumbnailPreview = document.getElementById('thumbnail-preview');
+  if (thumbnailInput.files && thumbnailInput.files[0]) {
+    const reader = new FileReader();
 
-  thumbnailInput.addEventListener('input', function() { 
-    thumbnailPreview.src = thumbnailInput.files ? URL.createObjectURL(thumbnailInput.files[0]) : "";
-  });
+    reader.onload = function (e) {
+      thumbnailPreview.src = e.target.result;
+    };
+
+    reader.readAsDataURL(thumbnailInput.files[0]);
+  }
 }
-function submitForm() {
-  getVideoDuration();
-  setTimeout(function() {
-    document.getElementById('enviaForm').submit();
-  }, 1000);
-}
+
   </script>
 </body>
 
