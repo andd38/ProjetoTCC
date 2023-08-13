@@ -93,6 +93,17 @@ if (isset($_GET['id'])) {
   align-items: center;
 }
 
+.imgp {
+    border-left:4px solid aquamarine ;
+    margin-left: 1px;
+}
+#fotovideo{
+    width: 65px; 
+  height: 60px; 
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 
         @media screen and (max-width: 1040px) {
             iframe {
@@ -180,7 +191,13 @@ if (isset($_GET['id'])) {
                 $idCurso = $_GET['id'];
                 include_once('conex.php');
 
-                $sql = "SELECT * FROM video WHERE Cursos_idCursos = $idCurso LIMIT 1;";
+                $sql = "SELECT v.*, u.*
+                FROM video v
+                JOIN Cursos c ON v.Cursos_idCursos = c.idCursos
+                JOIN Usuarios u ON c.Usuarios_idUsuarios = u.idUsuarios
+                WHERE c.idCursos = $idCurso
+                LIMIT 1;
+                ";
                 $resultado = $conn->query($sql);
 
                 if ($resultado && $resultado->num_rows > 0) {
@@ -242,16 +259,12 @@ if (isset($_GET['id'])) {
                     </script>
                     <script src="https://www.youtube.com/iframe_api"></script>
 
-
-                    <?php
-                    $sql = "SELECT * FROM "
-
-               ?>
                     <div id="video-descricao">
                         <button style="float: right; padding:1px;" id="seta">&#9660;</button>
                         <div id="conteudo">
                             <h3 style="font-size: 25px; margin-left:20px;"><?php echo $row['titulo'];    ?></h3>
-                            <div style="display:flex; flex-direction:row;"><img id="fotovideo" src="<?php      ?>" alt="" srcset=""><span style="font-size:20px; margin-top:50px; margin-left:15px;">Clenio Emidio</span> </div>
+
+                            <div style="display:flex; flex-direction:row;"><div class="imgp"><img id="fotovideo" src="<?php echo $row['imagem'] ?>" alt="" srcset=""></div><span style="font-size:20px; margin-top:50px; margin-left:15px;"><?php echo $row['nome'] ?></span> </div>
                             <br><br>
                             <h3 style="font-size: 25px; margin-left:20px;">DESCRIÇÂO:</h3>
                             <br>
