@@ -30,6 +30,4 @@ if (mysqli_query($conn, $deleteComentariosSQL) &&
 } else {
     echo "Erro na exclusão dos registros relacionados: " . mysqli_error($conn);
 }
-
-mysqli_close($conn);
 ?>

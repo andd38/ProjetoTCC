@@ -493,9 +493,9 @@ span {
 
         <nav>
 
-            <a href="enviaraulas.php"><img src="../img/logo2pequena.png" alt=""></a>
+            <a href="enviaraulas.php"><img style="width: 150px; margin-top:-50px" src="../img/logo2pequena.png" alt=""></a>
             <h2>Bem vindo professor</h2>
-            <a href="../php/login.php" style="text-decoration: none;" id="entrar"><i class='bx bxs-user' style="margin-right: 50px;">Sair</i>
+            <a href="../php/logout.php" style="text-decoration: none;" id="entrar"><i class='bx bxs-user' style="margin-right: 50px;">Sair</i>
             </a>
         </nav>
     </header>
