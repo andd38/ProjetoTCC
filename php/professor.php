@@ -222,7 +222,7 @@ if ($row['tipo_usuario'] != 1) {
         .en {
             display: flex;
             justify-content: center;
-            margin-top: 200px;
+            margin-top: 150px;
         }
 
         .send-course {

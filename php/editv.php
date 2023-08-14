@@ -35,7 +35,7 @@ if (isset($_POST['envia'])) {
     $stmt_update->execute();
 
 
-    header("Location: videoedit.php?id=$idCurso");
+    header('Location:videoedit.php?id=$idCurso');
     $stmt->close();
     $conn->close();
   }

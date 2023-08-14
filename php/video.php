@@ -95,6 +95,7 @@ if (isset($_GET['id'])) {
 
 .imgp {
     border-left:4px solid aquamarine ;
+    
     margin-left: 1px;
 }
 #fotovideo{
