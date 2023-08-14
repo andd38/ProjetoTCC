@@ -129,7 +129,7 @@ if (isset($_GET['id'])) {
 
         <nav>
             <a href="../php/aluno.php">Aluno</a>
-            <a href="Quem somos">Quem somos</a>
+            <a href="../html/sobre.html">Sobre</a>
             <a href="Contato">Contato</a>
         </nav>
         <!--botão pesquisar-->
@@ -177,9 +177,9 @@ if (isset($_GET['id'])) {
 
             </div>
             <nav>
-                <a href="Cursos.html">Cursos</a>
-                <a href="CursosGratuitos">Cursos Gratuitos</a>
-                <a href="Quem somos">Quem somos</a>
+                <a href="../php/pesquisa.php">Cursos</a>
+              
+                <a href="../html/sobre.html">Quem somos</a>
                 <a href="Contato">Contato</a>
             </nav>
         </div>

@@ -173,24 +173,18 @@ if (isset($_GET['id2'])) {
 
     <div id="video-container">
         <main>
-            <?php
-            if (isset($_GET['id2']) && (($_GET['id1']))) {
-                $idCurso = $_GET['id2'];
-                $idvideo = $_GET['id1'];
-                include_once('conex.php');
+        <?php
+        if (isset($_GET['id2']) && (($_GET['id1']))) {
+    $idCurso = $_GET['id2'];
+    $idvideo = $_GET['id1'];
+    include_once('conex.php');
 
-                $sql = "SELECT v.*, u.*
-    FROM video v
-    JOIN Cursos c ON v.Cursos_idCursos = c.idCursos
-    JOIN Usuarios u ON c.Usuarios_idUsuarios = u.idUsuarios
-    WHERE c.idCursos = $idCurso
-    LIMIT 1;
-    ";
-                $resultado = $conn->query($sql);
+    $sql = "SELECT v.*, u.* FROM video v JOIN Cursos c ON v.Cursos_idCursos = c.idCursos JOIN Usuarios u ON c.Usuarios_idUsuarios = u.idUsuarios WHERE c.idCursos = $idCurso and v.idvideo = $idvideo;";
+    $resultado = $conn->query($sql);
 
-                if ($resultado && $resultado->num_rows > 0) {
-                    $row = $resultado->fetch_assoc();
-            ?>
+    if ($resultado && $resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc();
+?>
                     <iframe id="<?php echo $row['idvideo'] ?>" width="560" height="315" src="<?php echo $row['link']; ?>/<?php echo $row['idvideo'] ?>?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
 
 
