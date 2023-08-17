@@ -56,7 +56,10 @@ if (isset($_POST['criar'])) {
         } else {
             $tipoUsuario = 0;
 
-            $query = "INSERT INTO `db_senac`.`Usuarios` (`idUsuarios`, `nome`, `email`, `senha`, `tipo_usuario`,`sobre`) VALUES (null, '$nome', '$email', '$pass', '$tipoUsuario',null)";
+            // Criptografar a senha usando password_hash()
+            $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+
+            $query = "INSERT INTO `db_senac`.`Usuarios` (`idUsuarios`, `nome`, `email`, `senha`, `tipo_usuario`, `sobre`) VALUES (null, '$nome', '$email', '$hashedPass', '$tipoUsuario', null)";
 
             if (mysqli_query($conn, $query)) {
                 $_SESSION['idUsuarios'] = mysqli_insert_id($conn);
@@ -82,6 +85,7 @@ if (isset($_POST['criar'])) {
     }
 }
 
+
 if (isset($_POST['entrar'])) {
     $email = $_POST['email'];
     $pass = $_POST['senha'];
@@ -91,30 +95,33 @@ if (isset($_POST['entrar'])) {
         exit();
     }
 
-    $query = "SELECT * FROM Usuarios WHERE email = '$email' AND senha = '$pass'";
+    $query = "SELECT * FROM Usuarios WHERE email = '$email'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 1) {
-       
         $row = mysqli_fetch_assoc($result);
 
-        $_SESSION['idUsuarios'] = $row['idUsuarios'];
-        $_SESSION['nome'] = $row['nome'];
-        $_SESSION['email'] = $row['email'];
-        $_SESSION['tipoUsuario'] = $row['tipo_usuario'];
+        if (password_verify($pass, $row['senha'])) {
+            $_SESSION['idUsuarios'] = $row['idUsuarios'];
+            $_SESSION['nome'] = $row['nome'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['tipoUsuario'] = $row['tipo_usuario'];
 
-        if ($row['tipo_usuario'] == 0) {
-            header('Location: aluno.php?status=logado');
-            exit();
-        } elseif ($row['tipo_usuario'] == 1) {
-            header('Location: professor.php');
-            exit();
+            if ($row['tipo_usuario'] == 0) {
+                header('Location: aluno.php?status=logado');
+                exit();
+            } elseif ($row['tipo_usuario'] == 1) {
+                header('Location: professor.php');
+                exit();
+            }
+        } else {
+            echo "<span style='color:red;'>Credenciais inválidas. Por favor, verifique seu e-mail e senha.</span>";
         }
     } else {
-      
         echo "<span style='color:red;'>Credenciais inválidas. Por favor, verifique seu e-mail e senha.</span>";
     }
 }
+
 ?>
 
 

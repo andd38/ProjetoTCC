@@ -4,7 +4,7 @@ $id = $_GET['id'];
 $tipo = $_GET['tipo'];
 
 $deleteComentariosSQL = "DELETE FROM Comentarios WHERE Usuarios_idUsuarios = $id";
-$deleteWatchSQL = "DELETE FROM watch WHERE Usuarios_idUsuarios = $id";
+$deleteWatchSQL = "DELETE FROM visualizacao WHERE Usuarios_idUsuarios = $id";
 $deleteVideoSQL = "DELETE FROM video WHERE Cursos_idCursos IN (SELECT idCursos FROM Cursos WHERE Usuarios_idUsuarios = $id)";
 $deleteCursosSQL = "DELETE FROM Cursos WHERE Usuarios_idUsuarios = $id";
 

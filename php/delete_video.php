@@ -4,9 +4,9 @@ if (isset($_GET['id'])) {
     $videoid = $_GET['id'];
 
  
-    $deleteWatchSql = "DELETE FROM watch WHERE video_idvideo = $videoid;";
+    $deleteWatchSql = "DELETE FROM visualizacao WHERE video_idvideo = $videoid;";
     if (mysqli_query($conn, $deleteWatchSql)) {
-        echo 'Registros de watch excluídos com sucesso.';
+        echo 'Registros de visualizaçâo excluídos com sucesso.';
     } else {
         echo "Erro ao excluir registros de watch: " . mysqli_error($conn);
     }

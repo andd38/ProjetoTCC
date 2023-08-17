@@ -4,10 +4,10 @@ include_once('conex.php');
 
 $id = $_SESSION['idUsuarios'];
 
-$sql = "SELECT Cursos.idCursos, Cursos.nome, COUNT(DISTINCT video.idvideo) AS total_videos, SUM(watch.assistido) AS assistidos
+$sql = "SELECT Cursos.idCursos, Cursos.nome, COUNT(DISTINCT video.idvideo) AS total_videos, SUM(visualizacao.assistido) AS assistidos
 FROM Cursos
 LEFT JOIN video ON Cursos.idCursos = video.Cursos_idCursos
-LEFT JOIN watch ON video.idvideo = watch.video_idvideo AND video.Cursos_idCursos = watch.video_Cursos_idCursos AND watch.Usuarios_idUsuarios = $id
+LEFT JOIN visualizacao ON video.idvideo = visualizacao.video_idvideo AND video.Cursos_idCursos = visualizacao.video_Cursos_idCursos AND visualizacao.Usuarios_idUsuarios = $id
 GROUP BY Cursos.idCursos, Cursos.nome
 HAVING assistidos IS NOT NULL";
 ;

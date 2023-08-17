@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $videoId = $data['videoId'];
     $curso = $data['curso'];
 
-    $stmt_check = $conn->prepare("SELECT idwatch FROM watch WHERE video_idvideo = ? AND video_Cursos_idCursos = ? AND Usuarios_idUsuarios = ?");
+    $stmt_check = $conn->prepare("SELECT idvisualizacao FROM visualizacao WHERE video_idvideo = ? AND video_Cursos_idCursos = ? AND Usuarios_idUsuarios = ?");
     $stmt_check->bind_param("iii", $videoId, $curso, $usuario);
     $stmt_check->execute();
     $stmt_check->store_result();
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $watched = $data['watched'];
         $assistido = $watched ? 1 : 0;
 
-        $stmt_insert = $conn->prepare("INSERT INTO watch (video_idvideo, video_Cursos_idCursos, Usuarios_idUsuarios, assistido, data_assistido) VALUES (?, ?, ?, ?, (NOW()))");
+        $stmt_insert = $conn->prepare("INSERT INTO visualizacao (video_idvideo, video_Cursos_idCursos, Usuarios_idUsuarios, assistido, data_assistido) VALUES (?, ?, ?, ?, (NOW()))");
         $stmt_insert->bind_param("iiii", $videoId, $curso, $usuario, $assistido);
 
         if ($stmt_insert->execute()) {
