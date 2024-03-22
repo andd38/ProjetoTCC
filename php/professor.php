@@ -725,6 +725,8 @@ span {
     <footer>
 
     </footer>
+
+    <script src="cep.js"></script>
 </body>
 
 </html>

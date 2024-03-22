@@ -326,8 +326,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['atualizado'])) {
       include('conex.php');
       if (isset($_GET['id'])) {
         $curso = $_GET['id'];
-        $sql = "SELECT *
-        FROM Cursos where idCursos = $curso;";
+        $sql = "SELECT * FROM Cursos where idCursos = $curso";
 
         $resultado = $conn->query($sql);
 

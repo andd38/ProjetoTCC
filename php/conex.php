@@ -2,7 +2,7 @@
 
 $hostname = 'localhost';
 $usuario = 'root';
-$senha = 'senac';
+$senha = '';
 $banco = 'db_senac';
 $conn = mysqli_connect($hostname, $usuario, $senha, $banco);
 
