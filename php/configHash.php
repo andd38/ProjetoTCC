@@ -1,11 +1,11 @@
 <?php
-include_once('conex.php'); // Adiciona o ponto e vírgula aqui
+include_once('conex.php'); 
 
-$email = 'admin@gmail.com'; // Corrige a variável para $email
+$email = 'admin@gmail.com'; 
 
 $sql = "SELECT senha FROM usuarios WHERE email = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $email); // Corrige para $email
+$stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
