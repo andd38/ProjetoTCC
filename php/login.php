@@ -87,19 +87,25 @@ if (isset($_POST['criar'])) {
 
 
 if (isset($_POST['entrar'])) {
+    include('configHash.php');
     $email = $_POST['email'];
     $pass = $_POST['senha'];
 
-    if ($email == 'admin@gmail.com' && $pass == 'admin') {
-        header('Location: adm.php');
-        exit();
-    }
+    $query = "SELECT * FROM Usuarios WHERE email = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    $query = "SELECT * FROM Usuarios WHERE email = '$email'";
-    $result = mysqli_query($conn, $query);
 
-    if (mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_assoc($result);
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        
+        if ($email === $config['admin_email'] && password_verify($pass, $config['admin_password'])) {
+            
+            header('Location: adm.php');
+            exit();
+        }
 
         if (password_verify($pass, $row['senha'])) {
             $_SESSION['idUsuarios'] = $row['idUsuarios'];
@@ -169,13 +175,13 @@ if (isset($_POST['entrar'])) {
                     <div class="erro"><span></span></div>
                     <div class="erro"><span></span></div>
                     <label for="" class="label-input"><i class='bx bx-user icon'></i>
-                        <input type="text" name="nome" id="" placeholder="Nome">
+                        <input type="text" name="nome"  placeholder="Nome">
                     </label>
                     <label for="" class="label-input"><i class='bx bx-envelope  icon'></i>
-                        <input type="email" name="email" id="" placeholder="E-mail">
+                        <input type="email" name="email"  placeholder="E-mail">
                     </label>
                     <label for="" class="label-input"><i class='bx bx-lock icon'></i>
-                        <input type="password" name="senha" id="" placeholder="Senha">
+                        <input type="password" name="senha"  placeholder="Senha">
                     </label>
                     <input type="submit" name="criar" value="Criar Conta" class="btn btn-primary" />
                 </form>
@@ -207,10 +213,10 @@ if (isset($_POST['entrar'])) {
                 <p class="description">Ou use seu E-mail</p>
                 <form  class="form" method="post">
                     <label for="" class="label-input"><i class='bx bx-envelope  icon'></i>
-                        <input type="email" name="email" id="" placeholder="E-mail">
+                        <input type="email" name="email"  placeholder="E-mail">
                     </label>
                     <label for="" class="label-input"><i class='bx bx-lock icon'></i>
-                        <input type="password" name="senha" id="" placeholder=" Senha">
+                        <input type="password" name="senha"  placeholder=" Senha">
                     </label>
                     <input type="submit" name="entrar" value="Entrar" class="btn btn-second" />
                 </form>

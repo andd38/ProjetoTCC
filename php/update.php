@@ -91,9 +91,11 @@ if(isset($_POST['update'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $tipo = mysqli_real_escape_string($conn, $_POST['tipo']);
 
+    $hashedPass = password_hash($senha, PASSWORD_DEFAULT);
+
     $sql = "UPDATE Usuarios SET 
             nome = '$nome',
-            senha = '$senha',
+            senha = '$hashedPass',
             email = '$email',
             tipo_usuario = '$tipo',
             data_nascimento = '$dataNascimento',

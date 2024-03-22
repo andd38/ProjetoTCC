@@ -4,7 +4,7 @@ session_start();
 
 $id = $_SESSION['idUsuarios'];
 
-$query = "SELECT tipo_usuario FROM Usuarios Where idUsuarios = '$id';";
+$query = "SELECT tipo_usuario FROM Usuarios Where idUsuarios = '$id'";
 
 $resultado = $conn->query($query);
 $row = $resultado->fetch_assoc();
@@ -35,7 +35,7 @@ if (isset($_POST['envia'])) {
     $stmt_update->execute();
 
 
-    header('Location:videoedit.php?id=$idCurso');
+    header("Location:videoedit.php?id=$idCurso");
     $stmt->close();
     $conn->close();
   }
