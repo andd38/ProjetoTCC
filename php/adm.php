@@ -121,6 +121,10 @@
         <span>Cursos</span>
         <a href="cursosearch.php" class="btn">Ver Cursos</a>
     </div>
+    <div>
+        <span>Editais</span>
+        <a href=" ./html/editais.html" class="btn">Ver Editais</a>
+    </div>
 </main>
 
 
