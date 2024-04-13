@@ -99,7 +99,7 @@ if (empty($_SESSION)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../css/stylealuno.css">
-    <link rel="stylesheet" href="../css/alunocelular.css" media="screen and (orientation: portrait)">
+    <link rel="stylesheet" href="../css/alunocelular.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -110,6 +110,7 @@ if (empty($_SESSION)) {
 
     <title>Brasil Concursos</title>
     <style>
+        
         .progress-bar {
             width: 200px;
             height: 20px;
