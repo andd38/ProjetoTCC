@@ -87,15 +87,11 @@ if(isset($_POST['update'])) {
     $comple = mysqli_real_escape_string($conn, $_POST['complemento']);
     $numero = mysqli_real_escape_string($conn, $_POST['numero']);
     $nome = mysqli_real_escape_string($conn, $_POST['nome']);
-    $senha = mysqli_real_escape_string($conn, $_POST['senha']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $tipo = mysqli_real_escape_string($conn, $_POST['tipo']);
 
-    $hashedPass = password_hash($senha, PASSWORD_DEFAULT);
-
     $sql = "UPDATE Usuarios SET 
             nome = '$nome',
-            senha = '$hashedPass',
             email = '$email',
             tipo_usuario = '$tipo',
             data_nascimento = '$dataNascimento',

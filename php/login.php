@@ -2,12 +2,12 @@
 include_once('conex.php');
 
 if (isset($_GET['status']) && $_GET['status'] === 'logout') {
-    echo "<div id='successBox' style='display: none; background-color: #FF6B6B; color: white; padding: 40px; border-radius: 5px; position: fixed; top: 20px; left: 730px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000;'>
-        Sessão finalizada
-        <div id='progressBar' style='background-color: lightgray; height: 10px; border-radius: 5px; margin-top: 10px;'>
-            <div id='progressFill' style='background-color: #FF3D3D; height: 100%; width: 0; border-radius: 5px;'></div>
-        </div>
-    </div>";
+    echo "<div id='successBox' style='display: none; background-color: #FF6B6B; color: white; padding: 40px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000;'>
+    Sessão finalizada
+    <div id='progressBar' style='background-color: lightgray; height: 10px; border-radius: 5px; margin-top: 10px;'>
+        <div id='progressFill' style='background-color: #FF3D3D; height: 100%; width: 0; border-radius: 5px;'></div>
+    </div>
+</div>";
     echo "<script>
         var successBox = document.getElementById('successBox');
         successBox.style.display = 'block';
@@ -39,9 +39,10 @@ session_start();
 include('conex.php');
 
 if (isset($_POST['criar'])) {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $pass = $_POST['senha'];
+
+    $nome = mysqli_real_escape_string($conn, $_POST['nome']);
+    $pass = mysqli_real_escape_string($conn, $_POST['senha']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
 
     // Definir senhas de no mínimo 6 caracteres com a necessidade de um número pelo menos.
     if (strlen($pass) < 6 || !preg_match("/[a-zA-Z]/", $pass) || !preg_match("/[0-9]/", $pass)) {
@@ -59,7 +60,7 @@ if (isset($_POST['criar'])) {
             // Criptografar a senha usando password_hash()
             $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
 
-            $query = "INSERT INTO `db_senac`.`Usuarios` (`idUsuarios`, `nome`, `email`, `senha`, `tipo_usuario`, `sobre`) VALUES (null, '$nome', '$email', '$hashedPass', '$tipoUsuario', null)";
+            $query = "INSERT INTO `db_senac`.`Usuarios` (`idUsuarios`,`nome`,`email`,`senha`,`tipo_usuario`,`sobre`) VALUES (null, '$nome', '$email','$hashedPass', '$tipoUsuario', null)";
 
             if (mysqli_query($conn, $query)) {
                 $_SESSION['idUsuarios'] = mysqli_insert_id($conn);
@@ -91,42 +92,47 @@ if (isset($_POST['entrar'])) {
     $email = $_POST['email'];
     $pass = $_POST['senha'];
 
+    if ($email === $config['admin_email'] && password_verify($pass, $config['admin_password'])) {
+        header('Location: adm.php');
+        exit();
+    }
+
     $query = "SELECT * FROM Usuarios WHERE email = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();       
+        $storageHAsh = $row['senha'] ;
+          
+if (password_verify($pass, $storageHAsh)) {
+    echo "Mizera da porra";
+    $_SESSION['idUsuarios'] = $row['idUsuarios'];
+    $_SESSION['nome'] = $row['nome'];
+    $_SESSION['email'] = $row['email'];
+    $_SESSION['tipoUsuario'] = $row['tipo_usuario'];
 
-    if ($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
-        
-        if ($email === $config['admin_email'] && password_verify($pass, $config['admin_password'])) {
-            
-            header('Location: adm.php');
-            exit();
-        }
+    
+    if ($row['tipo_usuario'] == 0) {
+        header('Location: aluno.php?status=logado');
+        exit();
+    } 
 
-        if (password_verify($pass, $row['senha'])) {
-            $_SESSION['idUsuarios'] = $row['idUsuarios'];
-            $_SESSION['nome'] = $row['nome'];
-            $_SESSION['email'] = $row['email'];
-            $_SESSION['tipoUsuario'] = $row['tipo_usuario'];
-
-            if ($row['tipo_usuario'] == 0) {
-                header('Location: aluno.php?status=logado');
-                exit();
-            } elseif ($row['tipo_usuario'] == 1) {
-                header('Location: professor.php');
-                exit();
-            }
-        } else {
-            echo "<span style='color:red;'>Credenciais inválidas. Por favor, verifique seu e-mail e senha.</span>";
-        }
+    else if ($row['tipo_usuario'] == 1) {
+        header('Location: professor.php');
+        exit();
+    } 
+} else {
+   
+    echo "<span style='color:red;'>Credenciais inválidas. Por favor, verifique seu e-mail e senha.</span>";
+}
     } else {
         echo "<span style='color:red;'>Credenciais inválidas. Por favor, verifique seu e-mail e senha.</span>";
     }
 }
+
 
 ?>
 

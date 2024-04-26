@@ -136,10 +136,7 @@
     <input type="date" name="data" id="data" value="<?php echo $linha['data_nascimento']; ?>" style="border: 1px solid aquamarine; background-color: transparent; color: white;" required>
 
     <label for="email">Email:</label>
-    <input type="email" name="email" id="email" value="<?php echo $linha['email']; ?>" style="border: 1px solid aquamarine; background-color: transparent; color: white;" required>
-
-    <label for="senha">Senha:</label>
-    <input type="text" name="senha" id="senha" value="<?php echo $linha['senha']; ?>" style="border: 1px solid aquamarine; background-color: transparent; color: white;" required>        
+    <input type="email" name="email" id="email" value="<?php echo $linha['email']; ?>" style="border: 1px solid aquamarine; background-color: transparent; color: white;" required>      
 
     <label for="cpf">CPF:</label>
     <div style="margin-left:165px;">

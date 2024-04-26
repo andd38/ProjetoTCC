@@ -12,7 +12,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     include_once('conex.php');
 
     if (isset($_GET['status']) && $_GET['status'] === 'sucesso') {
-        echo "<div id='successBox' style='display: none; background-color: aquamarine; color: black; padding: 40px; border-radius: 5px; position: fixed; top: 20px; left: 730px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000;'>
+        echo "<div id='successBox' style='display: none; background-color: aquamarine; color: white; padding: 40px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000;'>
         Cadastro Finalizado
         <div id='progressBar' style='background-color: lightgray; height: 10px; border-radius: 5px; margin-top: 10px;'>
             <div id='progressFill' style='background-color: #FF3D3D; height: 100%; width: 0; border-radius: 5px;'></div>
@@ -42,7 +42,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     }
 } else {
 }   if (isset($_GET['status']) && $_GET['status'] === 'logado') {
-    echo "<div id='successBox' style='display: none; background-color: aquamarine; color: black; padding: 30px; border-radius: 5px; position: fixed; top: 20px; left: 730px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000;'>
+    echo "<div id='successBox' style='display: none; background-color: aquamarine; color: white; padding: 40px; border-radius: 5px; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000;'>
     Sessão iniciada
     <div id='progressBar' style='background-color: lightgray; height: 10px; border-radius: 5px; margin-top: 10px;'>
         <div id='progressFill' style='background-color: #FF3D3D; height: 100%; width: 0; border-radius: 5px;'></div>
