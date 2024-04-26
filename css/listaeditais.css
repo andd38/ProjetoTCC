@@ -206,6 +206,7 @@ i{
 }
 .container{
     width: 100%;
+    display: flex;
     
 }
 .icons-menu{
@@ -216,10 +217,42 @@ i{
     gap: 25px;
 }
 .content{
+    display: flex;
+    flex-direction: column;
     border-radius: 15px;
     border-color: #fff;
+    gap: 15px;
 
 }
+.box1{
+  border:#fff solid 1px ;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+.box2{
+  border:#fff solid 1px ;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+.box3{
+  border:#fff solid 1px ;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+.editais{
+  display: flex;
+  align-items: center;
+  
+  width: 100%;
+  justify-content: center;
+  gap: 25px;
+  color: white;
+
+}
+
 
 @media  screen and (max-width:750px) {
  
